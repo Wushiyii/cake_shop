@@ -8,7 +8,7 @@ spring:
 
 #security
 
-# Enable template caching.
+#Enable template caching.
   thymeleaf:
       cache: true
   # Check that the templates location exists.
@@ -24,3 +24,13 @@ spring:
   # Suffix that gets appended to view names when building a URL.
       suffix=: .html
 
+#Mapper
+mapper:
+  mappers: com.jesse.onecake.mapper.BaseMapper
+
+#Id Generator
+id:
+  machine: 3
+  type: seconds
+  method: 0
+  version: 0

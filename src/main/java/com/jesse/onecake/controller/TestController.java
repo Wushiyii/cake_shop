@@ -15,11 +15,19 @@ public class TestController {
     private UserMapper userMapper;
 
     @RequestMapping("checkout")
-    public String test(){
+    public String checkout(){
         User jesse = userMapper.findByName("Jesse");
         System.out.println(jesse);
         return "checkout";
     }
+
+    @RequestMapping("test")
+    public String test(){
+        User user = userMapper.selectByPrimaryKey(1);
+        System.out.println(user);
+        return "checkout";
+    }
+
     @RequestMapping("/")
     public String index(ModelMap map) {
         // 加入一个属性，用来在模板中读取
