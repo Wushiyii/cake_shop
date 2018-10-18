@@ -1,5 +1,6 @@
 package com.jesse.onecake.controller;
 
+import com.jesse.onecake.biz.UserBiz;
 import com.jesse.onecake.entity.User;
 import com.jesse.onecake.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class TestController {
+public class TestController extends BaseController<UserBiz, User>{
 
     @Autowired
     private UserMapper userMapper;
@@ -23,9 +24,7 @@ public class TestController {
 
     @RequestMapping("test")
     public String test(){
-        User user = userMapper.selectByPrimaryKey(1);
-        System.out.println(user);
-        return "checkout";
+        return this.biz.test();
     }
 
     @RequestMapping("/")
