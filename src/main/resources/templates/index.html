@@ -58,8 +58,8 @@
 <body>
   <div class="header-top">
 	 <div class="wrap"> 
-		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+		<div class="logo" style="height: 40px;width: 200px">
+			<a href="index.html"><img src="images/logo_girl.png" alt=""/></a>
 	    </div>
 	    <div class="cssmenu">
 		   <ul>
@@ -512,20 +512,20 @@
 		   <div class="clear"></div>
      	</div>
        </div>
-       <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
+       <!--<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>-->
        <div class="index-banner">
        	  <div class="wmuSlider example1" style="height: 560px;">
 			  <div class="wmuSliderWrapper">
 				  <article style="position: relative; width: 100%; opacity: 1;"> 
 				   	<div class="banner-wrap">
 					   	<div class="slider-left">
-							<img src="images/banner1.jpg" alt=""/> 
+							<img src="images/banner3.jpg" alt=""/>
 						</div>
 						 <div class="slider-right">
-						    <h1>Classic</h1>
-						    <h2>White</h2>
-						    <p>Lorem ipsum dolor sit amet</p>
-						    <div class="btn"><a href="shop.html">Shop Now</a></div>
+                             <h1>Classic</h1>
+                             <h2>White</h2>
+                             <p>Lorem ipsum dolor sit amet</p>
+                             <div class="btn" onclick="addCart(1)"><a>Shop Now</a></div>
 						 </div>
 						 <div class="clear"></div>
 					 </div>
@@ -533,7 +533,7 @@
 				   <article style="position: absolute; width: 100%; opacity: 0;"> 
 				   	 <div class="banner-wrap">
 					   	<div class="slider-left">
-							<img src="images/banner2.jpg" alt=""/> 
+							<img src="images/banner4.jpg" alt=""/>
 						</div>
 						 <div class="slider-right">
 						    <h1>Classic</h1>
@@ -547,7 +547,7 @@
 				   <article style="position: absolute; width: 100%; opacity: 0;">
 				   	<div class="banner-wrap">
 					   	<div class="slider-left">
-							<img src="images/banner1.jpg" alt=""/> 
+							<img src="images/banner5.jpg" alt=""/>
 						</div>
 						 <div class="slider-right">
 						    <h1>Classic</h1>
@@ -561,7 +561,7 @@
 				   <article style="position: absolute; width: 100%; opacity: 0;">
 				   	<div class="banner-wrap">
 					   	<div class="slider-left">
-							<img src="images/banner2.jpg" alt=""/> 
+							<img src="images/banner6.jpg" alt=""/>
 						</div>
 						 <div class="slider-right">
 						    <h1>Classic</h1>
@@ -575,7 +575,7 @@
 				   <article style="position: absolute; width: 100%; opacity: 0;"> 
 				   	 <div class="banner-wrap">
 					   	<div class="slider-left">
-							<img src="images/banner1.jpg" alt=""/> 
+							<img src="images/banner7.jpg" alt=""/>
 						</div>
 						 <div class="slider-right">
 						    <h1>Classic</h1>
@@ -1126,6 +1126,10 @@
 				$().UItoTop({ easingType: 'easeOutQuart' });
 				
 			});
+
+			function addCart(a){
+                alert(a);
+            }
 		</script>
         <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 

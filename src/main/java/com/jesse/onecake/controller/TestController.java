@@ -1,16 +1,16 @@
 package com.jesse.onecake.controller;
 
 import com.jesse.onecake.biz.UserBiz;
+import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.User;
 import com.jesse.onecake.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class TestController extends BaseController<UserBiz, User>{
+public class TestController extends BaseController<UserBiz, User> {
 
     @Autowired
     private UserMapper userMapper;

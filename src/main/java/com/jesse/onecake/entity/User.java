@@ -1,5 +1,6 @@
 package com.jesse.onecake.entity;
 
+import com.jesse.onecake.entity.base.IdEntity;
 import lombok.Data;
 
 import javax.persistence.Column;

@@ -1,4 +1,4 @@
-package com.jesse.onecake.controller;
+package com.jesse.onecake.controller.base;
 
 
 import com.jesse.onecake.biz.BaseBiz;

@@ -47,7 +47,7 @@ spring:
 
 #Mapper
 mapper:
-  mappers: com.jesse.onecake.mapper.BaseMapper
+  mappers: com.jesse.onecake.mapper.base.BaseMapper
 
 # 配置数据库
 mybatis:

@@ -1,6 +1,6 @@
 package com.jesse.onecake.biz;
 
-import com.jesse.onecake.mapper.BaseMapper;
+import com.jesse.onecake.mapper.base.BaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
