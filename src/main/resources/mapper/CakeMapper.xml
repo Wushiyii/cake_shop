@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jesse.onecake.mapper.CakeMapper" >
+  <resultMap id="BaseResultMap" type="com.jesse.onecake.entity.Cake" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="findByName" parameterType="String" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM
+    cake
+    WHERE 1=1
+    <if test="name != null and name != ''">
+      AND name = #{name}
+    </if>
+
+  </select>
+</mapper>
