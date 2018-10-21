@@ -41,6 +41,13 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     @RequestMapping("/login")
     public String login() {
         return "login";
-
+    }
+    @RequestMapping("/allCake")
+    public String allCake() {
+        return "shop";
+    }
+    @RequestMapping("/register")
+    public String register() {
+        return "register";
     }
 }
