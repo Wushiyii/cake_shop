@@ -10,17 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("user")
 public class TestController extends BaseController<UserBiz, User> {
-
-    @Autowired
-    private UserMapper userMapper;
-
-    @RequestMapping("checkout")
-    public String checkout(){
-        User jesse = userMapper.findByName("Jesse");
-        System.out.println(jesse);
-        return "checkout";
-    }
 
     @RequestMapping("test")
     public String test(){
@@ -34,4 +25,5 @@ public class TestController extends BaseController<UserBiz, User> {
         // return模板文件的名称，对应src/main/resources/templates/index.html
         return "index";
     }
+
 }

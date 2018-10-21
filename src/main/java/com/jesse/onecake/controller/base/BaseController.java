@@ -1,7 +1,7 @@
 package com.jesse.onecake.controller.base;
 
 
-import com.jesse.onecake.biz.BaseBiz;
+import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.common.response.BaseResponse;
 import com.jesse.onecake.common.utils.BaseContextHandler;
 import com.jesse.onecake.common.utils.StringEscapeEditor;

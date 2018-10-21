@@ -1,5 +1,6 @@
 package com.jesse.onecake.biz;
 
+import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.User;
 import com.jesse.onecake.mapper.CakeMapper;

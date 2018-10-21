@@ -10,6 +10,7 @@
     <result column="category" property="category" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="DOUBLE" />
     <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="banner" property="banner" jdbcType="BOOLEAN" />
   </resultMap>
 
   <select id="findByName" parameterType="String" resultMap="BaseResultMap">
