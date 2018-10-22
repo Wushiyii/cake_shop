@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <title>Shop</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script src="js/jquery.easydropdown.js"></script>
+<link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>
+<script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
+<script th:src="@{~/js/jquery.easydropdown.js}"></script>
 <script type="text/javascript">
         $(document).ready(function() {
             $(".dropdown img.flag").addClass("flagvisibility");
@@ -41,11 +41,11 @@
         });
      </script>
 <!-- start menu -->     
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <!-- end menu -->
-<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" th:src="@{~/js/jquery.jscrollpane.min.js}"></script>
 		<script type="text/javascript" id="sourcecode">
 			$(function()
 			{
@@ -53,8 +53,8 @@
 			});
 		</script>
 <!-- top scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{~/js/easing.js}"></script>
    <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -68,7 +68,7 @@
   <div class="header-top">
 	 <div class="wrap"> 
 		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+			<a href="index.html"><img th:src="@{~/images/logo.png}" alt=""/></a>
 	    </div>
 	    <div class="cssmenu">
 		   <ul>
@@ -137,7 +137,7 @@
 						<div class="col1"></div>
 						<div class="col1"></div>
 						<div class="col1"></div>
-						<img src="images/nav_img.jpg" alt=""/>
+						<img th:src="@{~/images/nav_img.jpg}" alt=""/>
 					</div>
 				</div>
 				</li>
@@ -211,7 +211,7 @@
 						</div>
 						<div class="col1">
 						 <div class="h_nav">
-						   <img src="images/nav_img1.jpg" alt=""/>
+						   <img th:src="@{~/images/nav_img1.jpg}" alt=""/>
 						 </div>
 						</div>
 					</div>
@@ -267,7 +267,7 @@
 						<div class="col1"></div>
 						<div class="col1"></div>
 						<div class="col1"></div>
-						<img src="images/nav_img2.jpg" alt=""/>
+						<img th:src="@{~/images/nav_img2.jpg}" alt=""/>
 					</div>
 				</div>
 				</li>
@@ -718,7 +718,7 @@
 		                            <option value="">
 		                    Price : Low to High               </option>
 		            </select>
-		            <a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
+		            <a href=""><img th:src="@{~/images/arrow2.gif}" alt="" class="v-middle"></a>
                </div>
     		</div>
 	          <div class="pager">   
@@ -749,7 +749,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic11.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic11.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -772,7 +772,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -791,7 +791,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic10.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic10.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -814,7 +814,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -833,7 +833,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic9.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic9.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -856,7 +856,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -878,7 +878,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic3.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic3.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -901,7 +901,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -920,7 +920,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic4.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic4.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -943,7 +943,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -962,7 +962,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic5.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic5.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -985,7 +985,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -1007,7 +1007,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic6.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic6.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -1030,7 +1030,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -1049,7 +1049,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic7.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic7.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -1072,7 +1072,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -1091,7 +1091,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic8.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic8.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -1114,7 +1114,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -1136,7 +1136,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic2.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic2.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -1159,7 +1159,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -1178,7 +1178,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic1.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic1.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -1201,7 +1201,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -1220,7 +1220,7 @@
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
 					  	<p class="m_2">Lorem ipsum</p>
 				         <div class="grid_img">
-						   <div class="css3"><img src="images/pic.jpg" alt=""/></div>
+						   <div class="css3"><img th:src="@{~/images/pic.jpg}" alt=""/></div>
 					          <div class="mask1">
 	                       		<div class="info">Quick View</div>
 			                  </div>
@@ -1243,7 +1243,7 @@
 		    	      </span>
 						 <ul class="list2">
 						  <li>
-						  	<img src="images/plus.png" alt=""/>
+						  	<img th:src="@{~/images/plus.png}" alt=""/>
 						  	<ul class="icon1 sub-icon1 profile_img">
 							  <li><a class="active-icon c1" href="#">Add To Bag </a>
 								<ul class="sub-icon1 list">
@@ -1267,17 +1267,17 @@
        		<div class="wrap">
        			   <div class="col_1_of_footer-top span_1_of_footer-top">
 				  	 <ul class="f_list">
-				  	 	<li><img src="images/f_icon.png" alt=""/><span class="delivery">Free delivery on all orders over £100*</span></li>
+				  	 	<li><img th:src="@{~/images/f_icon.png}" alt=""/><span class="delivery">Free delivery on all orders over £100*</span></li>
 				  	 </ul>
 				   </div>
 				   <div class="col_1_of_footer-top span_1_of_footer-top">
 				  	<ul class="f_list">
-				  	 	<li><img src="images/f_icon1.png" alt=""/><span class="delivery">Customer Service :<span class="orange"> (800) 000-2587 (freephone)</span></span></li>
+				  	 	<li><img th:src="@{~/images/f_icon1.png}" alt=""/><span class="delivery">Customer Service :<span class="orange"> (800) 000-2587 (freephone)</span></span></li>
 				  	 </ul>
 				   </div>
 				   <div class="col_1_of_footer-top span_1_of_footer-top">
 				  	<ul class="f_list">
-				  	 	<li><img src="images/f_icon2.png" alt=""/><span class="delivery">Fast delivery & free returns</span></li>
+				  	 	<li><img th:src="@{~/images/f_icon2.png}" alt=""/><span class="delivery">Fast delivery & free returns</span></li>
 				  	 </ul>
 				   </div>
 				  <div class="clear"></div>
@@ -1291,13 +1291,13 @@
 			        <dt><a href="#"><span>Please Select a Country</span></a></dt>
 			        <dd>
 			            <ul>
-			                <li><a href="#">Australia<img class="flag" src="images/as.png" alt="" /><span class="value">AS</span></a></li>
-			                <li><a href="#">Sri Lanka<img class="flag" src="images/srl.png" alt="" /><span class="value">SL</span></a></li>
-			                <li><a href="#">Newziland<img class="flag" src="images/nz.png" alt="" /><span class="value">NZ</span></a></li>
-			                <li><a href="#">Pakistan<img class="flag" src="images/pk.png" alt="" /><span class="value">Pk</span></a></li>
-			                <li><a href="#">United Kingdom<img class="flag" src="images/uk.png" alt="" /><span class="value">UK</span></a></li>
-			                <li><a href="#">United States<img class="flag" src="images/us.png" alt="" /><span class="value">US</span></a></li>
-			            </ul>
+			                <li><a href="#">Australia     <img class="flag" th:src="@{~/images/as.png}" alt="" /><span class="value">AS</span></a></li>
+			                <li><a href="#">Sri Lanka     <img class="flag" th:src="@{~/images/srl.png}" alt="" /><span class="value">SL</span></a></li>
+			                <li><a href="#">Newziland     <img class="flag" th:src="@{~/images/nz.png}" alt="" /><span class="value">NZ</span></a></li>
+			                <li><a href="#">Pakistan      <img class="flag" th:src="@{~/images/pk.png}" alt="" /><span class="value">Pk</span></a></li>
+			                <li><a href="#">United Kingdom<img class="flag" th:src="@{~/images/uk.png}" alt="" /><span class="value">UK</span></a></li>
+			                <li><a href="#">United States <img class="flag" th:src="@{~/images/us.png}" alt="" /><span class="value">US</span></a></li>
+			            </ul>th:}
 			         </dd>
    				    </dl>
    				 </div>

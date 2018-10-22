@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <title>Register</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>
+<script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
 <script type="text/javascript">
         $(document).ready(function() {
             $(".dropdown img.flag").addClass("flagvisibility");
@@ -39,13 +39,13 @@
         });
      </script>
 <!-- start menu -->     
-<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/megamenu.js"></script>
+<link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
 <!-- end menu -->
 <!-- top scrolling -->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
+<script type="text/javascript" th:src="@{~/js/easing.js}"></script>
    <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -59,7 +59,7 @@
   <div class="header-top">
 	 <div class="wrap"> 
 		<div class="logo">
-			<a href="index.html"><img src="images/logo.png" alt=""/></a>
+			<a href="index.html"><img th:src="@{~/images/logo.png}" alt=""/></a>
 	    </div>
 	    <div class="cssmenu">
 		   <ul>
@@ -128,7 +128,7 @@
 						<div class="col1"></div>
 						<div class="col1"></div>
 						<div class="col1"></div>
-						<img src="images/nav_img.jpg" alt=""/>
+						<img th:src="@{~/images/nav_img.jpg}" alt=""/>
 					</div>
 				</div>
 				</li>
@@ -202,7 +202,7 @@
 						</div>
 						<div class="col1">
 						 <div class="h_nav">
-						   <img src="images/nav_img1.jpg" alt=""/>
+						   <img th:src="@{~/images/nav_img1.jpg}" alt=""/>
 						 </div>
 						</div>
 					</div>
@@ -258,7 +258,7 @@
 						<div class="col1"></div>
 						<div class="col1"></div>
 						<div class="col1"></div>
-						<img src="images/nav_img2.jpg" alt=""/>
+						<img th:src="@{~/images/nav_img2.jpg}" alt=""/>
 					</div>
 				</div>
 				</li>
@@ -819,17 +819,17 @@
        		<div class="wrap">
        			   <div class="col_1_of_footer-top span_1_of_footer-top">
 				  	 <ul class="f_list">
-				  	 	<li><img src="images/f_icon.png" alt=""/><span class="delivery">Free delivery on all orders over £100*</span></li>
+				  	 	<li><img th:src="@{~/images/f_icon.png}" alt=""/><span class="delivery">Free delivery on all orders over £100*</span></li>
 				  	 </ul>
 				   </div>
 				   <div class="col_1_of_footer-top span_1_of_footer-top">
 				  	<ul class="f_list">
-				  	 	<li><img src="images/f_icon1.png" alt=""/><span class="delivery">Customer Service :<span class="orange"> (800) 000-2587 (freephone)</span></span></li>
+				  	 	<li><img th:src="@{~/images/f_icon1.png}" alt=""/><span class="delivery">Customer Service :<span class="orange"> (800) 000-2587 (freephone)</span></span></li>
 				  	 </ul>
 				   </div>
 				   <div class="col_1_of_footer-top span_1_of_footer-top">
 				  	<ul class="f_list">
-				  	 	<li><img src="images/f_icon2.png" alt=""/><span class="delivery">Fast delivery & free returns</span></li>
+				  	 	<li><img th:src="@{~/images/f_icon2.png}" alt=""/><span class="delivery">Fast delivery & free returns</span></li>
 				  	 </ul>
 				   </div>
 				  <div class="clear"></div>
@@ -843,13 +843,13 @@
 			        <dt><a href="#"><span>Please Select a Country</span></a></dt>
 			        <dd>
 			            <ul>
-			                <li><a href="#">Australia<img class="flag" src="images/as.png" alt="" /><span class="value">AS</span></a></li>
-			                <li><a href="#">Sri Lanka<img class="flag" src="images/srl.png" alt="" /><span class="value">SL</span></a></li>
-			                <li><a href="#">Newziland<img class="flag" src="images/nz.png" alt="" /><span class="value">NZ</span></a></li>
-			                <li><a href="#">Pakistan<img class="flag" src="images/pk.png" alt="" /><span class="value">Pk</span></a></li>
-			                <li><a href="#">United Kingdom<img class="flag" src="images/uk.png" alt="" /><span class="value">UK</span></a></li>
-			                <li><a href="#">United States<img class="flag" src="images/us.png" alt="" /><span class="value">US</span></a></li>
-			            </ul>
+			                <li><a href="#">Australia     <img class="flag" th:src="@{~/images/as.png}" alt="" /><span class="value">AS</span></a></li>
+			                <li><a href="#">Sri Lanka     <img class="flag" th:src="@{~/images/srl.png}" alt="" /><span class="value">SL</span></a></li>
+			                <li><a href="#">Newziland     <img class="flag" th:src="@{~/images/nz.png}" alt="" /><span class="value">NZ</span></a></li>
+			                <li><a href="#">Pakistan      <img class="flag" th:src="@{~/images/pk.png}" alt="" /><span class="value">Pk</span></a></li>
+			                <li><a href="#">United Kingdom<img class="flag" th:src="@{~/images/uk.png}" alt="" /><span class="value">UK</span></a></li>
+			                <li><a href="#">United States <img class="flag" th:src="@{~/images/us.png}" alt="" /><span class="value">US</span></a></li>
+			            </ul>}
 			         </dd>
    				    </dl>
    				 </div>

@@ -1,4 +1,6 @@
-
+#server:
+#  servlet:
+#    context-path: /onecake
 spring:
 #  datasource:
 #    url: jdbc:mysql://localhost:3306/onecake
