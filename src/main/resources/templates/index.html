@@ -47,12 +47,19 @@
 <script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
 <script type="text/javascript" th:src="@{~/js/easing.js}"></script>
    <script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
-		});
+    // var bannerList = [];
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+        });
+        $.get("/cake/getBannerList", function(ret){
+            if (ret.code === 200) {
+                var json = eval(ret);
+                var bannerList = json.data.rows;
+            }
+        });
+    });
 	</script>
 </head>
 <body>

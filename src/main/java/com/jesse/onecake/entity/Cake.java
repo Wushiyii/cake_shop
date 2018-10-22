@@ -22,6 +22,6 @@ public class Cake extends IdEntity implements Serializable {
     private String img;
 
     @Column(name = "banner")
-    private Boolean banner;
+    private Integer banner;
 
 }

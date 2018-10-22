@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("user")
-public class TestController extends BaseController<UserBiz, User> {
+public class UserController extends BaseController<UserBiz, User> {
 
     @RequestMapping("test")
     public String test(){

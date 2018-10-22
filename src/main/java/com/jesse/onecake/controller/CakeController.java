@@ -10,6 +10,7 @@ import com.jesse.onecake.entity.Cake;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -19,13 +20,13 @@ import java.util.List;
 public class CakeController extends BaseController<CakeBiz,Cake> {
 
     @RequestMapping("/getBannerList")
-    public TableResultResponse<Cake> getBannerList(){
+    public @ResponseBody
+    TableResultResponse<Cake> getBannerList(){
 //        Page<Object> result = PageHelper.startPage(query.getPageNumber(), query.getPageSize());
         Example example = new Example(Cake.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("name","muse");
+        criteria.andEqualTo("banner","1");
         List<Cake> cakes = this.biz.selectByExample(example);
-        System.out.println(cakes.get(0));
         return new TableResultResponse<Cake>(cakes.size(),cakes);
     }
 
