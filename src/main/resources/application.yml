@@ -32,21 +32,19 @@ spring:
 
 #security
 
-#Enable template caching.
+#thymelea模板配置
+
   thymeleaf:
-      cache: true
-  # Check that the templates location exists.
-      check-template-location: true
-  # Enable MVC Thymeleaf view resolution.
-      enabled: true
-  # Template encoding.
-      encoding: UTF-8
-  # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
-      mode: HTML5
-  # Prefix that gets prepended to view names when building a URL.
-      prefix: classpath:/templates/
-  # Suffix that gets appended to view names when building a URL.
-      suffix=: .html
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
 
 #Mapper
 mapper:

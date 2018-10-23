@@ -8,6 +8,7 @@ import com.jesse.onecake.common.response.TableResultResponse;
 import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.Cake;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,5 +51,15 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     @RequestMapping("/register")
     public String register() {
         return "register";
+    }
+
+    @RequestMapping("/")
+    public String loadBanner(Model model) {
+//        Page<Object> result = PageHelper.startPage(query.getPageNumber(), query.getPageSize());
+        Example example = new Example(Cake.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("banner","1");
+        model.addAttribute("bannerList", this.biz.selectByExample(example));
+        return "index";
     }
 }
