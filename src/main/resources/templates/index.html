@@ -533,7 +533,8 @@
                              <h1 th:text="${banner.img}">Classic</h1>
                              <h2>White</h2>
                              <p>Lorem ipsum dolor sit amet</p>
-                             <div class="btn" th:onclick="'javascript:addCart(\''+${banner.id}+'\');'"><a>[[${banner.id}]]</a></div>
+                             <!--th:onclick="'javascript:addCart(\''+${banner.id}+'\');'"-->
+                             <div class="btn" ><a th:href="@{'/cake/single/'+${banner.id}}">马上购买</a></div>
 						 </div>
 						 <div class="clear"></div>
 					 </div>
@@ -547,7 +548,7 @@
                 	<li><a href="#">3</a></li>
                 	<li><a href="#">4</a></li>
                   </ul>
-                 <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a><ul class="wmuSliderPagination"><li><a href="#" class="wmuActive">0</a></li><li><a href="#" class="">1</a></li><li><a href="#" class="">2</a></li><li><a href="#" class="">3</a></li><li><a href="#" class="">4</a></li></ul></div>
+                 <!--<a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a><ul class="wmuSliderPagination"><li><a href="#" class="wmuActive">0</a></li><li><a href="#" class="">1</a></li><li><a href="#" class="">2</a></li><li><a href="#" class="">3</a></li><li><a href="#" class="">4</a></li></ul></div>-->
             	 <script th:src="@{~/js/jquery.wmuSlider.js}"></script>
 				 <script type="text/javascript" th:src="@{~/js/modernizr.custom.min.js}"></script>
 						<script>
@@ -556,6 +557,7 @@
              </div>
              <div class="main">
                 <div class="wrap">
+                    <!--谷歌推特图标-->
              	  <div class="content-top">
              		<div class="lsidebar span_1_of_c1">
 					  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing</p>
@@ -587,7 +589,7 @@
 				   </div>
 				  <div class="content-bottom">
 				   <div class="box1">
-				    <div class="col_1_of_3 span_1_of_3"><a href="single.html">
+				    <div class="col_1_of_3 span_1_of_3"><a href="/cake/single">
 				     <div class="view view-fifth">
 				  	  <div class="top_box">
 					  	<h3 class="m_1">Lorem ipsum dolor sit amet</h3>
@@ -1079,10 +1081,9 @@
 				
 			});
 
-			function addCart(a){
-			    console.log(a);
-                alert(a);
-            }
+            // function addCart(a){
+			 //    window.location.href = "/cake/single?id="+a;
+            // }
 		</script>
         <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 

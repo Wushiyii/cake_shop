@@ -91,7 +91,7 @@
 <body>
   <div class="header-top">
 	 <div class="wrap"> 
-		<div class="logo">
+		<div class="logo" style="height: 40px;width: 200px">
 			<a href="index.html"><img th:src="@{~/images/logo_girl.png}" alt=""/></a>
 	    </div>
 	    <div class="cssmenu">
@@ -744,24 +744,24 @@
 								<img class="etalage_source_image" th:src="@{~/images/t2.jpg}" />
 							</li>
 							<li>
-								<img class="etalage_thumb_image"  th:src="{images/t3.jpg}" />
-								<img class="etalage_source_image" th:src="{images/t3.jpg}" />
+								<img class="etalage_thumb_image"  th:src="@{~/images/t3.jpg}" />
+								<img class="etalage_source_image" th:src="@{~/images/t3.jpg}" />
 							</li>
 							<li>
 								<img class="etalage_thumb_image"  th:src="@{~/images/t4.jpg}" />
 								<img class="etalage_source_image" th:src="@{~/images/t4.jpg}" />
 							</li>
 							<li>
-								<img class="etalage_thumb_image"  th:src="{images/t5.jpg}" />
-								<img class="etalage_source_image" th:src="{images/t5.jpg}" />
+								<img class="etalage_thumb_image"  th:src="@{~/images/t5.jpg}" />
+								<img class="etalage_source_image" th:src="@{~/images/t5.jpg}" />
 							</li>
 							<li>
-								<img class="etalage_thumb_image"  th:src="{images/t6.jpg}" />
-								<img class="etalage_source_image" th:src="{images/t6.jpg}" />
+								<img class="etalage_thumb_image"  th:src="@{~/images/t6.jpg}" />
+								<img class="etalage_source_image" th:src="@{~/images/t6.jpg}" />
 							</li>
 							<li>
-								<img class="etalage_thumb_image"  th:src="{images/t1.jpg}" />
-								<img class="etalage_source_image" th:src="{images/t1.jpg}" />
+								<img class="etalage_thumb_image"  th:src="@{~/images/t1.jpg}" />
+								<img class="etalage_source_image" th:src="@{~/images/t1.jpg}" />
 							</li>
 						</ul>
 					
@@ -769,11 +769,11 @@
 			<!-- end product_slider -->
 			</div>
 			<div class="cont1 span_2_of_a1">
-				<h3 class="m_3">Lorem ipsum dolor sit amet</h3>
+				<h3 class="m_3" th:text="${model.name}">Lorem ipsum dolor sit amet</h3>
 				
 				<div class="price_single">
-							  <span class="reducedfrom">$66.00</span>
-							  <span class="actual">$12.00</span><a href="#">click for offer</a>
+							  <span class="reducedfrom" th:text="${model.price}" >$66.00</span>
+							  <span class="actual" th:text="${model.price}">$12.00</span><a href="#">click for offer</a>
 							</div>
 				<ul class="options">
 					<h4 class="m_9">Select a Size</h4>
