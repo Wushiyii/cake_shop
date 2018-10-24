@@ -7,4 +7,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CakeBiz extends BaseBiz<CakeMapper,Cake> {
+
+    public void addCart(Integer id) {
+        Cake cake = this.selectById(id);
+        ///add cart
+    }
 }

@@ -73,4 +73,16 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         model.addAttribute("bannerList", this.biz.selectByExample(example));
         return "index";
     }
+
+    @RequestMapping("/addCart")
+    public String addCart(Integer id) {
+        this.biz.addCart(id);
+        return null;
+    }
+
+    @RequestMapping("/manage")
+    public String manage() {
+
+        return "manage/index";
+    }
 }
