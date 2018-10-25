@@ -1,0 +1,125 @@
+/* Portfolio */
+.portfolio-wrapper{
+    position: relative;
+    display: block;
+    overflow:hidden;
+}
+.portfolio-wrapper .col-md-3{
+    width: 25%;
+    padding:0;
+    text-align:center;
+}
+.portfolio-wrapper img{
+    width:100%;
+    display:block;
+    position:relative;
+}
+.portfolio-wrapper figure a{
+    width:100%;
+    height:100%;
+    display:block;
+    overflow:hidden;
+    position:relative;
+}
+.portfolio-wrapper figure a:before{
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    background-color:rgba(0, 0, 0, 0.3);
+    display:none;
+    z-index:1;
+    content:'';
+}
+.portfolio-wrapper figure a:after{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    border-radius: 50px;
+    display: none;
+    margin: -18px 0 0 -18px;
+    font: normal normal normal 12px/35px FontAwesome;
+    content: "\f002";
+    z-index:2;
+    text-align: center;
+}
+.portfolio-wrapper figure a:hover:before, .portfolio-wrapper figure a:hover:after{
+    display:block;
+}
+.portfolio-wrapper figure a:hover img {
+    transform: scale(1.1);
+}
+.portfolio-wrapper figure img{
+    transition: all .2s ease-in-out;
+}
+.my-sizer-element {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 8.33333%;
+    float:left;
+}
+.portfolio-menu{
+    text-align:center;
+    margin:0 0 50px;
+}
+.portfolio-menu button, .portfolio-menu button:hover, .portfolio-menu button:focus{
+    background: #fff;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    font-size: 12px;
+    margin: 0 21px;
+    outline: 0 !important;
+    color: #8b8b8b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.portfolio-menu button.active{
+    box-shadow: none;
+    color: #03A9F4;
+}
+
+.content-wrapper{
+    margin-bottom:50px;
+}
+.index-page section{
+    padding: 80px 0 0;
+}
+.index-page section h2{
+    text-align:center;
+    margin: 0 0 54px;
+}
+h2{
+    color: #333;
+    font-size: 30px;
+    line-height: 1.3em;
+    margin: 0 0 30px;
+    font-weight: 600;
+}
+
+
+@media (max-width: 500px){
+    .portfolio-menu {
+        padding: 0 15px;
+    }
+    .portfolio-menu button, .portfolio-menu button:hover, .portfolio-menu button:focus {
+        width: 100%;
+        margin:0 0 20px;
+    }
+    .blog-post-sidebar .img {
+        float: none;
+        margin: 0 0 23px 0;
+    }
+    .contact-block{
+        float:none;
+        width:auto;
+        height:auto;
+        margin:0 0 45px 0;
+    }
+}
