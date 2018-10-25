@@ -11,6 +11,10 @@ import java.io.Serializable;
 @Table(name = "user")
 public class User extends IdEntity implements Serializable {
 
+    @Column(name="username")
+    private String username;
+    @Column(name="password")
+    private String password;
     @Column(name = "name")
     private String name;
     @Column(name = "age")

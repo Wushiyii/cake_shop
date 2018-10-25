@@ -58,7 +58,7 @@
        <div class="register_account">
           	<div class="wrap">
     	      <h4 class="title" style="font-size: 36px">注册</h4>
-    		   <form>
+    		   <form action="/user/register">
     			 <div class="col_1_of_2 span_1_of_2" style="width: 300px;">
 		   			 <div><input style="border: 1px solid #B7B7B7" type="text" value="请输入姓名" onmouseover="this.style.borderColor = '#00b7d3'"
 								 onmouseout="this.style.borderColor = '#B7B7B7'" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入姓名';}"></div>
@@ -78,7 +78,7 @@
 		    </form>
     	  </div> 
         </div>
-	<div th:replace="front/common/footer::html" ></div>
+	   <div th:replace="front/common/footer::html" ></div>
        <script type="text/javascript">
 			$(document).ready(function() {
 				var defaults = {
