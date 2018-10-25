@@ -781,7 +781,7 @@ color: #000;}
 .dropdown input[type="checkbox"] { display: none }
 /*end-dropdown*/
 .footer-middle{
-	background:#d5d5d5;
+	background:#373d41;
 }
 .col_1_of_middle:first-child {
 	margin-left: 0;
@@ -892,6 +892,18 @@ ul.list1 li a:hover{
 }
 h3.m_9{
 	color:#000;
+	font-size:1em;
+	text-transform:uppercase;
+	margin-bottom:6%;
+}
+h4.white{
+    color:#9b9ea0;
+    font-size:0.85em;
+    text-transform:uppercase;
+    margin-bottom:6%;
+}
+h3.white{
+	color:#9b9ea0;
 	font-size:1em;
 	text-transform:uppercase;
 	margin-bottom:6%;
