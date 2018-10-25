@@ -679,6 +679,9 @@ span.delivery{
 span.orange{
 	color:#FFAF02;
 }
+span.pink{
+	color:#E066FF;
+}
 .dropdown dd, .dropdown dt, .dropdown ul { margin:0px; padding:0px; }
 .dropdown dd { position:relative; }
 .dropdown a, .dropdown a:visited { color:#fff; text-decoration:none; outline:none;}
@@ -799,6 +802,13 @@ color: #000;}
 	margin:6px 0px 0 0;
 	width:54%;
 }
+.nav_search {
+    background:#fff;
+    border: 1px solid #ddd;
+    position: relative;
+    float:right;
+    margin:6px 0px 0 0;
+}
 .search input[type="text"] {
 	border: none;
 	outline: none;
@@ -827,6 +837,33 @@ color: #000;}
 }	
 .search input[type="submit"]:active {
 	position:relative;
+}
+.nav_search input[type="text"] {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 0.8125em;
+    font-family: 'Open Sans', sans-serif;
+    color: #999;
+    padding: 5px 10px;
+    -webkit-apperance: none;
+    margin: 0;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+}
+.nav_search input[type="submit"] {
+    border: none;
+    text-indent: -9999px;
+    outline: none;
+    cursor: pointer;
+    background: #08080B url("../images/s_arrow.png") no-repeat 11px 7px;
+    width: 30px;
+    height: 30px;
+}
+.nav_search input[type="submit"]:active {
+    position:relative;
 }
 span.m_8{
 	float: left;
@@ -889,19 +926,18 @@ ul.sub_list2 li a:hover{
 	color:#000;
 }
 .copy{
-	background:#08080b;
 	text-align:center;
 	padding:5px 0;
 }
 .copy p{
-	color:#fff;
+	color:#303030;
 	font-size:0.8125em;
 }
 .copy p a{
-	color:#FFAF02;
+	color:#E066FF;
 }
 .copy p a:hover{
-	color:#fff;
+	color:#FFAF02;
 }
 .footer-bottom{
 	padding:3% 0;

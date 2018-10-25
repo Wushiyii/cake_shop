@@ -3,16 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
-    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
-    <!--<link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />-->
-    <!--<link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>-->
-    <!--<link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />-->
-    <!--<script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>-->
-    <!--<script type="text/javascript" th:src="@{~/js/move-top.js}"></script>-->
-    <!--<script type="text/javascript" th:src="@{~/js/easing.js}"></script>-->
-    <!--<script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>-->
-    <!--<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>-->
 </head>
 <body>
 <div class="header-top">
@@ -457,6 +447,19 @@
                         <div class="col1"></div>
                         <div class="col1"></div>
                     </div>
+                </div>
+            </li>
+            <li style="float: right">
+                <div >
+                    <ul>
+                        <li>
+                            <div class="nav_search">
+                                <input type="text" name="s" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                                <input type="submit" value="Subscribe" id="submit" name="submit">
+                                <div id="response"> </div>
+                            </div><div class="clear"></div>
+                        </li>
+                    </ul>
                 </div>
             </li>
         </ul>
