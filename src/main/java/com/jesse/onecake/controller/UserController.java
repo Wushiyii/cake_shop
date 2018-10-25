@@ -13,9 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("user")
 public class UserController extends BaseController<UserBiz, User> {
 
-    @RequestMapping("test")
-    public String test(){
-        return this.biz.test();
+    @RequestMapping("/login")
+    public String login(String name,String password){
+        System.out.println(name +"," +password);
+        return "login";
+    }
+
+    @RequestMapping("/register")
+    public String register(String name,String password){
+        System.out.println(name +"," +password);
+        return "login";
     }
 
     @RequestMapping("/")
