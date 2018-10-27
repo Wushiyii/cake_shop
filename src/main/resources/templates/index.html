@@ -77,9 +77,9 @@
 							<img th:src="@{'../images/'+${banner.img}+'.jpg'}" alt=""/>
 						</div>
 						 <div class="slider-right">
-                             <h1 th:text="${banner.img}">Classic</h1>
-                             <h2>White</h2>
-                             <p>Lorem ipsum dolor sit amet</p>
+                             <h1 th:text="${banner.name}">Classic</h1>
+                             <h2 th:text="${banner.category}">White</h2>
+                             <!--<p>&nbsp;</p>-->
                              <!--th:onclick="'javascript:addCart(\''+${banner.id}+'\');'"-->
                              <div class="btn" ><a th:href="@{'/cake/single/'+${banner.id}}">马上购买</a></div>
 						 </div>
@@ -103,72 +103,42 @@
    						</script> 	           	      
              </div>
              <div class="main index-page">
-                    <!--谷歌推特图标-->
-             	  <!--<div class="content-top">-->
-             		<!--<div class="lsidebar span_1_of_c1">-->
-					  <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing</p>-->
-					<!--</div>-->
-					<!--<div class="cont span_2_of_c1">-->
-					  <!--<div class="social">	-->
-					     <!--<ul>	-->
-						  <!--<li class="facebook"><a href="#"><span> </span></a><div class="radius"> <img th:src="@{~/images/radius.png}"><a href="#"> </a></div><div class="border hide"><p class="num">1.51K</p></div></li>-->
-						 <!--</ul>-->
-			   		   <!--</div>-->
-					   <!--<div class="social">	-->
-						   <!--<ul>	-->
-							  <!--<li class="twitter"><a href="#"><span> </span></a><div class="radius"> <img th:src="@{~/images/radius.png}"></div><div class="border hide"><p class="num">1.51K</p></div></li>-->
-						  <!--</ul>-->
-			     		<!--</div>-->
-						 <!--<div class="social">	-->
-						   <!--<ul>	-->
-							  <!--<li class="google"><a href="#"><span> </span></a><div class="radius"> <img th:src="@{~/images/radius.png}"></div><div class="border hide"><p class="num">1.51K</p></div></li>-->
-						   <!--</ul>-->
-			    		 <!--</div>-->
-						 <!--<div class="social">	-->
-						   <!--<ul>	-->
-							  <!--<li class="dot"><a href="#"><span> </span></a><div class="radius"> <img th:src="@{~/images/radius.png}"></div><div class="border hide"><p class="num">1.51K</p></div></li>-->
-						  <!--</ul>-->
-			     		<!--</div>-->
-						<!--<div class="clear"> </div>-->
-					  <!--</div>-->
-					  <!--<div class="clear"></div>			-->
-				   <!--</div>-->
-					<section id="portfolio" class="scroll-animation" data-animation="fadeInUp" data-animation-delay="0s">
-						<h2>相册</h2>
-						<div class="filter-options portfolio-menu">
-							<button class="btn--warning" data-group="Web Design">Web Design</button>
-							<button class="btn--warning" data-group="Photography">Photography</button>
-							<button class="btn--warning" data-group="Plugins">Plugins</button>
-							<button class="btn--warning" data-group="Wordpress">Wordpress</button>
-						</div>
-						<div id="grid" class="portfolio-wrapper">
-							<figure class="col-md-3">
-								<a href="gallery.html"><img th:src="@{~/images/img1.jpg}" alt=""></a>
-							</figure>
-							<figure class="col-md-3" >
-								<a href="gallery.html"><img th:src="@{~/images/img2.jpg}" alt=""></a>
-							</figure>
-							<figure class="col-md-3" >
-								<a href="gallery.html"><img th:src="@{~/images/img3.jpg}" alt=""></a>
-							</figure>
-							<figure class="col-md-3" >
-								<a href="gallery.html"><img th:src="@{~/images/img4.jpg}" alt=""></a>
-							</figure>
-							<figure class="col-md-3" >
-								<a href="gallery.html"><img th:src="@{~/images/img5.jpg}" alt=""></a>
-							</figure>
-							<figure class="col-md-3" >
-								<a href="gallery.html"><img th:src="@{~/images/img6.jpg}" alt=""></a>
-							</figure>
-							<figure class="col-md-3" >
-								<a href="gallery.html"><img th:src="@{~/images/img7.jpg}" alt=""></a>
-							</figure>
-							<figure class="col-md-3" >
-								<a href="gallery.html"><img th:src="@{~/images/img8.jpg}" alt=""></a>
-							</figure>
-							<div class="col-1@sm col-1@xs my-sizer-element"></div>
-						</div>
-					</section>
+					<!--<section id="portfolio" class="scroll-animation" data-animation="fadeInUp" data-animation-delay="0s">-->
+						<!--<h2>相册</h2>-->
+						<!--<div class="filter-options portfolio-menu">-->
+							<!--<button class="btn&#45;&#45;warning" data-group="Web Design">Web Design</button>-->
+							<!--<button class="btn&#45;&#45;warning" data-group="Photography">Photography</button>-->
+							<!--<button class="btn&#45;&#45;warning" data-group="Plugins">Plugins</button>-->
+							<!--<button class="btn&#45;&#45;warning" data-group="Wordpress">Wordpress</button>-->
+						<!--</div>-->
+						<!--<div id="grid" class="portfolio-wrapper">-->
+							<!--<figure class="col-md-3">-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img1.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<figure class="col-md-3" >-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img2.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<figure class="col-md-3" >-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img3.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<figure class="col-md-3" >-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img4.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<figure class="col-md-3" >-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img5.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<figure class="col-md-3" >-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img6.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<figure class="col-md-3" >-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img7.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<figure class="col-md-3" >-->
+								<!--<a href="gallery.html"><img th:src="@{~/images/img8.jpg}" alt=""></a>-->
+							<!--</figure>-->
+							<!--<div class="col-1@sm col-1@xs my-sizer-element"></div>-->
+						<!--</div>-->
+					<!--</section>-->
         </div>
 
 	   <div th:replace="front/common/footer::html" ></div>
