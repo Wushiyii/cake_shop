@@ -83,7 +83,6 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     @RequestMapping("/manage")
     public String manage() {
 
-//        return "manage/index";
-        return "front/common/header";
+        return "manage/index";
     }
 }

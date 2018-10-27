@@ -58,11 +58,49 @@
 <body>
   		<div th:replace="front/common/header::html" ></div>
   		<div class="login">
-        	 <div class="wrap">
-				 <h4 class="title">Shopping cart is empty</h4>
-				 <p class="cart">You have no items in your shopping cart.<br>Click<a href="index.html"> here</a> to continue shopping</p>
-    	   	 </div>
+        	 <!--<div class="wrap">-->
+				 <!--<h4 class="title">购物车空空如也</h4>-->
+				 <!--<p class="cart">购物车还没有蛋糕.<br>点击<a href="/cake/"> 首页</a> 挑选吧！</p>-->
+    	   	 <!--</div>-->
+			<div class="span_1_of_5"></div>
+			<div class="card-cart">
+
+				<div class="mens-toolbar" style="width: 60%">
+					<div class="cart">
+						<table>
+							<tr style="font-size: 12px;">
+								<th style="width: 10%;"><input type="checkbox" class="check-out-box">全选</th>
+								<th style="width: 40%;text-align: left">商品</th>
+								<th style="width: 10%;">单价</th>
+								<th style="width: 10%;">数量</th>
+								<th style="width: 10%;">小计</th>
+								<th style="width: 20%;">操作</th>
+							</tr>
+							<tr style="font-size: 12px;">
+								<td style="width: 10%;"><input type="checkbox" style="margin-right: 25px;" class="check-out-box"></td>
+								<td style="width: 40%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt="" class="avatar"></td>
+								<td style="width: 10%;">27.5</td>
+								<td style="width: 10%;">1</td>
+								<td style="width: 10%;">27.5</td>
+								<td style="width: 20%;">
+									<a href="/user/register" style="display:block; color: #666;text-decoration: none;">删除</a>
+									<a href="javascript:void(0);" style="display:block;margin-top:10px;color: #666;text-decoration: none;">移到我的收藏</a>
+								</td>
+							</tr>
+						</table>
+						<hr>
+						<div>
+							<button class="grey"style="float: right;width: 100px">结算</button>
+							<div style="display: inline-block;padding:10px 8px 0 0;float: right">
+								<h3 style="color: #1D1C1C">总价:￥210.5</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
+
 
 		<div th:replace="front/common/footer::html" ></div>
 

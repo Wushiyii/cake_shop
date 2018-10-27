@@ -1177,6 +1177,12 @@ h5.sub_title{
 .login{
 	padding:3% 0;
 }
+.login .span_1_of_5{
+	width: 16.9%;
+}
+.login .card-cart{
+	margin-left: 10%;
+}
 .comments-area input[type="text"] {
 	padding: 10px 15px;
 	width: 97%;
@@ -1282,10 +1288,10 @@ p#login-form-remember label a:hover{
 button.grey {
 	background: #555;
 	color: #FFF;
-	/* font-size: 0.8em; */
+ 	font-size: 20px;
 	padding: 8px 20px;
-	/* border-radius: 5px; */
-	border-bottom: 4px solid #1D1C1C;
+    border-radius: 5px;
+	border-bottom: 3px solid #1D1C1C;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -1301,8 +1307,9 @@ button.grey {
 	float:left;
 }
 button.grey:hover{
-	background:#FFAF02;
-	border-bottom: 4px solid #DF9A06;
+	color:#0C0C0C;
+	background: #eae6e5;
+	border-bottom: 4px solid #858180;
 }
 p.terms {
 	float: left;
@@ -1349,10 +1356,57 @@ p.code {
 	border: 1px solid #E6E6E6;
 	width: 98.9%;
 }
-.mens-toolbar .sort {
-	float: left;
-	width: 20.5%;
+.mens-toolbar .cart {
+    width: 100%;
+	margin-top: 10px;
 }
+.mens-toolbar .cart table{
+    width: 100%;
+	margin: 10px;
+}
+.mens-toolbar .cart table tr{
+	border: 1px solid #e9e9e9;
+
+}
+.mens-toolbar .cart table tr th{
+	padding: 10px;
+	background-color: #f3f3f3;
+	color: #666;
+
+}
+.mens-toolbar .cart table tr th{
+	padding: 10px;
+	background-color: #f3f3f3;
+	color: #666;
+
+}
+.check-out-box {
+    position: relative;
+    z-index: 5;
+    margin:  0px 3px 0 0;
+    padding: 0px;
+}
+.mens-toolbar .cart table tr td{
+    padding-top: 15px;
+    vertical-align: top;
+	background-color: #f3f3f3;
+    color: #666;
+    text-align: center;
+
+}
+.mens-toolbar .cart .header{
+	color: #555;font-size: 0.8125em;margin: 8px;
+}
+.mens-toolbar .cart .detail{
+	 color: #555;font-size: 0.8125em;margin: 8px;
+}
+.avatar{
+	 color: #555;
+	margin: 2px;
+	width: 85px;
+	height: 85px;
+}
+
 .sort {
 	padding: 3px 8px;
 }
