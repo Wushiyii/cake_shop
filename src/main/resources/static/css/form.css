@@ -1,8 +1,8 @@
-.row1{
+.row1{height: 200px;
 	outline:none;
 	padding: 20px;
 	overflow: auto;
-	height: 200px;
+
 }
 .sky-form h4{
 	color: #555;
