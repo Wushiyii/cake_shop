@@ -421,12 +421,16 @@ ul.list li img{
 	margin: 0 0px 0 18%;
 } 
 .top_box .css3 img {
+	width: 253px;
+	height: 168px;
 	-webkit-transition-duration: 0.5s;
 	/* Webkit: Animation duration; */
 	-moz-transition-duration: 0.5s;
 	-o-transition-duration: 0.5s;
 }
 .top_box:hover .css3 img{
+	width: 253px;
+	height: 168px;
 	-webkit-transform: scale(0.9);
 	/* Webkit: Scale up image to 1.2x original size; */
 	-moz-transform: scale(0.9);
@@ -1352,7 +1356,7 @@ p.code {
 	margin: 1% 3.5% 0% 0;
 }
 .mens-toolbar {
-	margin: 0 0 12px;
+	/*margin: 0 0 12px;*/
 	overflow: hidden;
 	background: #F7F7F7;
 	padding: 5px;
@@ -1418,7 +1422,7 @@ p.code {
 	font-size: 0.8125em;
 }
 .mens-toolbar .pager {
-	padding: 5px 8px 3px 8px;
+	/*padding: 5px 8px 3px 8px;*/
 	float: right;
 	width: 26.5%;
 }
@@ -1460,16 +1464,16 @@ ul.dc_pagination li a {
 	width: 44.5%;
 }
 .list2{
-	float: left;
-	background: #08080B;
-	width: 53.5%;
+	float: right;
+	background: #555555;
+	width: 48%;
 	padding: 0.2% 0;
 	text-align: center;
 }
 ul.list2 li img {
 	vertical-align: middle;
 	float: left;
-	margin:0 0px 0 12%;
+	margin:0 0px 0 6%;
 }
 h3.m_s{
 	color: #555;
@@ -1639,13 +1643,13 @@ p.m_desc{
    position: absolute;
    overflow: hidden;
    top:130px;
-   left:90px;
+   left:100px;
 }
 .info {
    display: inline-block;
    text-decoration: none;
    padding: 7px 14px;
-   background: #000;
+   background: #555555;
    color: #fff;
    text-transform: uppercase;
   	font-size:0.9em;
