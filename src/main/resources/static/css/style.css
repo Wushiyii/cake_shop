@@ -13,6 +13,19 @@ a{text-decoration:none;}
 .float-rt{float:right;}/* float right */
 .float-lt{float:left;}/* float left */
 .clear{clear:both;}/* clear float */
+
+.clearfix:after {display: block;clear: both;content: "";visibility: hidden;height: 0;}
+.prolist li{padding:20px 0;border-bottom:1px solid #E6E2E0;}
+.prolist .imgs{ float:left; width:200px; height:200px; overflow:hidden; position:relative;}
+.prolist .imgs span{ position:absolute; left:0; top:0; background-color:#AA1F24; padding:5px 10px; color:#FFF;}
+.prolist .infos{ float:right; width:700px;}
+.prolist .infos h2{ font-weight:normal; font-size:18px;}
+.prolist .infos .desc{ font-size: 12px; color:#a99c96; padding:5px 0 10px 0; min-height:100px; line-height:2em; text-align:justify;}
+.prolist .infos .buy .btn_buy{ float:right; padding:0 0 0 15px;}
+.prolist .infos .buy .btn_buy a{ display:block; width:120px; height:35px; font-size:14px; background-color:#B08F68; color:#FFF; text-align:center; line-height:35px; border-radius:3px;}
+.prolist .infos .buy .btn_buy a i{ margin-right:4px;}
+.prolist .infos .price{ float:right; color:#AA1F24; font-size:14px; line-height:35px; height:35px;}
+
 .pos-relative{position:relative;}/* Position Relative */
 .pos-absolute{position:absolute;}/* Position Absolute */
 .vertical-base{	vertical-align:baseline;}/* vertical align baseline */

@@ -108,216 +108,70 @@
         <!--右侧商品详情-->
         <div class="cont span_2_of_3_verify">
             <!--头部排序分页栏-->
-            <div class="mens-toolbar">
-                <div class="sort">
-                    <div class="sort-by">
-                        <label>Sort By</label>
-                        <select>
-                            <option value="">
-                                Popularity
-                            </option>
-                            <option value="">
-                                Price : High to Low
-                            </option>
-                            <option value="">
-                                Price : Low to High
-                            </option>
-                        </select>
-                        <a href=""><img th:src="@{~/images/arrow2.gif}" alt="" class="v-middle"></a>
-                    </div>
-                </div>
-                <div class="pager">
-                    <div class="limiter visible-desktop">
-                        <label>每页显示</label>
-                        <select>
-                            <option value="" selected="selected">10</option>
-                            <option value="">15</option>
-                            <option value="">30</option>
-                        </select> 条
-                    </div>
-                    <ul class="dc_pagination dc_paginationA dc_paginationA06">
-                        <li><a href="#" class="previous">Pages</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                    </ul>
-                    <div class="clear"></div>
-                </div>
-                <div class="clear"></div>
-            </div>
+            <!--<div class="mens-toolbar">-->
+                <!--<div class="sort">-->
+                    <!--<div class="sort-by">-->
+                        <!--<label>Sort By</label>-->
+                        <!--<select>-->
+                            <!--<option value="">-->
+                                <!--Popularity-->
+                            <!--</option>-->
+                            <!--<option value="">-->
+                                <!--Price : High to Low-->
+                            <!--</option>-->
+                            <!--<option value="">-->
+                                <!--Price : Low to High-->
+                            <!--</option>-->
+                        <!--</select>-->
+                        <!--<a href=""><img th:src="@{~/images/arrow2.gif}" alt="" class="v-middle"></a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="pager">-->
+                    <!--<div class="limiter visible-desktop">-->
+                        <!--<label>每页显示</label>-->
+                        <!--<select>-->
+                            <!--<option value="" selected="selected">10</option>-->
+                            <!--<option value="">15</option>-->
+                            <!--<option value="">30</option>-->
+                        <!--</select> 条-->
+                    <!--</div>-->
+                    <!--<ul class="dc_pagination dc_paginationA dc_paginationA06">-->
+                        <!--<li><a href="#" class="previous">Pages</a></li>-->
+                        <!--<li><a href="#">1</a></li>-->
+                        <!--<li><a href="#">2</a></li>-->
+                    <!--</ul>-->
+                    <!--<div class="clear"></div>-->
+                <!--</div>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
             <!--商品详情-->
             <div class="box1">
-                <div class="col_1_of_single1 span_1_of_single1">
-                    <a href="single.html">
-                        <div class="view1 view-fifth1">
-                            <div class="top_box">
-                                <h3 class="m_1">慕斯</h3>
-                                <p class="m_2">慕斯的描述</p>
-                                <div class="grid_img">
-                                    <div class="css3"><img th:src="@{~/images/img1.jpg}" alt=""/></div>
-                                    <div class="mask1">
-                                        <div class="info">查看详情</div>
-                                    </div>
-                                </div>
-                                <div class="price">£480</div>
+                <div class="prolist">
+                    <ul>
+                        <li class="clearfix">
+                            <div class="imgs">
+                                <a href="/cake/" target="_blank">
+                                    <img th:src="@{~/images/img1.jpg}" alt="" width="200">
+                                </a>
                             </div>
-                        </div>
-                        <ul class="list2">
-                            <li>
-                                <img th:src="@{~/images/plus.png}" alt=""/>
-                                <ul class="icon1 sub-icon1 profile_img">
-                                    <li>
-                                        <a class="active-icon c1" href="#">添加购物车</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </a>
-                </div>
-                <div class="col_1_of_single1 span_1_of_single1">
-                    <a href="single.html">
-                        <div class="view1 view-fifth1">
-                            <div class="top_box">
-                                <h3 class="m_1">芝士</h3>
-                                <p class="m_2">芝士的描述</p>
-                                <div class="grid_img">
-                                    <div class="css3"><img th:src="@{~/images/cake6.jpg}" alt=""/></div>
-                                    <div class="mask1">
-                                        <div class="info">查看详情</div>
+                            <div class="infos">
+                                <h2>
+                                    <a href="/cake/" target="_blank">草莓拿破仑 Strawberry Napoleon Cake</a>
+                                </h2>
+                                <div class="desc">草莓鲜芝士微甜细腻，伊斯尼淡奶油藏在鲜草莓身后，4809层酥皮、配搭清爽甜美的鲜草莓；层层美味，每一口都惊喜不断。顿时，弥漫唇齿之间……<br>Strawberry fresh cheese is slightly sweet and delicate, the cream is hidden behind the fresh strawberries, 4809 layers of crisp skin, with fresh and sweet fresh strawberries; The layers are delicious, each one pleasantly surprised. Suddenly, between the lips and teeth...</div>
+                                <div class="buy clearfix">
+                                    <div class="btn_buy">
+                                        <a href="/cake/" target="_blank">
+                                            <!--<i class="iconfont"></i>立即购买-->
+                                            立即购买
+                                        </a>
                                     </div>
+                                    <div class="price">￥198.00 / 1磅</div>
                                 </div>
-                                <div class="price">£480</div>
                             </div>
-                        </div>
-                        <ul class="list2">
-                            <li>
-                                <img th:src="@{~/images/plus.png}" alt=""/>
-                                <ul class="icon1 sub-icon1 profile_img">
-                                    <li>
-                                        <a class="active-icon c1" href="#">添加购物车</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col_1_of_single1 span_1_of_single1">
-                    <a href="single.html">
-                        <div class="view1 view-fifth1">
-                            <div class="top_box">
-                                <h3 class="m_1">布丁</h3>
-                                <p class="m_2">布丁的描述</p>
-                                <div class="grid_img">
-                                    <div class="css3"><img th:src="@{~/images/cake5.jpg}" alt=""/></div>
-                                    <div class="mask1">
-                                        <div class="info">查看详情</div>
-                                    </div>
-                                </div>
-                                <div class="price">£480</div>
-                            </div>
-                        </div>
-                        <ul class="list2">
-                            <li>
-                                <img th:src="@{~/images/plus.png}" alt=""/>
-                                <ul class="icon1 sub-icon1 profile_img">
-                                    <li>
-                                        <a class="active-icon c1" href="#">添加购物车</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </a>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="box1">
-                <div class="col_1_of_single1 span_1_of_single1">
-                    <a href="single.html">
-                        <div class="view1 view-fifth1">
-                            <div class="top_box">
-                                <h3 class="m_1">慕斯</h3>
-                                <p class="m_2">慕斯的描述</p>
-                                <div class="grid_img">
-                                    <div class="css3"><img th:src="@{~/images/img1.jpg}" alt=""/></div>
-                                    <div class="mask1">
-                                        <div class="info">查看详情</div>
-                                    </div>
-                                </div>
-                                <div class="price">£480</div>
-                            </div>
-                        </div>
-                        <ul class="list2">
-                            <li>
-                                <img th:src="@{~/images/plus.png}" alt=""/>
-                                <ul class="icon1 sub-icon1 profile_img">
-                                    <li>
-                                        <a class="active-icon c1" href="#">添加购物车</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </a>
-                </div>
-                <div class="col_1_of_single1 span_1_of_single1">
-                    <a href="single.html">
-                        <div class="view1 view-fifth1">
-                            <div class="top_box">
-                                <h3 class="m_1">芝士</h3>
-                                <p class="m_2">芝士的描述</p>
-                                <div class="grid_img">
-                                    <div class="css3"><img th:src="@{~/images/cake6.jpg}" alt=""/></div>
-                                    <div class="mask1">
-                                        <div class="info">查看详情</div>
-                                    </div>
-                                </div>
-                                <div class="price">£480</div>
-                            </div>
-                        </div>
-                        <ul class="list2">
-                            <li>
-                                <img th:src="@{~/images/plus.png}" alt=""/>
-                                <ul class="icon1 sub-icon1 profile_img">
-                                    <li>
-                                        <a class="active-icon c1" href="#">添加购物车</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </a>
-                </div>
-                <div class="col_1_of_single1 span_1_of_single1">
-                    <a href="single.html">
-                        <div class="view1 view-fifth1">
-                            <div class="top_box">
-                                <h3 class="m_1">布丁</h3>
-                                <p class="m_2">布丁的描述</p>
-                                <div class="grid_img">
-                                    <div class="css3"><img th:src="@{~/images/cake5.jpg}" alt=""/></div>
-                                    <div class="mask1">
-                                        <div class="info">查看详情</div>
-                                    </div>
-                                </div>
-                                <div class="price">£480</div>
-                            </div>
-                        </div>
-                        <ul class="list2">
-                            <li>
-                                <img th:src="@{~/images/plus.png}" alt=""/>
-                                <ul class="icon1 sub-icon1 profile_img">
-                                    <li>
-                                        <a class="active-icon c1" href="#">添加购物车</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <div class="clear"></div>
-                    </a>
-                </div>
-                <div class="clear"></div>
             </div>
         </div>
         <div class="clear"></div>
