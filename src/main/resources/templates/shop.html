@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
     <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
           type='text/css'>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
@@ -78,72 +79,55 @@
                 <h4>蛋糕</h4>
                 <div class="row row1 scroll-pane">
                     <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>戚风 (20)</label>
+                        <label class="checkbox"><input type="checkbox" name="11" checked="true" onload="handleCategory(this.name,this.checked)"><i></i>戚风 (20)</label>
                     </div>
                     <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>芝士 (48)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>慕斯 (45)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>布丁 (45)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>奶酪 (1)</label>
+                        <label class="checkbox"><input type="checkbox" name="12"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>芝士
+                            (48)</label>
+                        <label class="checkbox"><input type="checkbox" name="13"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>慕斯
+                            (45)</label>
+                        <label class="checkbox"><input type="checkbox" name="14"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>布丁
+                            (45)</label>
+                        <label class="checkbox"><input type="checkbox" name="15"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>奶酪
+                            (1)</label>
                     </div>
                 </div>
                 <h4>干点</h4>
                 <div class="row row1 scroll-pane" style="height: 100px;">
                     <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>饼干 (48)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>西点 (48)</label>
+                        <label class="checkbox"><input type="checkbox" name="21"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>饼干
+                            (48)</label>
+                        <label class="checkbox"><input type="checkbox" name="22"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>西点
+                            (48)</label>
                     </div>
                 </div>
                 <h4>下午茶</h4>
                 <div class="row row1 scroll-pane">
                     <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>奶茶 (5)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>鲜奶 (7)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>玛奇朵 (2)</label>
-                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>咖啡 (1)</label>
+                        <label class="checkbox"><input type="checkbox" name="31"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>奶茶
+                            (5)</label>
+                        <label class="checkbox"><input type="checkbox" name="32"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>鲜奶
+                            (7)</label>
+                        <label class="checkbox"><input type="checkbox" name="33"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>玛奇朵
+                            (2)</label>
+                        <label class="checkbox"><input type="checkbox" name="34"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>咖啡
+                            (1)</label>
                     </div>
                 </div>
             </section>
         </div>
         <!--右侧商品详情-->
         <div class="cont span_2_of_3_verify">
-            <!--头部排序分页栏-->
-            <!--<div class="mens-toolbar">-->
-                <!--<div class="sort">-->
-                    <!--<div class="sort-by">-->
-                        <!--<label>Sort By</label>-->
-                        <!--<select>-->
-                            <!--<option value="">-->
-                                <!--Popularity-->
-                            <!--</option>-->
-                            <!--<option value="">-->
-                                <!--Price : High to Low-->
-                            <!--</option>-->
-                            <!--<option value="">-->
-                                <!--Price : Low to High-->
-                            <!--</option>-->
-                        <!--</select>-->
-                        <!--<a href=""><img th:src="@{~/images/arrow2.gif}" alt="" class="v-middle"></a>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="pager">-->
-                    <!--<div class="limiter visible-desktop">-->
-                        <!--<label>每页显示</label>-->
-                        <!--<select>-->
-                            <!--<option value="" selected="selected">10</option>-->
-                            <!--<option value="">15</option>-->
-                            <!--<option value="">30</option>-->
-                        <!--</select> 条-->
-                    <!--</div>-->
-                    <!--<ul class="dc_pagination dc_paginationA dc_paginationA06">-->
-                        <!--<li><a href="#" class="previous">Pages</a></li>-->
-                        <!--<li><a href="#">1</a></li>-->
-                        <!--<li><a href="#">2</a></li>-->
-                    <!--</ul>-->
-                    <!--<div class="clear"></div>-->
-                <!--</div>-->
-                <!--<div class="clear"></div>-->
-            <!--</div>-->
             <!--商品详情-->
             <div class="box1">
                 <div class="prolist">
@@ -156,23 +140,30 @@
                             </div>
                             <div class="infos">
                                 <h2>
-                                    <a href="/cake/" target="_blank">草莓拿破仑 Strawberry Napoleon Cake</a>
+                                    <a style="color:#555555;" href="/cake/" target="_blank">草莓拿破仑 Strawberry Napoleon
+                                        Cake</a>
                                 </h2>
-                                <div class="desc">草莓鲜芝士微甜细腻，伊斯尼淡奶油藏在鲜草莓身后，4809层酥皮、配搭清爽甜美的鲜草莓；层层美味，每一口都惊喜不断。顿时，弥漫唇齿之间……<br>Strawberry fresh cheese is slightly sweet and delicate, the cream is hidden behind the fresh strawberries, 4809 layers of crisp skin, with fresh and sweet fresh strawberries; The layers are delicious, each one pleasantly surprised. Suddenly, between the lips and teeth...</div>
+                                <div class="desc">
+                                    草莓鲜芝士微甜细腻，伊斯尼淡奶油藏在鲜草莓身后，4809层酥皮、配搭清爽甜美的鲜草莓；层层美味，每一口都惊喜不断。顿时，弥漫唇齿之间……<br>Strawberry
+                                    fresh cheese is slightly sweet and delicate, the cream is hidden behind the fresh
+                                    strawberries, 4809 layers of crisp skin, with fresh and sweet fresh strawberries;
+                                    The layers are delicious, each one pleasantly surprised. Suddenly, between the lips
+                                    and teeth...
+                                </div>
                                 <div class="buy clearfix">
                                     <div class="btn_buy">
                                         <a href="/cake/" target="_blank">
-                                            <!--<i class="iconfont"></i>立即购买-->
-                                            立即购买
+                                            <i class="am-icon-cart-plus"></i>立即购买
                                         </a>
                                     </div>
-                                    <div class="price">￥198.00 / 1磅</div>
+                                    <div class="price">￥248.00 / 1份</div>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div><!--单物品结尾标签-->
+
         </div>
         <div class="clear"></div>
     </div>
@@ -188,6 +179,32 @@
         };
         $().UItoTop({easingType: 'easeOutQuart'});
     });
+    var batchCategory = new Map();
+    handleCategory = (category, checked) => {
+        batchCategory.set(category, checked);
+        searchByCategory(batchCategory);
+    }
+    searchByCategory = (batchCategory) => {
+        var queryCategory = []
+        batchCategory.forEach((checked, category) => {
+            if (checked) {
+                queryCategory.push(category);
+            }
+
+        });
+        console.log(queryCategory);
+        //TODO 设置默认显示的搜索结果
+    };
+
+    searchProduct = (query) => {
+        $.get("/cake/searchProduct", {name: query}, function (ret) {
+            if (ret.code === 200) {
+                var json = eval(ret);
+                var cakeList = json.data.rows;
+                //TODO 返回的数据解析
+            }
+        });
+    };
 </script>
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 

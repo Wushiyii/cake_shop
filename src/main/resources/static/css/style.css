@@ -20,9 +20,9 @@ a{text-decoration:none;}
 .prolist .imgs span{ position:absolute; left:0; top:0; background-color:#AA1F24; padding:5px 10px; color:#FFF;}
 .prolist .infos{ float:right; width:700px;}
 .prolist .infos h2{ font-weight:normal; font-size:18px;}
-.prolist .infos .desc{ font-size: 12px; color:#a99c96; padding:5px 0 10px 0; min-height:100px; line-height:2em; text-align:justify;}
+.prolist .infos .desc{ font-size: 12px; color: #877a74; padding:5px 0 10px 0; min-height:100px; line-height:2em; text-align:justify;}
 .prolist .infos .buy .btn_buy{ float:right; padding:0 0 0 15px;}
-.prolist .infos .buy .btn_buy a{ display:block; width:120px; height:35px; font-size:14px; background-color:#B08F68; color:#FFF; text-align:center; line-height:35px; border-radius:3px;}
+.prolist .infos .buy .btn_buy a{ display:block; width:120px; height:35px; font-size:14px; background-color:#B08F68; color:#FFF; text-align:center; line-height:35px; border-radius:3px;border-bottom: 2px solid #746862;}
 .prolist .infos .buy .btn_buy a i{ margin-right:4px;}
 .prolist .infos .price{ float:right; color:#AA1F24; font-size:14px; line-height:35px; height:35px;}
 
@@ -1308,7 +1308,7 @@ p#login-form-remember label a:hover{
 button.grey {
 	background: #555;
 	color: #FFF;
- 	font-size: 20px;
+ 	font-size: 14px;
 	padding: 8px 20px;
     border-radius: 5px;
 	border-bottom: 3px solid #1D1C1C;

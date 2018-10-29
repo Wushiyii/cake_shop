@@ -30,7 +30,7 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("banner","1");
         List<Cake> cakes = this.biz.selectByExample(example);
-        return new TableResultResponse<Cake>(cakes.size(),cakes);
+        return new TableResultResponse<>(cakes.size(), cakes);
     }
 
     @RequestMapping("/home")
@@ -80,9 +80,13 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         return null;
     }
 
-    @RequestMapping("/manage")
-    public String manage() {
-
-        return "manage/index";
+    @RequestMapping("/searchProduct")
+    public TableResultResponse<Cake> addCart(String name) {
+        Example example = new Example(Cake.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andLike("name",name);
+        List<Cake> cakes = this.biz.selectByExample(example);
+        return new TableResultResponse<>(cakes.size(), cakes);
     }
+
 }
