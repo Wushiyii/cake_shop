@@ -58,20 +58,25 @@
 </head>
 <body>
 	<div th:replace="front/common/header::html" ></div>
-	<div class="login">
+	<div class="login" style="padding: 3% 0;">
           <div class="wrap">
 				<div class="col_1_of_login span_1_of_login">
-					<h4 class="title">New Customers</h4>
-					<h5 class="sub_title">Register Account</h5>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan</p>
+					<h4 class="title">注册</h4>
+					<h5 class="sub_title">新用户立即填写详细会员信息享受专属礼遇。</h5>
+					<p style="color: black">
+						注册用户专享服务:<br>
+						&nbsp;&nbsp; · 使用收藏夹保存心仪商品<br>
+						&nbsp;&nbsp; · 通过“个人中心”查看个人信息<br>
+						&nbsp;&nbsp; · 完成购物流程更快捷<br>
+					</p>
 					<div class="button1">
-					   <a th:href="@{/cake/register}"><input type="submit" name="Submit" value="Register"></a>
+					   <a th:href="@{/cake/register}"><input type="submit" name="Submit" value="注册"></a>
 					 </div>
 					 <div class="clear"></div>
 				</div>
 				<div class="col_1_of_login span_1_of_login">
 				  <div class="login-title">
-	           		<h4 class="title">Registered Customers</h4>
+	           		<h4 class="title">已经有账号了？请登陆</h4>
 					 <div class="comments-area">
 						<form action="/user/login">
 							<p>
