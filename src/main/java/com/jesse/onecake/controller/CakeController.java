@@ -1,9 +1,6 @@
 package com.jesse.onecake.controller;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import com.jesse.onecake.biz.CakeBiz;
-import com.jesse.onecake.common.response.BaseResponse;
 import com.jesse.onecake.common.response.TableResultResponse;
 import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.Cake;
@@ -16,6 +13,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -81,11 +80,23 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     }
 
     @RequestMapping("/searchProduct")
-    public TableResultResponse<Cake> addCart(String name) {
+    public @ResponseBody TableResultResponse<Cake> searchProduct(String name) {
         Example example = new Example(Cake.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andLike("name",name);
         List<Cake> cakes = this.biz.selectByExample(example);
+        return new TableResultResponse<>(cakes.size(), cakes);
+    }
+
+    @RequestMapping(value = "/searchByCategory",method = RequestMethod.GET)
+    public @ResponseBody TableResultResponse<Cake> searchByCategory(String batchCategory) {
+        List<Cake> cakes = null;
+        String[] category = batchCategory.split(",");
+        List<String> list = Arrays.asList(category);
+        Example example = new Example(Cake.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andIn("category",list);
+        cakes = this.biz.selectByExample(example);
         return new TableResultResponse<>(cakes.size(), cakes);
     }
 

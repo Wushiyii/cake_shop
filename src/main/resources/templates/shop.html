@@ -164,6 +164,8 @@
                 </div>
             </div><!--单物品结尾标签-->
 
+            <input th:value="${cakeList.name}" id="inp">
+
         </div>
         <div class="clear"></div>
     </div>
@@ -178,30 +180,43 @@
             easingType: 'linear'
         };
         $().UItoTop({easingType: 'easeOutQuart'});
+        searchProduct('muse');
     });
     var batchCategory = new Map();
     handleCategory = (category, checked) => {
         batchCategory.set(category, checked);
         searchByCategory(batchCategory);
     }
+
+    var queryCategory = []
+    var cakeList;
     searchByCategory = (batchCategory) => {
-        var queryCategory = []
+        queryCategory = []
         batchCategory.forEach((checked, category) => {
             if (checked) {
                 queryCategory.push(category);
             }
 
         });
-        console.log(queryCategory);
-        //TODO 设置默认显示的搜索结果
+        $.ajax({
+            url: "/cake/searchByCategory",
+            type: "GET",
+            data: {
+                "batchCategory": queryCategory.toString()
+            },
+            success: function(ret) {
+                var json = eval(ret);
+                cakeList = json.data.rows;
+                console.log(cakeList);
+            }
+        });
     };
 
     searchProduct = (query) => {
         $.get("/cake/searchProduct", {name: query}, function (ret) {
             if (ret.code === 200) {
                 var json = eval(ret);
-                var cakeList = json.data.rows;
-                //TODO 返回的数据解析
+                cakeList = json.data.rows[0];
             }
         });
     };
