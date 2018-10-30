@@ -28,6 +28,7 @@
 .sky-form .radio,.sky-form .checkbox {
 	outline:none;
 	border:none;
+	font-weight: 300;
 	margin-bottom: 4px;
 	padding-left: 27px;
 	font-size: 13px;
@@ -52,8 +53,8 @@
 	top: 5px;
 	left: 0;
 	display: block;
-	width: 13px;
-	height: 13px;
+	width: 17px;
+	height: 17px;
 	outline: none;
 	border-width: 2px;
 	border-style: solid;
