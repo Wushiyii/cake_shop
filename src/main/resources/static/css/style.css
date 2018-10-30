@@ -63,6 +63,7 @@ a{text-decoration:none;}
 .member-r .title .gocart{ position:absolute; right:15px; top:0;}
 .member-r .dtitle{background-color:#F2F2F2;line-height:50px; padding-left:15px; border-bottom:1px solid #DBDBDB;border-top:1px solid #DBDBDB; font-size:14px; position:relative;}
 .member-r .dtitle .gocart{ position:absolute; right:15px; top:0;}
+.nojilu{ padding:70px 0 90px 0; text-align:center;}
 
 .boxpd{ padding:15px; background-color:#FFF;}
 .indexlist td{ padding:10px 0; border-bottom:1px dotted #CCC;}
@@ -74,7 +75,7 @@ a{text-decoration:none;}
 .noorder{ text-align:center; padding:20px 0; color:#999;}
 .cartlist span{ display:inline-block; padding-right:15px;}
 .title .ordertype{ position:absolute; right:15px; top:0;}
-.title .ordertype .on{ color:#AA1F24;}
+.title .ordertype .on{ color: #e0523c;}
 .title .ordertype i{ padding:0 15px; font-style:normal; color:#CCC;}
 .member .title h3{ font-weight:normal; padding-left:15px;}
 

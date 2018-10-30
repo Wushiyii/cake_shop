@@ -61,11 +61,6 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         return "register";
     }
 
-    @RequestMapping("/member")
-    public String member() {
-        return "member";
-    }
-
     @RequestMapping("/single/{id}")
     public ModelAndView single(@PathVariable("id") Integer id) {
         ModelAndView mav = new ModelAndView();
