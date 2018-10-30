@@ -15,6 +15,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -87,16 +88,30 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
 
 
 
-    @RequestMapping(value = "/searchByCategory",method = RequestMethod.GET)
-    public @ResponseBody TableResultResponse<Cake> searchByCategory(String batchCategory) {
-        List<Cake> cakes = null;
-        String[] category = batchCategory.split(",");
-        List<String> list = Arrays.asList(category);
-        Example example = new Example(Cake.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andIn("category",list);
-        cakes = this.biz.selectByExample(example);
-        return new TableResultResponse<>(cakes.size(), cakes);
+    @RequestMapping(value = "/searchByCategory",method = RequestMethod.POST)
+    public String searchByCategory(String queryCategory,Model model) {
+        if("".equals(queryCategory) || queryCategory == null){
+            return "shop::div1";
+        }
+//        List<Cake> cakes = null;
+        String[] category = queryCategory.split(",");
+//        List<String> list = Arrays.asList(category);
+//        Example example = new Example(Cake.class);
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andIn("category",list);
+//        cakes = this.biz.selectByExample(example);
+        List<Cake> list = new ArrayList<>();
+        for (String cate : category) {
+            Cake cake1 = new Cake();
+            cake1.setName(cate);
+            cake1.setCategory("12");
+            cake1.setBanner(4);
+            cake1.setPrice(4.33);
+            list.add(cake1);
+        }
+        list.sort(Comparator.comparing(Cake::getName));
+        model.addAttribute("cakeList",list);
+        return "shop::productList";
     }
 
     @RequestMapping(value = "/searchProduct",method = RequestMethod.POST)
@@ -105,7 +120,6 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
 //        Example.Criteria criteria = example.createCriteria();
 //        criteria.andLike("name",name);
 //        List<Cake> cakes = this.biz.selectByExample(example);
-        System.out.println("ajaxTest");
         Cake cake1 = new Cake();
         cake1.setName(name);
         cake1.setCategory("12");
@@ -119,8 +133,8 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         List<Cake> list = new ArrayList<>();
         list.add(cake1);
         list.add(cake2);
-        model.addAttribute("aa",list);
-        return "shop::div1";
+        model.addAttribute("cakeList",list);
+        return "shop::productList";
     }
 
 
