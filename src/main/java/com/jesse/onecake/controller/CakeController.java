@@ -46,7 +46,13 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         return "login";
     }
     @RequestMapping("/allCake")
-    public String allCake() {
+    public String allCake(Model model) {
+//        Cake cake = new Cake();
+//        cake.setName("sad");
+//        cake.setCategory("14");
+//        cake.setBanner(4);
+//        cake.setPrice(4.33);
+//        model.addAttribute("cakeList",cake);
         return "shop";
     }
     @RequestMapping("/register")
@@ -79,14 +85,7 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         return null;
     }
 
-    @RequestMapping("/searchProduct")
-    public @ResponseBody TableResultResponse<Cake> searchProduct(String name) {
-        Example example = new Example(Cake.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andLike("name",name);
-        List<Cake> cakes = this.biz.selectByExample(example);
-        return new TableResultResponse<>(cakes.size(), cakes);
-    }
+
 
     @RequestMapping(value = "/searchByCategory",method = RequestMethod.GET)
     public @ResponseBody TableResultResponse<Cake> searchByCategory(String batchCategory) {
@@ -99,5 +98,30 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         cakes = this.biz.selectByExample(example);
         return new TableResultResponse<>(cakes.size(), cakes);
     }
+
+    @RequestMapping(value = "/searchProduct",method = RequestMethod.POST)
+    public String searchProduct(String name,Model model){
+//        Example example = new Example(Cake.class);
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andLike("name",name);
+//        List<Cake> cakes = this.biz.selectByExample(example);
+        System.out.println("ajaxTest");
+        Cake cake1 = new Cake();
+        cake1.setName(name);
+        cake1.setCategory("12");
+        cake1.setBanner(4);
+        cake1.setPrice(4.33);
+        Cake cake2 = new Cake();
+        cake2.setName("ewq");
+        cake2.setCategory("3");
+        cake2.setBanner(5);
+        cake2.setPrice(4.34);
+        List<Cake> list = new ArrayList<>();
+        list.add(cake1);
+        list.add(cake2);
+        model.addAttribute("aa",list);
+        return "shop::div1";
+    }
+
 
 }

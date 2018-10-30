@@ -49,6 +49,35 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready( () => {
+            // searchProduct('muse');
+        });
+
+        var batchCategory = new Map();
+        function handleCategory(category, checked) {
+            console.log(category + ' , ' + checked);
+            batchCategory.set(category, checked);
+            searchByCategory(batchCategory);
+        }
+
+        var queryCategory = [];
+        searchByCategory = (batchCategory) => {
+            queryCategory = [];
+            batchCategory.forEach((checked, category) => {
+                if (checked) {
+                    queryCategory.push(category);
+                }
+
+            });
+            alert(queryCategory);
+            // $('#div1').load('/cake/searchProduct',{name: 'muse'});
+        };
+
+        searchProduct = (query) => {
+            $('#div1').load('/cake/searchProduct',{name: query});
+        };
+    </script>
 
     <script type="text/javascript" th:src="@{~/js/jquery.jscrollpane.min.js}"></script>
     <script type="text/javascript" id="sourcecode">
@@ -79,7 +108,7 @@
                 <h4>蛋糕</h4>
                 <div class="row row1 scroll-pane">
                     <div class="col col-4">
-                        <label class="checkbox"><input type="checkbox" name="11" checked="true" onload="handleCategory(this.name,this.checked)"><i></i>戚风 (20)</label>
+                        <label class="checkbox"><input id="defaultCheck" type="checkbox" name="11" checked="true"><i></i>戚风</label>
                     </div>
                     <div class="col col-4">
                         <label class="checkbox"><input type="checkbox" name="12"
@@ -129,7 +158,8 @@
         <!--右侧商品详情-->
         <div class="cont span_2_of_3_verify">
             <!--商品详情-->
-            <div class="box1">
+            <div id="div1" th:fragment="div1">
+            <div class="box1" th:each="a : ${aa}">
                 <div class="prolist">
                     <ul>
                         <li class="clearfix">
@@ -140,7 +170,7 @@
                             </div>
                             <div class="infos">
                                 <h2>
-                                    <a style="color:#555555;" href="/cake/" target="_blank">草莓拿破仑 Strawberry Napoleon
+                                    <a style="color:#555555;" th:text="${a.name}" href="/cake/" target="_blank">草莓拿破仑 Strawberry Napoleon
                                         Cake</a>
                                 </h2>
                                 <div class="desc">
@@ -163,8 +193,7 @@
                     </ul>
                 </div>
             </div><!--单物品结尾标签-->
-
-            <input th:value="${cakeList.name}" id="inp">
+            </div>
 
         </div>
         <div class="clear"></div>
@@ -180,46 +209,7 @@
             easingType: 'linear'
         };
         $().UItoTop({easingType: 'easeOutQuart'});
-        searchProduct('muse');
     });
-    var batchCategory = new Map();
-    handleCategory = (category, checked) => {
-        batchCategory.set(category, checked);
-        searchByCategory(batchCategory);
-    }
-
-    var queryCategory = []
-    var cakeList;
-    searchByCategory = (batchCategory) => {
-        queryCategory = []
-        batchCategory.forEach((checked, category) => {
-            if (checked) {
-                queryCategory.push(category);
-            }
-
-        });
-        $.ajax({
-            url: "/cake/searchByCategory",
-            type: "GET",
-            data: {
-                "batchCategory": queryCategory.toString()
-            },
-            success: function(ret) {
-                var json = eval(ret);
-                cakeList = json.data.rows;
-                console.log(cakeList);
-            }
-        });
-    };
-
-    searchProduct = (query) => {
-        $.get("/cake/searchProduct", {name: query}, function (ret) {
-            if (ret.code === 200) {
-                var json = eval(ret);
-                cakeList = json.data.rows[0];
-            }
-        });
-    };
 </script>
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 
