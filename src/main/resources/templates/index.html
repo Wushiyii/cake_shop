@@ -10,38 +10,7 @@
 <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{~/js/shuffle.js}"></script>
 <script type="text/javascript" th:src="@{~/js/swiper.min.js}"></script>
-<script type="text/javascript">
-        $(document).ready(function() {
-            $(".dropdown img.flag").addClass("flagvisibility");
-
-            $(".dropdown dt a").click(function() {
-                $(".dropdown dd ul").toggle();
-            });
-                        
-            $(".dropdown dd ul li a").click(function() {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-                        
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
-
-            $(document).bind('click', function(e) {
-                var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
-
-
-            $("#flagSwitcher").click(function() {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
-        });
-     </script>
-<!-- start menu -->
+	<!-- start menu -->
 <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
@@ -50,11 +19,7 @@
 <script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
 <script type="text/javascript" th:src="@{~/js/easing.js}"></script>
    <script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $(".scroll").click(function(event){
-            event.preventDefault();
-            $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-        });
+    $(document).ready(function($) {
         $.get("/cake/getBannerList", function(ret){
             if (ret.code === 200) {
                 var json = eval(ret);
@@ -96,72 +61,14 @@
                 	<li><a href="#">3</a></li>
                 	<li><a href="#">4</a></li>
                   </ul>
-                 <!--<a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a><ul class="wmuSliderPagination"><li><a href="#" class="wmuActive">0</a></li><li><a href="#" class="">1</a></li><li><a href="#" class="">2</a></li><li><a href="#" class="">3</a></li><li><a href="#" class="">4</a></li></ul></div>-->
-            	 <script th:src="@{~/js/jquery.wmuSlider.js}"></script>
-				 <!--<script type="text/javascript" th:src="@{~/js/modernizr.custom.min.js}"></script>-->
-						<script>
-       						 $('.example1').wmuSlider();         
-   						</script> 	           	      
+			  	<script th:src="@{~/js/jquery.wmuSlider.js}"></script>
+				<script>
+					 $('.example1').wmuSlider();
+				</script>
              </div>
-             <div class="main index-page">
-					<!--<section id="portfolio" class="scroll-animation" data-animation="fadeInUp" data-animation-delay="0s">-->
-						<!--<h2>相册</h2>-->
-						<!--<div class="filter-options portfolio-menu">-->
-							<!--<button class="btn&#45;&#45;warning" data-group="Web Design">Web Design</button>-->
-							<!--<button class="btn&#45;&#45;warning" data-group="Photography">Photography</button>-->
-							<!--<button class="btn&#45;&#45;warning" data-group="Plugins">Plugins</button>-->
-							<!--<button class="btn&#45;&#45;warning" data-group="Wordpress">Wordpress</button>-->
-						<!--</div>-->
-						<!--<div id="grid" class="portfolio-wrapper">-->
-							<!--<figure class="col-md-3">-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img1.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<figure class="col-md-3" >-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img2.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<figure class="col-md-3" >-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img3.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<figure class="col-md-3" >-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img4.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<figure class="col-md-3" >-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img5.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<figure class="col-md-3" >-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img6.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<figure class="col-md-3" >-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img7.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<figure class="col-md-3" >-->
-								<!--<a href="gallery.html"><img th:src="@{~/images/img8.jpg}" alt=""></a>-->
-							<!--</figure>-->
-							<!--<div class="col-1@sm col-1@xs my-sizer-element"></div>-->
-						<!--</div>-->
-					<!--</section>-->
-        </div>
+	   </div>
 
 	   <div th:replace="front/common/footer::html" ></div>
-       <script type="text/javascript">
-			$(document).ready(function() {
-			
-				var defaults = {
-		  			containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-		 		};
-				
-				
-				$().UItoTop({ easingType: 'easeOutQuart' });
-				
-			});
-
-            // function addCart(a){
-			 //    window.location.href = "/cake/single?id="+a;
-            // }
-		</script>
         <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 
 </body>

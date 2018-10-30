@@ -24,29 +24,6 @@
     <!-- end menu -->
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".dropdown img.flag").addClass("flagvisibility");
-
-            $(".dropdown dt a").click(function () {
-                $(".dropdown dd ul").toggle();
-            });
-
-            $(".dropdown dd ul li a").click(function () {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-
-
-            $(document).bind('click', function (e) {
-                var $clicked = $(e.target);
-                if (!$clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
-
-            $("#flagSwitcher").click(function () {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
             var defaults = {
                 containerID: 'toTop', // fading element id
                 containerHoverID: 'toTopHover', // fading element hover id
@@ -60,7 +37,7 @@
         var batchCategory = new Map();
         var queryCategory = [];
         $(document).ready(() => {
-            handleCategory("11",true);
+            handleCategory("11", true);
         });
         searchProduct = (query) => {
             $('#productList').load('/cake/searchProduct', {name: query});
@@ -105,9 +82,9 @@
     </script>
 </head>
 <body>
-<div th:replace="front/common/header::html"></div>
-<div th:replace="front/common/category::html"></div>
-<div class="login">
+    <div th:replace="front/common/header::html"></div>
+    <div th:replace="front/common/category::html"></div>
+    <div class="login">
     <div class="wrap">
         <!--左侧分类栏-->
         <div class="rsidebar span_1_of_left">
@@ -116,7 +93,8 @@
                 <div class="row row1 scroll-pane" style="width: 243px;height: 150px;">
                     <div class="col col-4">
                         <label class="checkbox"><input id="defaultCheck" type="checkbox" name="11"
-                                                       checked="true" onclick="handleCategory(this.name,this.checked)"><i></i>戚风</label>
+                                                       checked="true"
+                                                       onclick="handleCategory(this.name,this.checked)"><i></i>戚风</label>
                     </div>
                     <div class="col col-4">
                         <label class="checkbox"><input type="checkbox" name="12"
@@ -169,7 +147,8 @@
                                     </div>
                                     <div class="infos">
                                         <h2>
-                                            <a style="color:#555555;" th:text="${cake.name}" href="/cake/" target="_blank">草莓拿破仑
+                                            <a style="color:#555555;" th:text="${cake.name}" href="/cake/"
+                                               target="_blank">草莓拿破仑
                                                 Strawberry Napoleon
                                                 Cake</a>
                                         </h2>
@@ -202,9 +181,8 @@
         </div>
         <div class="clear"></div>
     </div>
-</div>
+    </div>
 <div th:replace="front/common/footer::html"></div>
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-
 </body>
 </html>
