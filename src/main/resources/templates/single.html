@@ -1,232 +1,230 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>Single</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
-<link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all" />
-<link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>
-<script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-<script type="text/javascript">
-        $(document).ready(function() {
+    <title>Single</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{~/css/single.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
+          type='text/css'>
+    <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
             $(".dropdown img.flag").addClass("flagvisibility");
 
-            $(".dropdown dt a").click(function() {
+            $(".dropdown dt a").click(function () {
                 $(".dropdown dd ul").toggle();
             });
-                        
-            $(".dropdown dd ul li a").click(function() {
+
+            $(".dropdown dd ul li a").click(function () {
                 var text = $(this).html();
                 $(".dropdown dt a span").html(text);
                 $(".dropdown dd ul").hide();
                 $("#result").html("Selected value is: " + getSelectedValue("sample"));
             });
-                        
+
             function getSelectedValue(id) {
                 return $("#" + id).find("dt a span.value").html();
             }
 
-            $(document).bind('click', function(e) {
+            $(document).bind('click', function (e) {
                 var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
+                if (!$clicked.parents().hasClass("dropdown"))
                     $(".dropdown dd ul").hide();
             });
 
 
-            $("#flagSwitcher").click(function() {
+            $("#flagSwitcher").click(function () {
                 $(".dropdown img.flag").toggleClass("flagvisibility");
             });
         });
-     </script>
-<!-- start menu -->     
-<link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<!-- end menu -->
-<script type="text/javascript" th:src="@{~/js/jquery.jscrollpane.min.js}"></script>
-		<script type="text/javascript" id="sourcecode">
-			$(function()
-			{
-				$('.scroll-pane').jScrollPane();
-			});
-		</script>
-<!----details-product-slider--->
-				<!-- Include the Etalage files -->
-					<link rel="stylesheet" th:href="@{~/css/etalage.css}">
-					<script th:src="@{~/js/jquery.etalage.min.js}"></script>
-				<!-- Include the Etalage files -->
-				<script>
-						jQuery(document).ready(function($){
+    </script>
+    <!-- start menu -->
+    <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
+    <script>$(document).ready(function () {
+        $(".megamenu").megamenu();
+    });</script>
+    <!-- end menu -->
+    <script type="text/javascript" th:src="@{~/js/jquery.jscrollpane.min.js}"></script>
+    <script type="text/javascript" id="sourcecode">
+        $(function () {
+            $('.scroll-pane').jScrollPane();
+        });
+    </script>
+    <!----details-product-slider--->
+    <!-- Include the Etalage files -->
+    <link rel="stylesheet" th:href="@{~/css/etalage.css}">
+    <script th:src="@{~/js/jquery.etalage.min.js}"></script>
+    <!-- Include the Etalage files -->
+    <script>
+        jQuery(document).ready(function ($) {
 
-							$('#etalage').etalage({
-								thumb_image_width: 400,
-								thumb_image_height: 400,
+            $('#etalage').etalage({
+                thumb_image_width: 400,
+                thumb_image_height: 400,
 
-							});
-							// This is for the dropdown list example:
-							$('.dropdownlist').change(function(){
-								etalage_show( $(this).find('option:selected').attr('class') );
-							});
+            });
+            // This is for the dropdown list example:
+            $('.dropdownlist').change(function () {
+                etalage_show($(this).find('option:selected').attr('class'));
+            });
 
-					});
-				</script>
-				<!----//details-product-slider--->	
-<!-- top scrolling -->
-<script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
-<script type="text/javascript" th:src="@{~/js/easing.js}"></script>
-   <script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
-		});
-	</script>					
+        });
+    </script>
+    <!----//details-product-slider--->
+    <!-- top scrolling -->
+    <script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
+    <script type="text/javascript" th:src="@{~/js/easing.js}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+            });
+        });
+    </script>
 </head>
 <body>
-    <div th:replace="front/common/header::html" ></div>
+<div th:replace="front/common/header::html"></div>
 
-       <div class="single" >
-         <div class="wrap">
-		<div class="cont span_2_of_3">
-			  <div class="labout span_1_of_a1">
-				<!-- start product_slider -->
-						 <ul id="etalage">
-							<li>
-                                <img class="etalage_thumb_image"  th:src="@{~/images/cake5.jpg}" />
-                                <img class="etalage_source_image" th:src="@{~/images/cake5.jpg}" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image"  th:src="@{~/images/t2.jpg}" />
-								<img class="etalage_source_image" th:src="@{~/images/t2.jpg}" />
-							</li>
+<div class="wrap">
+    <div class="part1 clearfix">
+        <div class="part1 clearfix">
+            <!-- 缩略图end -->
+            <div class="photo fl">
+                <div class="account cf clear">
 
-						</ul>
-					
-					
-			<!-- end product_slider -->
-			</div>
-			<div class="cont1 span_2_of_a1">
-				<h3 class="m_3" th:text="${model.name}">Lorem ipsum dolor sit amet</h3>
-				
-				<div class="price_single">
-							  <span class="reducedfrom" th:text="${model.price}" >$66.00</span>
-							  <span class="actual" th:text="${model.price}">$12.00</span><a href="#">click for offer</a>
-							</div>
-				<ul class="options">
-					<h4 class="m_9">Select a Size</h4>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<div class="clear"></div>
-				</ul>
-				<div class="btn_form">
-				   <form>
-					 <input type="submit" value="buy now" title="">
-				  </form>
-				</div>
-				<ul class="add-to-links">
-    			   <li><img th:src="@{~/images/wish.png}" alt=""/><a href="#">Add to wishlist</a></li>
-    			</ul>
-    			<p class="m_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-    			
-                <div class="social_single">	
-				   <ul>	
-					  <li class="fb"><a href="#"><span> </span></a></li>
-					  <li class="tw"><a href="#"><span> </span></a></li>
-					  <li class="g_plus"><a href="#"><span> </span></a></li>
-					  <li class="rss"><a href="#"><span> </span></a></li>		
-				   </ul>
-			    </div>
-			</div>
-			<div class="clear"></div>
-     
-     
-         <ul id="flexiselDemo3">
-			<li><img th:src="@{~/images/pic11.jpg}" /><div class="grid-flex"><a href="#">Bloch</a><p>Rs 850</p></div></li>
-			<li><img th:src="@{~/images/pic10.jpg}" /><div class="grid-flex"><a href="#">Capzio</a><p>Rs 850</p></div></li>
-			<li><img th:src="@{~/images/pic9.jpg}" /><div class="grid-flex"><a href="#">Zumba</a><p>Rs 850</p></div></li>
-			<li><img th:src="@{~/images/pic8.jpg}" /><div class="grid-flex"><a href="#">Bloch</a><p>Rs 850</p></div></li>
-			<li><img th:src="@{~/images/pic7.jpg}" /><div class="grid-flex"><a href="#">Capzio</a><p>Rs 850</p></div></li>
-		 </ul>
-	    <script type="text/javascript">
-		 $(window).load(function() {
-			$("#flexiselDemo1").flexisel();
-			$("#flexiselDemo2").flexisel({
-				enableResponsiveBreakpoints: true,
-		    	responsiveBreakpoints: { 
-		    		portrait: { 
-		    			changePoint:480,
-		    			visibleItems: 1
-		    		}, 
-		    		landscape: { 
-		    			changePoint:640,
-		    			visibleItems: 2
-		    		},
-		    		tablet: { 
-		    			changePoint:768,
-		    			visibleItems: 3
-		    		}
-		    	}
-		    });
-		
-			$("#flexiselDemo3").flexisel({
-				visibleItems: 5,
-				animationSpeed: 1000,
-				autoPlay: true,
-				autoPlaySpeed: 3000,    		
-				pauseOnHover: true,
-				enableResponsiveBreakpoints: true,
-		    	responsiveBreakpoints: { 
-		    		portrait: { 
-		    			changePoint:480,
-		    			visibleItems: 1
-		    		}, 
-		    		landscape: { 
-		    			changePoint:640,
-		    			visibleItems: 2
-		    		},
-		    		tablet: { 
-		    			changePoint:768,
-		    			visibleItems: 3
-		    		}
-		    	}
-		    });
-		    
-		});
-	</script>
-	<script type="text/javascript" th:src="@{~/js/jquery.flexisel.js}"></script>
-	 <div class="toogle">
-     	<h3 class="m_3">Product Details</h3>
-     	<p class="m_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-     </div>					
-	 <div class="toogle">
-     	<h3 class="m_3">Product Reviews</h3>
-     	<p class="m_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
-     </div>
-     </div>
-     <div class="clear"></div>
-	 </div>
-     </div>
-	<div th:replace="front/common/footer::html" ></div>
-       <script type="text/javascript">
-			$(document).ready(function() {
-			
-				var defaults = {
-		  			containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-		 		};
-				
-				
-				$().UItoTop({ easingType: 'easeOutQuart' });
-				
-			});
-		</script>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+                    <div>
+                        <!-- 大图begin -->
+                        <div id="preview" class="spec-preview" style="line-height:normal">
+                            <span class="jqzoom">
+                               <img th:src="@{~/images/cake7.jpg}" width="450" height="450" alt="">
+                            </span>
+                        </div>
+                        <!-- 大图end -->
+                        <!-- 缩略图begin -->
+                        <!--<div class="spec-scroll">-->
+                            <!--&lt;!&ndash;<a class="prev">&lt;</a> <a class="next">&gt;</a>&ndash;&gt;-->
+                            <!--<div class="items swiper-container cake-spic-swiper">-->
 
+                                <!--<ul class="swiper-wrapper">-->
+                                    <!--<li class="swiper-slide">-->
+                                        <!--<img bimg="https://www.boncake.com.cn/public/images/a9/df/8f/0d8a35423d99d9d52d603278efc4fb797809bf96.jpg?1540278301#h"-->
+                                             <!--src="https://www.boncake.com.cn/public/images/5d/58/1c/f0f47d297c12da7d6d77fb7b1bb2d832a58a0ac9.jpg?1540278301#h"-->
+                                             <!--alt="">-->
+                                    <!--</li>-->
+                                    <!--<li class="swiper-slide">-->
+                                        <!--<img bimg="https://www.boncake.com.cn/public/images/9f/38/37/e2a3da4d257a09f009026edbe05bc7592af781dd.jpg?1540278302#h"-->
+                                             <!--src="https://www.boncake.com.cn/public/images/cf/fc/6e/6a06c3bdc5913f982aebc315343beef73829f0a3.jpg?1540278302#h"-->
+                                             <!--alt="">-->
+                                    <!--</li>-->
+                                    <!--<li class="swiper-slide">-->
+                                        <!--<img bimg="https://www.boncake.com.cn/public/images/70/f7/aa/8a49f117ff2aa3cfec655a03f6a16b0612f99d21.jpg?1540278302#h"-->
+                                             <!--src="https://www.boncake.com.cn/public/images/e6/b8/e3/51e69d5e6d716d7f0a1e879cb0f2fddcda052710.jpg?1540278302#h"-->
+                                             <!--alt="">-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+                <!--<script>-->
+                <!--jQuery(".spec-preview .jqzoom").jqueryzoom({xzoom: 400, yzoom: 400});-->
+                <!--</script>-->
+            </div>
+            <div class="size fr">
+                <p class="en-name">Ruby Planet</p>
+                <p class="cn-name">红宝石星球</p>
+                <div class="cake-price">
+                    <!--改动515-->
+                    <div class="price-wrap">
+                        <div class="price-wrap-money"><span class="small">¥</span><span class="big">318</span><span
+                                class="small">.00</span></div>
+                    </div>
+                    <!--原价-->
+                    <!---->
+                    <!--<div class="price">-->
+                    <!--<span class="small">¥</span>318-->
+                    <!--</div>-->
+                    <!---->
+                </div>
+                <p class="cake-type">Cake type | 蛋糕种类</p>
+                <p class="cake-small-name">慕斯蛋糕</p>
+                <div class="cake-num" id="product-buy-quantity"><span class="label">数量:
+                </span><input type="text" name="goods[num]" class="cake-input"
+                              onkeyup="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');"
+                              id="action-quantity-input" value="1" min="1" max="4985">
+                    <!-- 商品规格 -->
+                    <div class="cake-size">
+                        <span class="label">尺寸:</span>
+                        <input class="cake-input" value="6寸" data-xx="154027816670|154027816670" id="size_spec"
+                               type="text">
+                        <div class="cake-size2-son">
+                            <div class="size2 active">6寸</div>
+                        </div>
+                    </div>
+                    <!--数量、尺寸，适用人数-->
+                    <!--<p class="size-size">SIZE:10cm x 10cm</p>-->
+                    <div class="eat-people" id="people_count">
+                        <span class="eat-text">适合2-4人食用</span>
+                        <span>含5套餐具</span>
+                    </div>
+                    <div class="cake-book">
+                        <span>需提前5小时预订</span>
+                    </div>
+                    <!--加入购物车、立即购买-->
+                    <div class="buy-btn">
+                        <button class="action-addtocart join-cart" type="submit" rel="_request">
+                            <img class="cart-icon" src="/themes/boncake/images/img/btn-cart-icon.png" alt="">
+                            <div class="join-cart-text">加入购物车</div>
+                        </button>
+                        <button type="submit" class="action-buynow buy-now" value="立即购买" rel="_request">立即购买</button>
+                    </div>
+                    <div class="sweet-level">
+                        <span>Sweetness level | 甜度</span>
+                    </div>
+                    <div class="stars">
+                        <img class="star-icon" src="/themes/boncake/images/img/star-icon.png" alt="">
+                        <img class="star-icon" src="/themes/boncake/images/img/star-icon.png" alt="">
+                        <img class="star-icon" src="/themes/boncake/images/img/star-icon.png" alt="">
+                        <img class="star-icon" src="/themes/boncake/images/img/star-light-icon.png" alt="">
+
+                        <img class="star-icon" src="/themes/boncake/images/img/star-light-icon.png" alt="">
+
+                    </div>
+                    <div class="store">
+                        <span>Preservation conditions｜保鲜条件</span>
+                    </div>
+                    <div class="store-desc">
+                        <span>最佳保存温度0°C，最佳赏味期为24小时内<br>食用前请在室温下放置20分钟，口感更佳</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+
+
+            $().UItoTop({easingType: 'easeOutQuart'});
+
+        });
+    </script>
+    <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+</div>
+<div th:replace="front/common/footer::html"></div>
 </body>
 </html>
