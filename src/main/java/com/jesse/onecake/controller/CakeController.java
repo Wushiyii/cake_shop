@@ -91,49 +91,27 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     @RequestMapping(value = "/searchByCategory",method = RequestMethod.POST)
     public String searchByCategory(String queryCategory,Model model) {
         if("".equals(queryCategory) || queryCategory == null){
-            return "shop::div1";
+            return "shop::productList";
         }
-//        List<Cake> cakes = null;
+
         String[] category = queryCategory.split(",");
-//        List<String> list = Arrays.asList(category);
-//        Example example = new Example(Cake.class);
-//        Example.Criteria criteria = example.createCriteria();
-//        criteria.andIn("category",list);
-//        cakes = this.biz.selectByExample(example);
-        List<Cake> list = new ArrayList<>();
-        for (String cate : category) {
-            Cake cake1 = new Cake();
-            cake1.setName(cate);
-            cake1.setCategory("12");
-            cake1.setBanner(4);
-            cake1.setPrice(4.33);
-            list.add(cake1);
-        }
-        list.sort(Comparator.comparing(Cake::getName));
-        model.addAttribute("cakeList",list);
+        List<String> list = Arrays.asList(category);
+        Example example = new Example(Cake.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andIn("category",list);
+        List<Cake> cakes = this.biz.selectByExample(example);
+        cakes.sort(Comparator.comparing(Cake::getName));
+        model.addAttribute("cakeList",cakes);
         return "shop::productList";
     }
 
     @RequestMapping(value = "/searchProduct",method = RequestMethod.POST)
     public String searchProduct(String name,Model model){
-//        Example example = new Example(Cake.class);
-//        Example.Criteria criteria = example.createCriteria();
-//        criteria.andLike("name",name);
-//        List<Cake> cakes = this.biz.selectByExample(example);
-        Cake cake1 = new Cake();
-        cake1.setName(name);
-        cake1.setCategory("12");
-        cake1.setBanner(4);
-        cake1.setPrice(4.33);
-        Cake cake2 = new Cake();
-        cake2.setName("ewq");
-        cake2.setCategory("3");
-        cake2.setBanner(5);
-        cake2.setPrice(4.34);
-        List<Cake> list = new ArrayList<>();
-        list.add(cake1);
-        list.add(cake2);
-        model.addAttribute("cakeList",list);
+        Example example = new Example(Cake.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andLike("name","%"+name+"%");
+        List<Cake> cakes = this.biz.selectByExample(example);
+        model.addAttribute("cakeList",cakes);
         return "shop::productList";
     }
 
