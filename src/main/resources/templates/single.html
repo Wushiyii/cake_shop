@@ -6,41 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{~/css/single.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
           type='text/css'>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".dropdown img.flag").addClass("flagvisibility");
-
-            $(".dropdown dt a").click(function () {
-                $(".dropdown dd ul").toggle();
-            });
-
-            $(".dropdown dd ul li a").click(function () {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
-
-            $(document).bind('click', function (e) {
-                var $clicked = $(e.target);
-                if (!$clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
-
-
-            $("#flagSwitcher").click(function () {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
-        });
-    </script>
     <!-- start menu -->
     <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all"/>
     <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
@@ -54,177 +22,162 @@
             $('.scroll-pane').jScrollPane();
         });
     </script>
-    <!----details-product-slider--->
-    <!-- Include the Etalage files -->
-    <link rel="stylesheet" th:href="@{~/css/etalage.css}">
-    <script th:src="@{~/js/jquery.etalage.min.js}"></script>
-    <!-- Include the Etalage files -->
-    <script>
-        jQuery(document).ready(function ($) {
-
-            $('#etalage').etalage({
-                thumb_image_width: 400,
-                thumb_image_height: 400,
-
-            });
-            // This is for the dropdown list example:
-            $('.dropdownlist').change(function () {
-                etalage_show($(this).find('option:selected').attr('class'));
-            });
-
-        });
-    </script>
-    <!----//details-product-slider--->
     <!-- top scrolling -->
     <script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
-    <script type="text/javascript" th:src="@{~/js/easing.js}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-            });
-        });
-    </script>
 </head>
 <body>
 <div th:replace="front/common/header::html"></div>
 
-<div class="wrap">
-    <div class="part1 clearfix">
-        <div class="part1 clearfix">
-            <!-- 缩略图end -->
-            <div class="photo fl">
-                <div class="account cf clear">
-
-                    <div>
-                        <!-- 大图begin -->
-                        <div id="preview" class="spec-preview" style="line-height:normal">
-                            <span class="jqzoom">
-                               <img th:src="@{~/images/cake7.jpg}" width="450" height="450" alt="">
-                            </span>
-                        </div>
-                        <!-- 大图end -->
-                        <!-- 缩略图begin -->
-                        <!--<div class="spec-scroll">-->
-                            <!--&lt;!&ndash;<a class="prev">&lt;</a> <a class="next">&gt;</a>&ndash;&gt;-->
-                            <!--<div class="items swiper-container cake-spic-swiper">-->
-
-                                <!--<ul class="swiper-wrapper">-->
-                                    <!--<li class="swiper-slide">-->
-                                        <!--<img bimg="https://www.boncake.com.cn/public/images/a9/df/8f/0d8a35423d99d9d52d603278efc4fb797809bf96.jpg?1540278301#h"-->
-                                             <!--src="https://www.boncake.com.cn/public/images/5d/58/1c/f0f47d297c12da7d6d77fb7b1bb2d832a58a0ac9.jpg?1540278301#h"-->
-                                             <!--alt="">-->
-                                    <!--</li>-->
-                                    <!--<li class="swiper-slide">-->
-                                        <!--<img bimg="https://www.boncake.com.cn/public/images/9f/38/37/e2a3da4d257a09f009026edbe05bc7592af781dd.jpg?1540278302#h"-->
-                                             <!--src="https://www.boncake.com.cn/public/images/cf/fc/6e/6a06c3bdc5913f982aebc315343beef73829f0a3.jpg?1540278302#h"-->
-                                             <!--alt="">-->
-                                    <!--</li>-->
-                                    <!--<li class="swiper-slide">-->
-                                        <!--<img bimg="https://www.boncake.com.cn/public/images/70/f7/aa/8a49f117ff2aa3cfec655a03f6a16b0612f99d21.jpg?1540278302#h"-->
-                                             <!--src="https://www.boncake.com.cn/public/images/e6/b8/e3/51e69d5e6d716d7f0a1e879cb0f2fddcda052710.jpg?1540278302#h"-->
-                                             <!--alt="">-->
-                                    <!--</li>-->
-                                <!--</ul>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    </div>
-
-                </div>
-                <!--<script>-->
-                <!--jQuery(".spec-preview .jqzoom").jqueryzoom({xzoom: 400, yzoom: 400});-->
-                <!--</script>-->
-            </div>
-            <div class="size fr">
-                <p class="en-name">Ruby Planet</p>
-                <p class="cn-name">红宝石星球</p>
-                <div class="cake-price">
-                    <!--改动515-->
-                    <div class="price-wrap">
-                        <div class="price-wrap-money"><span class="small">¥</span><span class="big">318</span><span
-                                class="small">.00</span></div>
-                    </div>
-                    <!--原价-->
-                    <!---->
-                    <!--<div class="price">-->
-                    <!--<span class="small">¥</span>318-->
-                    <!--</div>-->
-                    <!---->
-                </div>
-                <p class="cake-type">Cake type | 蛋糕种类</p>
-                <p class="cake-small-name">慕斯蛋糕</p>
-                <div class="cake-num" id="product-buy-quantity"><span class="label">数量:
-                </span><input type="text" name="goods[num]" class="cake-input"
-                              onkeyup="this.value=this.value.replace(/[^\.\d]/g,'');this.value=this.value.replace('.','');"
-                              id="action-quantity-input" value="1" min="1" max="4985">
-                    <!-- 商品规格 -->
-                    <div class="cake-size">
-                        <span class="label">尺寸:</span>
-                        <input class="cake-input" value="6寸" data-xx="154027816670|154027816670" id="size_spec"
-                               type="text">
-                        <div class="cake-size2-son">
-                            <div class="size2 active">6寸</div>
-                        </div>
-                    </div>
-                    <!--数量、尺寸，适用人数-->
-                    <!--<p class="size-size">SIZE:10cm x 10cm</p>-->
-                    <div class="eat-people" id="people_count">
-                        <span class="eat-text">适合2-4人食用</span>
-                        <span>含5套餐具</span>
-                    </div>
-                    <div class="cake-book">
-                        <span>需提前5小时预订</span>
-                    </div>
-                    <!--加入购物车、立即购买-->
-                    <div class="buy-btn">
-                        <button class="action-addtocart join-cart" type="submit" rel="_request">
-                            <img class="cart-icon" src="/themes/boncake/images/img/btn-cart-icon.png" alt="">
-                            <div class="join-cart-text">加入购物车</div>
-                        </button>
-                        <button type="submit" class="action-buynow buy-now" value="立即购买" rel="_request">立即购买</button>
-                    </div>
-                    <div class="sweet-level">
-                        <span>Sweetness level | 甜度</span>
-                    </div>
-                    <div class="stars">
-                        <img class="star-icon" src="/themes/boncake/images/img/star-icon.png" alt="">
-                        <img class="star-icon" src="/themes/boncake/images/img/star-icon.png" alt="">
-                        <img class="star-icon" src="/themes/boncake/images/img/star-icon.png" alt="">
-                        <img class="star-icon" src="/themes/boncake/images/img/star-light-icon.png" alt="">
-
-                        <img class="star-icon" src="/themes/boncake/images/img/star-light-icon.png" alt="">
-
-                    </div>
-                    <div class="store">
-                        <span>Preservation conditions｜保鲜条件</span>
-                    </div>
-                    <div class="store-desc">
-                        <span>最佳保存温度0°C，最佳赏味期为24小时内<br>食用前请在室温下放置20分钟，口感更佳</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
+    <div class="inside-box clearfix">
+        <dl class="allcake-warp allcake-center inside-dl">
+            <dt>
+                <!--大图-->
+                <ul class="pho-tab js-pho-tab">
+                    <li style="display: list-item;"><img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/pics/000/000/057/original/_DSC5987_%E5%89%AF%E6%9C%AC.jpg?1453114118"></li>
+                    <li style="display: none;">
+                        <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/sub_pics/000/000/057/original/_DSC6017_%E5%89%AF%E6%9C%AC.jpg?1453114118">
+                    </li>
+                    <li style="display: none;">
+                        <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/pic_thirds/000/000/057/original/_DSC6001_%E5%89%AF%E6%9C%AC.jpg?1453114118">
+                    </li>
+                </ul>
+                <!--缩略图-->
+                <ul class="pho-tac js-pho-tac">
+                    <li class="pho-cur">
+                        <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/pics/000/000/057/original/_DSC5987_%E5%89%AF%E6%9C%AC.jpg?1453114118">
+                    </li>
+                    <li class="">
+                        <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/sub_pics/000/000/057/original/_DSC6017_%E5%89%AF%E6%9C%AC.jpg?1453114118">
+                    </li>
+                    <li class="">
+                        <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/pic_thirds/000/000/057/original/_DSC6001_%E5%89%AF%E6%9C%AC.jpg?1453114118">
+                    </li>
+                </ul>
+                <p class="inside-info">蛋糕在收到后2-3小时内食用最佳，最适宜0℃~8℃冷藏保存，24小时内食用。<br>如对上述食材有过敏经历者，请选择其它款蛋糕。<br>订购1~3磅规格的蛋糕，请提前5小时订购。<br>订购5磅或5磅以上规格的蛋糕，请提前24小时预定或与客服人员联系，订购电话：4009-926-927</p>
+            </dt>
+            <dd>
+                <h5 class="inside-title">
+                    榴恋
+                    <a href="/products?cat_id=2">乳脂奶油</a>
+                </h5>
+                <p class="inside-desc">这一刻未必喜欢，总有一天，无比想念</p>
+                <p class="inside-weigth">
+                    <a capacity="1磅：约13×13(cm) 适合3-4人食用 " id="249" data-price="168.0" class="product current" href="javascript:void(0)">1磅</a>
+                    <a capacity="2磅：约17×17(cm) 适合7-8人食用 " id="250" data-price="268.0" class="product " href="javascript:void(0)">2磅</a>
+                    <a capacity="3磅：约23×23(cm) 适合11-12人食用 " id="251" data-price="388.0" class="product " href="javascript:void(0)">3磅</a>
+                    <a capacity="5磅：约30×30(cm) 适合15-20人食用 " id="252" data-price="750.0" class="product " href="javascript:void(0)">5磅</a>
+                </p>
+                <p class="inside-num">
+                    <span>数量</span>
+                    <input class="jia" onclick="decrement();" type="button">
+                    <input id="quantity" class="count" type="text" value="1">
+                    <input class="jian" onclick="increment();" type="button">
+                </p>
+                <p class="inside-tim">需提前5小时预订</p>
+                <p class="inside-price">
+                    <span id="items_discount_price"><i>￥</i>168.0</span>
+                    <!--           <a href="/my/apply_vip_card"><i style="font-size:12px;">购买Allcake会员卡获得更多优惠</i></a>
+                     -->
+                </p>
+                <p class="inside-btn">
+                    <a class="buynow" id="buy_now" href="javascript:void(0)">立即购买</a>
+                    <a class="getchart" id="add_to_cart" href="javascript:void(0)">加入购物车</a>
+                </p>
+                <table cellpadding="0" cellspacing="0" width="420" border="0" class="inside-table">
+                    <tbody><tr>
+                        <td align="left" valign="top" width="40">原料</td>
+                        <td align="left" valign="top" width="360">榴莲(泰国)、牛奶(新西兰)、巧克力(比利时)</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="40">口味</td>
+                        <td align="left" valign="top" width="360">榴莲味浓郁，口感香醇</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" width="40">甜度</td>
+                        <td align="left" valign="top" width="360">
+                            <b></b>
+                            <b></b>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
     </div>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            var defaults = {
-                containerID: 'toTop', // fading element id
-                containerHoverID: 'toTopHover', // fading element hover id
-                scrollSpeed: 1200,
-                easingType: 'linear'
-            };
-
-
-            $().UItoTop({easingType: 'easeOutQuart'});
-
-        });
-    </script>
     <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-</div>
+<!--</div>-->
 <div th:replace="front/common/footer::html"></div>
 </body>
+<script type="text/javascript">
+
+    $('#add_to_cart').on('click', function(){
+        var id = $('.current').attr('id');
+        var quantity = $('#quantity').val();
+        $.post('/cake/',
+            {
+                'id': id,
+               'quantity': quantity
+             },
+            function(data){
+                $('#items_count').text(data['items_count']);
+            });
+    });
+
+    $('#buy_now').on('click', function(){
+        var id = $('.current').attr('id');
+        var quantity = $('#quantity').val();
+        $.post('/cake/',
+            {
+                'id': id,
+                'quantity': quantity
+            },
+            function(data){
+                alert(data);
+            });
+    });
+
+    $('#quantity').on('change', function(){
+        sum();
+    });
+
+     sum = () => {
+        let sku = $('.current');
+        let price = parseFloat(sku.data('price'));
+        let quantity = parseFloat($('#quantity').val());
+        let items_sum_discount_price = (price * quantity).toFixed(1);
+        $('#items_discount_price').html('<i>￥</i>'+items_sum_discount_price);
+    };
+    $('.product').on('click', function(){
+        $(".product").removeClass("current");
+        $(this).addClass("current");
+        sum();
+    });
+    function increment(e) {
+        if (e) {
+            var t = $("#quantity" + e);
+        } else {
+            var t = $("#quantity");
+        }
+        var n = t.val();
+        n < 99 && (n++, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
+            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
+        }), t.trigger("change"))
+    }
+
+    function calculate() {
+        var e = $(".cartListItems .checkboxed"), t = 0, n = 0;
+        $.each(e, function (e, i) {
+            t += parseFloat($(i).attr("data-sum")), n += parseFloat($(i).attr("originalSum"))
+        }), $(".items_total_price").html("\uffe5" + t), $(".items_total_origin_price").html("\u539f\u4ef7" + n + "\u5143"), $(".items_count").html("\u5df2\u9009\u62e9" + e.length + "\u6b3e\u4ea7\u54c1")
+    }
+
+    function decrement(e) {
+        if (e) var t = $("#quantity" + e); else var t = $("#quantity");
+        var n = t.val();
+        n > 1 && (n--, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
+            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
+        }), t.trigger("change"))
+    }
+
+</script>
 </html>
