@@ -11,9 +11,16 @@ comment '产品表';
 
 create table user
 (
-	id varchar(64) not null primary key,
-	name varchar(100) null,
-	age int null
+	id       varchar(64)  not null
+		primary key,
+	name     varchar(100) null,
+	age      int          null,
+	username varchar(150) null,
+	password varchar(200) null,
+	`group`  varchar(40)  null,
+	gender   varchar(20)  null,
+	email    varchar(140) null,
+	phone    varchar(100) null
 )
-comment '用户表';
+	comment '用户表';
 

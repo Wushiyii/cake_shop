@@ -10,6 +10,10 @@
         <result column="password" property="password" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="age" property="age" jdbcType="INTEGER" />
+        <result column="group" property="group" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
     </resultMap>
 
 </mapper>

@@ -1,99 +1,72 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>Register</title>
+<title>注册</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
 <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>
 <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-<script type="text/javascript">
-        $(document).ready(function() {
-            $(".dropdown img.flag").addClass("flagvisibility");
 
-            $(".dropdown dt a").click(function() {
-                $(".dropdown dd ul").toggle();
-            });
-
-            $(".dropdown dd ul li a").click(function() {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
-
-            $(document).bind('click', function(e) {
-                var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
-
-            $("#flagSwitcher").click(function() {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
-        });
-     </script>
-<!-- 菜单样式 -->
-<link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<!-- top scrolling -->
-<script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
-<script type="text/javascript" th:src="@{~/js/easing.js}"></script>
-   <script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
-		});
-	</script>
 </head>
 <body>
        <div th:replace="front/common/header::html" ></div>
-       <div class="register_account">
+       <div class="register_account" style="margin-bottom: 50px;">
           	<div class="wrap">
     	      <h4 class="title" style="font-size: 36px">注册</h4>
-    		   <form action="/user/register">
-    			 <div class="col_1_of_2 span_1_of_2" style="width: 300px;">
-		   			 <div><input style="border: 1px solid #B7B7B7" type="text" value="请输入姓名" onmouseover="this.style.borderColor = '#00b7d3'"
-								 onmouseout="this.style.borderColor = '#B7B7B7'" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入姓名';}"></div>
-		    			<!--<div><input type="text" value="Company Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Company Name';}"></div>-->
-		    			<div><input style="border: 1px solid #B7B7B7" type="text" value="请输入手机" onmouseover="this.style.borderColor = '#00b7d3'"
-									onmouseout="this.style.borderColor = '#B7B7B7'" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请输入手机';}"></div>
-		    			<div><input style="border: 1px solid #B7B7B7" type="password" placeholder="请输入密码" onmouseover="this.style.borderColor = '#00b7d3'"
-									onmouseout="this.style.borderColor = '#B7B7B7'"></div>
-		    			<div><input style="border: 1px solid #B7B7B7" type="password" placeholder="请确认两次密码输入一致" onmouseover="this.style.borderColor = '#00b7d3'"
-									onmouseout="this.style.borderColor = '#B7B7B7'"></div>
+    		   <form>
+    			 <div class="col_1_of_2 span_1_of_2" style="width: 400px;">
+		   			 <div style="width: 350px">
+						 <input style="border: 1px solid #B7B7B7" type="text" placeholder="请输入用户名" onmouseover="this.style.borderColor = '#00b7d3'" id="username"
+								 onmouseout="this.style.borderColor = '#B7B7B7'" onfocus="this.value = '';">
+						 <p id="tip1" style="font-size: 10px;color: #aa3333"></p>
+		    			<input style="border: 1px solid #B7B7B7" type="text" placeholder="请输入手机" onmouseover="this.style.borderColor = '#00b7d3'" id="phone"
+									onmouseout="this.style.borderColor = '#B7B7B7'" onfocus="this.value = '';">
+						 <p id="tip2" style="font-size: 10px;color: #aa3333"></p>
+		    			<input style="border: 1px solid #B7B7B7" type="password" placeholder="请输入密码" onmouseover="this.style.borderColor = '#00b7d3'"
+									onmouseout="this.style.borderColor = '#B7B7B7'" id="pass">
+		    			<input style="border: 1px solid #B7B7B7" type="password" placeholder="请确认两次密码输入一致" onmouseover="this.style.borderColor = '#00b7d3'"
+									onmouseout="this.style.borderColor = '#B7B7B7'" id="repass"><span id="tip3" style="font-size: 10px;color: #aa3333"></span>
+					 </div>
 		    	 </div>
 				   <div class="clear"></div>
 				   <div>
-					   <button class="grey">注册</button>
+					   <button class="grey" id="register">注册</button>
 				   </div>
 		         <div class="clear"></div>
 		    </form>
     	  </div> 
         </div>
-	   <div th:replace="front/common/footer::html" ></div>
-       <script type="text/javascript">
-			$(document).ready(function() {
-				var defaults = {
-		  			containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-		 		};
-
-
-				$().UItoTop({ easingType: 'easeOutQuart' });
-				
-			});
-		</script>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-
+	   <div th:replace="front/common/footer::html"></div>
 </body>
+<script type="text/javascript">
+	$("#repass").keyup(function() {
+        if($("#pass").val() != $("#repass").val()){
+            $("#tip3").html('两次输入的密码不相同，请确认');
+		} else {
+            $("#tip3").html('');
+		}
+	});
+    $("#register").click(function() {
+        console.log($("#username").val());
+        console.log($("#phone").val());
+        if($("#username").val() == '' || $("#username").val() == null){
+            $("#tip1").html('请输入用户名');
+            return;
+		}
+        if($("#phone").val() == '' || $("#phone").val() == null){
+            $("#tip2").html('请输入手机号');
+            return;
+        }
+        if($("#pass").val() != $("#repass").val()){
+            $("#tip3").html('两次输入的密码不相同，请确认');
+            return;
+        } else {
+            var username = $("#username").val();
+            var password = $("#pass").val();
+            var phone = $("#phone").val();
+            console.log(username + ' , ' + password + ' , ' + phone);
+        }
+    })
+</script>
 </html>
