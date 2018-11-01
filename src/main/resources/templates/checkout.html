@@ -1,10 +1,12 @@
-<!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
 <head>
 <title>Checkout</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{~/assets/css/amazeui.min.css}" rel="stylesheet" type="text/css" media="all" />
+<link th:href="@{~/css/single.css}" rel="stylesheet" type="text/css" media="all" />
 <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>
 <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
 <script type="text/javascript">
@@ -14,14 +16,14 @@
             $(".dropdown dt a").click(function() {
                 $(".dropdown dd ul").toggle();
             });
-                        
+
             $(".dropdown dd ul li a").click(function() {
                 var text = $(this).html();
                 $(".dropdown dt a span").html(text);
                 $(".dropdown dd ul").hide();
                 $("#result").html("Selected value is: " + getSelectedValue("sample"));
             });
-                        
+
             function getSelectedValue(id) {
                 return $("#" + id).find("dt a span.value").html();
             }
@@ -38,7 +40,7 @@
             });
         });
      </script>
-<!-- start menu -->     
+<!-- start menu -->
 <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
@@ -48,7 +50,7 @@
 <script type="text/javascript" th:src="@{~/js/easing.js}"></script>
    <script type="text/javascript">
 		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
+			$(".scroll").click(function(event){
 				event.preventDefault();
 				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
 			});
@@ -64,23 +66,37 @@
     	   	 <!--</div>-->
 			<div class="span_1_of_5"></div>
 			<div class="card-cart">
-
-				<div class="mens-toolbar" style="width: 60%">
+                <h2 class="cart-title" style="width: 80%">购物车</h2>
+				<div class="mens-toolbar" style="width: 80%">
 					<div class="cart">
 						<table>
-							<tr style="font-size: 12px;">
-								<th style="width: 10%;"><input type="checkbox" class="check-out-box">全选</th>
-								<th style="width: 40%;text-align: left">商品</th>
-								<th style="width: 10%;">单价</th>
-								<th style="width: 10%;">数量</th>
-								<th style="width: 10%;">小计</th>
-								<th style="width: 20%;">操作</th>
+							<tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;">
+								<th style="width: 10%;">
+									<section class="sky-form">
+										<label class="checkbox">
+											<input id="defaultCheck" type="checkbox" name="11" checked="true">
+											全选
+										</label>
+									</section>
+								</th>
+								<th style="width: 30%;text-align: left">商品</th>
+								<th style="width: 10%;text-align: center">单价</th>
+								<th style="width: 20%;text-align: center">数量</th>
+								<th style="width: 10%;text-align: center">小计</th>
+								<th style="width: 20%;text-align: center">操作</th>
 							</tr>
-							<tr style="font-size: 12px;">
+							<tr style="font-size: 14px;" >
 								<td style="width: 10%;"><input type="checkbox" style="margin-right: 25px;" class="check-out-box"></td>
-								<td style="width: 40%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt="" class="avatar"></td>
+								<td style="width: 30%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt="" class="avatar"></td>
 								<td style="width: 10%;">27.5</td>
-								<td style="width: 10%;">1</td>
+								<td style="width: 20%;">
+									<p class="inside-num">
+										<input style="margin-left: 60px;" class="jia" onclick="decrement(67576);" type="button">
+										<!--<i class="am-icon-plus"></i>-->
+										<input id="quantity67576" class="count" type="text" value="1" disabled="">
+										<input class="jian" onclick="increment(67576);" type="button">
+									</p>
+								</td>
 								<td style="width: 10%;">27.5</td>
 								<td style="width: 20%;">
 									<a href="/user/register" style="display:block; color: #666;text-decoration: none;">删除</a>
@@ -88,38 +104,47 @@
 								</td>
 							</tr>
 						</table>
-						<hr>
-						<div>
-							<button class="grey" style="float: right;background-color: #B08F68;border-bottom: 2px solid #746862;">结算</button>
-							<div style="display: inline-block;padding:10px 8px 0 0;float: right">
-								<h3 style="color: #1D1C1C">总价:￥210.5</h3>
-							</div>
-						</div>
 					</div>
+				</div>
+				<div class="mens-toolbar" style="width: 80%;border: none;">
+					<!--<button class="grey" style="width:130px;float: right;background-color: #B08F68;border-bottom: 1px solid #746862;">结算</button>-->
+					<a style="float:right;display: inline-block;width: 140px;height: 40px;line-height:
+					40px;font-size: 16px;color: #FFF;background-color: #87b048;text-align: center">结算</a>
+					<span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;">￥148</span>
+					<span style="float:right;font-size: 14px;color: #758552;margin-top: 14px;">总价:</span>
 				</div>
 
 			</div>
 		</div>
-
-
 		<div th:replace="front/common/footer::html" ></div>
-
-       <script type="text/javascript">
-			$(document).ready(function() {
-			
-				var defaults = {
-		  			containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear' 
-		 		};
-				
-				
-				$().UItoTop({ easingType: 'easeOutQuart' });
-				
-			});
-		</script>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>       
-
+        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 </body>
+<script type="text/javascript">
+    function increment(e) {
+        if (e) {
+            var t = $("#quantity" + e);
+        } else {
+            var t = $("#quantity");
+        }
+        var n = t.val();
+        n < 99 && (n++, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
+            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
+        }), t.trigger("change"))
+    }
+
+    function calculate() {
+        var e = $(".cartListItems .checkboxed"), t = 0, n = 0;
+        $.each(e, function (e, i) {
+            t += parseFloat($(i).attr("data-sum")), n += parseFloat($(i).attr("originalSum"))
+        }), $(".items_total_price").html("\uffe5" + t), $(".items_total_origin_price").html("\u539f\u4ef7" + n + "\u5143"), $(".items_count").html("\u5df2\u9009\u62e9" + e.length + "\u6b3e\u4ea7\u54c1")
+    }
+
+    function decrement(e) {
+        if (e) var t = $("#quantity" + e); else var t = $("#quantity");
+        var n = t.val();
+        n > 1 && (n--, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
+            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
+        }), t.trigger("change"))
+    }
+</script>
 </html>

@@ -1,5 +1,5 @@
 /* reset */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
 ol,ul{list-style:none;margin:0;padding:0;}
 blockquote,q{quotes:none;}
@@ -1405,32 +1405,23 @@ p.code {
 .mens-toolbar {
 	/*margin: 0 0 12px;*/
 	overflow: hidden;
-	background: #F7F7F7;
+	/*background: #F7F7F7;*/
 	padding: 5px;
-	border: 1px solid #E6E6E6;
+	border-bottom: 1px solid #DDDDDD;
 	width: 98.9%;
 }
 .mens-toolbar .cart {
     width: 100%;
-	margin-top: 10px;
 }
 .mens-toolbar .cart table{
     width: 100%;
 	margin: 10px;
 }
 .mens-toolbar .cart table tr{
-	border: 1px solid #e9e9e9;
 
 }
 .mens-toolbar .cart table tr th{
 	padding: 10px;
-	background-color: #f3f3f3;
-	color: #666;
-
-}
-.mens-toolbar .cart table tr th{
-	padding: 10px;
-	background-color: #f3f3f3;
 	color: #666;
 
 }
@@ -1442,8 +1433,7 @@ p.code {
 }
 .mens-toolbar .cart table tr td{
     padding-top: 15px;
-    vertical-align: top;
-	background-color: #f3f3f3;
+    vertical-align: middle;
     color: #666;
     text-align: center;
 
