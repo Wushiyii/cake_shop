@@ -14,29 +14,29 @@
        <div class="register_account" style="margin-bottom: 50px;">
           	<div class="wrap">
     	      <h4 class="title" style="font-size: 36px">注册</h4>
-    		   <form>
+    		   <form action="/user/register">
     			 <div class="col_1_of_2 span_1_of_2" style="width: 400px;">
 		   			 <div style="width: 350px">
-						 <input style="border: 1px solid #B7B7B7" type="text" placeholder="请输入用户名" onmouseover="this.style.borderColor = '#00b7d3'" id="username"
-								 onmouseout="this.style.borderColor = '#B7B7B7'" onfocus="this.value = '';">
+						 <input style="border: 1px solid #B7B7B7" type="text" placeholder="请输入用户名" onmouseover="this.style.borderColor = '#00b7d3'" name="username" id="username"
+								 onmouseout="this.style.borderColor = '#B7B7B7'">
 						 <p id="tip1" style="font-size: 10px;color: #aa3333"></p>
-		    			<input style="border: 1px solid #B7B7B7" type="text" placeholder="请输入手机" onmouseover="this.style.borderColor = '#00b7d3'" id="phone"
-									onmouseout="this.style.borderColor = '#B7B7B7'" onfocus="this.value = '';">
+		    			<input style="border: 1px solid #B7B7B7" type="text" placeholder="请输入手机" onmouseover="this.style.borderColor = '#00b7d3'" name="phone" id="phone"
+									onmouseout="this.style.borderColor = '#B7B7B7'">
 						 <p id="tip2" style="font-size: 10px;color: #aa3333"></p>
-		    			<input style="border: 1px solid #B7B7B7" type="password" placeholder="请输入密码" onmouseover="this.style.borderColor = '#00b7d3'"
-									onmouseout="this.style.borderColor = '#B7B7B7'" id="pass">
+		    			<input style="border: 1px solid #B7B7B7" type="password" placeholder="请输入密码" onmouseover="this.style.borderColor = '#00b7d3'" id="pass"
+									onmouseout="this.style.borderColor = '#B7B7B7'" name="pass">
 		    			<input style="border: 1px solid #B7B7B7" type="password" placeholder="请确认两次密码输入一致" onmouseover="this.style.borderColor = '#00b7d3'"
-									onmouseout="this.style.borderColor = '#B7B7B7'" id="repass"><span id="tip3" style="font-size: 10px;color: #aa3333"></span>
+									onmouseout="this.style.borderColor = '#B7B7B7'" name="repass" id="repass"><span id="tip3" style="font-size: 10px;color: #aa3333"></span>
 					 </div>
 		    	 </div>
 				   <div class="clear"></div>
 				   <div>
-					   <button class="grey" id="register">注册</button>
+					   <button class="grey" id="register" onclick="return checkForm(this.form)">注册</button>
 				   </div>
-		         <div class="clear"></div>
 		    </form>
     	  </div> 
         </div>
+	   <button>asd</button>
 	   <div th:replace="front/common/footer::html"></div>
 </body>
 <script type="text/javascript">
@@ -47,26 +47,43 @@
             $("#tip3").html('');
 		}
 	});
-    $("#register").click(function() {
-        console.log($("#username").val());
-        console.log($("#phone").val());
+    $("#username").keyup(function() {
+        if($("#username").val() == ''){
+            $("#tip1").html('请输入用户名');
+        } else {
+            $("#tip1").html('');
+        }
+    });
+    $("#phone").keyup(function() {
+        if($("#phone").val() == ''){
+            $("#tip2").html('请输入手机号');
+        } else {
+            $("#tip2").html('');
+        }
+    });
+    function checkForm(form) {
         if($("#username").val() == '' || $("#username").val() == null){
             $("#tip1").html('请输入用户名');
-            return;
-		}
+            return false;
+        }
         if($("#phone").val() == '' || $("#phone").val() == null){
             $("#tip2").html('请输入手机号');
-            return;
+            return false;
+        }
+        if($("#pass").val() == '' || $("#repass").val() == ''){
+            $("#tip3").html('请输入密码');
+            return false;
         }
         if($("#pass").val() != $("#repass").val()){
             $("#tip3").html('两次输入的密码不相同，请确认');
-            return;
+            return false;
         } else {
             var username = $("#username").val();
             var password = $("#pass").val();
             var phone = $("#phone").val();
-            console.log(username + ' , ' + password + ' , ' + phone);
+            alert(username + ' , ' + password + ' , ' + phone);
+            return true;
         }
-    })
+    }
 </script>
 </html>
