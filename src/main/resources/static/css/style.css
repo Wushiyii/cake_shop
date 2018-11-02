@@ -22,9 +22,10 @@ a{text-decoration:none;}
 .prolist .infos h2{ font-weight:normal; font-size:18px;}
 .prolist .infos .desc{ font-size: 12px; color: #877a74; padding:5px 0 10px 0; min-height:100px; line-height:2em; text-align:justify;}
 .prolist .infos .buy .btn_buy{ float:right; padding:0 0 0 15px;}
-.prolist .infos .buy .btn_buy a{ display:block; width:120px; height:35px; font-size:14px; background-color:#B08F68; color:#FFF; text-align:center; line-height:35px; border-radius:3px;border-bottom: 2px solid #746862;}
+.prolist .infos .buy .btn_buy a{ display:block; width:120px; height:35px; font-size:14px; background-color: #373d41; color:#FFF; text-align:center; line-height:35px; border-radius:3px;border-bottom: 2px solid #746862;}
+.prolist .infos .buy .btn_buy a:hover{ background-color: #b5aeaa; color: #000000; text-align:center; line-height:35px; border-radius:3px;border-bottom: 2px solid #746862;}
 .prolist .infos .buy .btn_buy a i{ margin-right:4px;}
-.prolist .infos .price{ float:right; color:#AA1F24; font-size:14px; line-height:35px; height:35px;}
+.prolist .infos .price{ float:right; color: #534f4e; font-size:15px; line-height:35px; height:35px;}
 
 
 .bd{ width:1200px; margin:0 auto; position:relative;}
@@ -304,6 +305,10 @@ body{
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 	background: #FFF;
+}
+.btn a:hover {
+	color: #fffef6;
+	background: #3a3a3a;
 }
 /*--content--*/
 .span_1_of_c1{
@@ -912,13 +917,13 @@ color: #000;}
 	border-radius: 5px;
     outline: none;
     cursor: pointer;
-    background: #adc883 url("../images/s_arrow.png") no-repeat 11px 7px;
+    background: #373d41 url("../images/s_arrow.png") no-repeat 11px 7px;
     width: 30px;
     height: 30px;
 }
 
 .nav_search input[type="submit"]:hover {
-	background: #B08F68 url("../images/s_arrow.png") no-repeat 11px 7px;
+	background: #898886 url("../images/s_arrow.png") no-repeat 11px 7px;
 }
 
 .nav_search input[type="submit"]:active {
@@ -1197,7 +1202,7 @@ h4.title {
 }
 h5.sub_title{
 	color:#000;
-	font-size:0.8125em;
+	font-size:1em;
 	text-transform:uppercase;
 	margin: 3%;
 }
@@ -1210,7 +1215,7 @@ h5.sub_title{
 	font-size: 0.8em;
 	padding: 8px 20px;
     border-radius: 5px;
-	border-bottom: 4px solid #1D1C1C;
+	border-bottom: 2px solid #1D1C1C;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -1274,7 +1279,7 @@ h5.sub_title{
     /*font-size: 1em;*/
 	padding: 8px 20px;
     border-radius: 5px;
-	border-bottom: 4px solid #1D1C1C;
+	border-bottom: 2px solid #1D1C1C;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;

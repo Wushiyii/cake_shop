@@ -54,7 +54,7 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     public ModelAndView single(@PathVariable("id") Integer id) {
         ModelAndView mav = new ModelAndView();
         Cake cake = this.biz.selectById(id);
-        mav.addObject("model",cake);
+        mav.addObject("cake",cake);
         mav.setViewName("single");
         return mav;
     }

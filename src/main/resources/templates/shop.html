@@ -138,7 +138,7 @@
                                 <li class="clearfix">
                                     <div class="imgs">
                                         <a href="/cake/" target="_blank">
-                                            <img th:src="@{~/images/img1.jpg}" alt="" width="200">
+                                            <img th:src="@{'~/images/'+${cake.img}+'.jpg'}" alt="" width="200">
                                         </a>
                                     </div>
                                     <div class="infos">
@@ -164,7 +164,7 @@
                                                     <i class="am-icon-cart-plus"></i>立即购买
                                                 </a>
                                             </div>
-                                            <div class="price">￥248.00 / 1份</div>
+                                            <div class="price" th:text="|￥${cake.price} / 磅|">￥248.00 / 1份</div>
                                         </div>
                                     </div>
                                 </li>
