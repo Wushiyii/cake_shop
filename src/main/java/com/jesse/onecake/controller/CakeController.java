@@ -22,20 +22,13 @@ import java.util.List;
 @RequestMapping(value = "cake")
 public class CakeController extends BaseController<CakeBiz,Cake> {
 
-    @RequestMapping("/getBannerList")
-    public @ResponseBody
-    TableResultResponse<Cake> getBannerList(){
-//        Page<Object> result = PageHelper.startPage(query.getPageNumber(), query.getPageSize());
+    @RequestMapping("/home")
+    public String home(Model model){
         Example example = new Example(Cake.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("banner","1");
-        List<Cake> cakes = this.biz.selectByExample(example);
-        return new TableResultResponse<>(cakes.size(), cakes);
-    }
-
-    @RequestMapping("/home")
-    public String home(){
-        return "index";
+        model.addAttribute("bannerList", this.biz.selectByExample(example));
+        return "index::productList";
     }
     @RequestMapping("/checkout")
     public String checkout(){
@@ -46,16 +39,12 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     public String login() {
         return "login";
     }
+
     @RequestMapping("/allCake")
     public String allCake(Model model) {
-//        Cake cake = new Cake();
-//        cake.setName("sad");
-//        cake.setCategory("14");
-//        cake.setBanner(4);
-//        cake.setPrice(4.33);
-//        model.addAttribute("cakeList",cake);
         return "shop";
     }
+
     @RequestMapping("/register")
     public String register() {
         return "register";
@@ -71,12 +60,12 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     }
 
     @RequestMapping("/")
-    public String loadBanner(Model model) {
+    public String index(Model model) {
 //        Page<Object> result = PageHelper.startPage(query.getPageNumber(), query.getPageSize());
-        Example example = new Example(Cake.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("banner","1");
-        model.addAttribute("bannerList", this.biz.selectByExample(example));
+//        Example example = new Example(Cake.class);
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andEqualTo("banner","1");
+//        model.addAttribute("bannerList", this.biz.selectByExample(example));
         return "index";
     }
 

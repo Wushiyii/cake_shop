@@ -14,7 +14,7 @@
        <div class="register_account" style="margin-bottom: 50px;">
           	<div class="wrap">
     	      <h4 class="title" style="font-size: 36px">注册</h4>
-    		   <form action="/user/register">
+    		   <form action="/user/register" method="post">
     			 <div class="col_1_of_2 span_1_of_2" style="width: 400px;">
 		   			 <div style="width: 350px">
 						 <input style="border: 1px solid #B7B7B7" type="text" placeholder="请输入用户名" onmouseover="this.style.borderColor = '#00b7d3'" name="username" id="username"
@@ -36,7 +36,6 @@
 		    </form>
     	  </div> 
         </div>
-	   <button>asd</button>
 	   <div th:replace="front/common/footer::html"></div>
 </body>
 <script type="text/javascript">

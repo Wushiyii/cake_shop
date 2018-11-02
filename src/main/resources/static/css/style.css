@@ -1242,21 +1242,21 @@ h5.sub_title{
 	width: 97%;
 	color:#000;
 	font-size: 0.8125em;
-	border:1px solid #f0f0f0;
+	border:1px solid #e7e7e7;
 	background:#fff;
 	outline: none;
 	display: block;
 	font-family: 'Open Sans', sans-serif;
 }
 .comments-area input[type="text"]:hover, .comments-area input[type="password"]:hover{
-	border:1px solid #DBDADA;
+	border:1px solid #36dfe4;
 }
 .comments-area input[type="password"] {
 	padding: 10px 15px;
 	width: 97%;
 	color:#000;
 	font-size: 0.8125em;
-	border:1px solid #f0f0f0;
+	border:1px solid #e7e7e7;
 	background:#fff;
 	outline: none;
 	display: block;

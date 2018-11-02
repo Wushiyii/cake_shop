@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>Home</title>
+<title>首页</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
@@ -18,14 +18,11 @@
 <!-- top scrolling -->
 <script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
 <script type="text/javascript" th:src="@{~/js/easing.js}"></script>
+<script th:src="@{~/js/jquery.wmuSlider.js}"></script>
    <script type="text/javascript">
-    $(document).ready(function($) {
-        $.get("/cake/getBannerList", function(ret){
-            if (ret.code === 200) {
-                var json = eval(ret);
-                var bannerList = json.data.rows;
-            }
-        });
+    $(document).ready(() => {
+        $('#productList').load('/cake/home');
+        $('.example1').wmuSlider();
     });
 
 	</script>
@@ -34,9 +31,9 @@
 	   <div th:replace="front/common/header::html" ></div>
 	   <div th:replace="front/common/category::html" ></div>
        <!--首页轮播图-->
-       <div class="index-banner">
-       	  <div class="wmuSlider example1" style="height: 560px;">
-			  <div class="wmuSliderWrapper">
+       <div class="index-banner" id="productList" th:fragment="productList">
+       	  <div class="wmuSlider example1" style="height: 580px;">
+			  <div class="wmuSliderWrapper" >
 				  <article  th:each="banner : ${bannerList}" style="position: relative; width: 100%; opacity: 1;">
 				   	<div class="banner-wrap">
 					   	<div class="slider-left">
@@ -62,7 +59,7 @@
                 	<li><a href="#">3</a></li>
                 	<li><a href="#">4</a></li>
                   </ul>
-			  	<script th:src="@{~/js/jquery.wmuSlider.js}"></script>
+
 				<script>
 					 $('.example1').wmuSlider();
 				</script>

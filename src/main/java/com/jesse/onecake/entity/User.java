@@ -21,8 +21,8 @@ public class User extends IdEntity implements Serializable {
     @Column(name = "age")
     private Integer age;
 
-    @Column(name="group")
-    private String group;
+    @Column(name = "user_group")
+    private Integer userGroup;
 
     @Column(name="gender")
     private String gender;
@@ -31,5 +31,5 @@ public class User extends IdEntity implements Serializable {
     private String email;
 
     @Column(name = "phone")
-    private Integer phone;
+    private String phone;
 }

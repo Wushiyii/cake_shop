@@ -2,124 +2,77 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <html>
 <head>
-<title>Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
-<link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>
-<script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-<script type="text/javascript">
-        $(document).ready(function() {
-            $(".dropdown img.flag").addClass("flagvisibility");
+    <title>登陆</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
+          type='text/css'>
+    <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
 
-            $(".dropdown dt a").click(function() {
-                $(".dropdown dd ul").toggle();
-            });
-
-            $(".dropdown dd ul li a").click(function() {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
-
-            $(document).bind('click', function(e) {
-                var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
-
-
-            $("#flagSwitcher").click(function() {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
-        });
-     </script>
-<!-- start menu -->
-<link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<!-- end menu -->
-<!-- top scrolling -->
-<script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
-<script type="text/javascript" th:src="@{~/js/easing.js}"></script>
-   <script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
-		});
-	</script>
 </head>
 <body>
-	<div th:replace="front/common/header::html" ></div>
-	<div class="login" style="padding: 3% 0;">
-          <div class="wrap">
-				<div class="col_1_of_login span_1_of_login">
-					<h4 class="title">注册</h4>
-					<h5 class="sub_title">新用户立即填写详细会员信息享受专属礼遇。</h5>
-					<p style="color: black">
-						注册用户专享服务:<br>
-						&nbsp;&nbsp; · 使用收藏夹保存心仪商品<br>
-						&nbsp;&nbsp; · 通过“个人中心”查看个人信息<br>
-						&nbsp;&nbsp; · 完成购物流程更快捷<br>
-					</p>
-					<div class="button1">
-					   <a th:href="@{/cake/register}"><input type="submit" name="Submit" value="注册"></a>
-					 </div>
-					 <div class="clear"></div>
-				</div>
-				<div class="col_1_of_login span_1_of_login">
-				  <div class="login-title">
-	           		<h4 class="title">已经有账号了？请登陆</h4>
-					 <div class="comments-area">
-						<form action="/user/login">
-							<p>
-								<label>账号</label>
-								<span>*</span>
-								<input type="text" name="username">
-							</p>
-							<p>
-								<label>密码</label>
-								<span>*</span>
-								<input type="password" name="password">
-							</p>
-							 <p id="login-form-remember">
-								<label><a href="#">忘记秘密 ? </a></label>
-							 </p>
-							 <p>
-								<input type="submit" value="登陆">
-							</p>
-						</form>
-					</div>
-			      </div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
+<div th:replace="front/common/header::html"></div>
+<div class="login" style="padding: 3% 0;">
+    <div class="wrap">
+        <div class="col_1_of_login span_1_of_login">
+            <h4 class="title">注册</h4>
+            <h5 class="sub_title">新用户立即填写详细会员信息享受专属礼遇。</h5>
+            <p style="color: black">
+                注册用户专享服务:<br>
+                &nbsp;&nbsp; · 使用收藏夹保存心仪商品<br>
+                &nbsp;&nbsp; · 通过“个人中心”查看个人信息<br>
+                &nbsp;&nbsp; · 完成购物流程更快捷<br>
+            </p>
+            <div class="button1">
+                <a th:href="@{/cake/register}"><input type="submit" name="Submit" value="注册"></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="col_1_of_login span_1_of_login">
+            <div class="login-title">
+                <h4 class="title">已经有账号了？请登陆</h4>
+                <div class="comments-area">
+                    <form action="/user/login">
+                        <p>
+                            <label>账号</label>
+                            <span>*</span>
+                            <input type="text" name="username"><span id="tip1"></span>
+                        </p>
+                        <p>
+                            <label>密码</label>
+                            <span>*</span>
+                            <input type="password" name="password"><span id="tip2"></span>
+                        </p>
+                        <p id="login-form-remember">
+                            <label><a href="#">忘记秘密 ? </a></label>
+                        </p>
+                        <p>
+                            <input type="submit" value="登陆" onclick="return checkForm(this.form)">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
 
-	<div th:replace="front/common/footer::html" ></div>
-       <script type="text/javascript">
-			$(document).ready(function() {
-
-				var defaults = {
-		  			containerID: 'toTop', // fading element id
-					containerHoverID: 'toTopHover', // fading element hover id
-					scrollSpeed: 1200,
-					easingType: 'linear'
-		 		};
-
-
-				$().UItoTop({ easingType: 'easeOutQuart' });
-
-			});
-		</script>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+<div th:replace="front/common/footer::html"></div>
+<script type="text/javascript">
+    function checkForm(form) {
+        if(form.username.value === '') {
+            $("#tip1").html('请输入账号');
+            return false;
+        }
+        if(form.password.value === '') {
+            $("#tip2").html('请输入密码');
+            return false;
+        }
+        return true;
+    }
+</script>
+<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 
 </body>
 </html>

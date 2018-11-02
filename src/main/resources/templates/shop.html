@@ -43,10 +43,6 @@
             $('#productList').load('/cake/searchProduct', {name: query});
         };
 
-        function getSelectedValue(id) {
-            return $("#" + id).find("dt a span.value").html();
-        }
-
         function handleCategory(category, checked) {
             batchCategory.set(category, checked);
             searchByCategory(batchCategory);
