@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping(value = "user")
 public class UserController extends BaseController<UserBiz, User> {
 
 
-    @RequestMapping("/login")
-    public String login(String username,String password){
-        return this.biz.login(username,password);
-    }
+//    @RequestMapping("/login")
+//    public String login(String username,String password){
+//        return this.biz.login(username,password);
+//    }
 
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String register(String username,String phone,String pass){

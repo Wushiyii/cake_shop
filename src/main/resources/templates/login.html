@@ -1,12 +1,12 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <title>登陆</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
+    <link th:href="@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}" rel='stylesheet'
           type='text/css'>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
 
@@ -33,7 +33,11 @@
             <div class="login-title">
                 <p class="title" style="font-size: 25px;color: #0C0C0C;">已经有账号了？请登陆</p>
                 <div class="comments-area">
-                    <form action="/user/login">
+
+                    <div th:if="${param.logout}">
+                        你已经注销
+                    </div>
+                    <form th:action="@{/login}" method="post">
                         <p>
                             <label>账号</label>
                             <span>*</span>
@@ -42,7 +46,7 @@
                         <p>
                             <label>密码</label>
                             <span>*</span>
-                            <input type="password" name="password"><span id="tip2"></span>
+                            <input type="password" name="password"><span id="tip2"></span><span th:if="${param.error}">密码错误，请重新输入!</span>
                         </p>
                         <p id="login-form-remember">
                             <label><a href="#">忘记秘密 ? </a></label>
@@ -57,22 +61,24 @@
         <div class="clear"></div>
     </div>
 </div>
-
 <div th:replace="front/common/footer::html"></div>
 <script type="text/javascript">
     function checkForm(form) {
-        if(form.username.value === '') {
+        if (form.username.value === '') {
             $("#tip1").html('请输入账号');
             return false;
+        } else {
+            $("#tip1").html('');
         }
-        if(form.password.value === '') {
+        if (form.password.value === '') {
             $("#tip2").html('请输入密码');
             return false;
+        } else {
+            $("#tip2").html('');
         }
         return true;
     }
 </script>
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
-
 </body>
 </html>

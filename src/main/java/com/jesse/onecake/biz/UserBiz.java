@@ -9,6 +9,7 @@ import com.jesse.onecake.mapper.UserMapper;
 import com.jesse.onecake.service.generator.id.provider.IdService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -41,9 +42,10 @@ public class UserBiz extends BaseBiz<UserMapper,User> {
         }
         User user = new User();
         user.setUsername(username);
-        user.setPassword(SHA256Encoder.encode(pass));
+        user.setPassword(new BCryptPasswordEncoder().encode(pass));
 //        user.setGroup("user"); //user用户组
         user.setId(idService.genId());
+        user.setUserGroup(0);
         try {
             this.insertSelective(user);
         }catch (Exception e){
@@ -53,17 +55,17 @@ public class UserBiz extends BaseBiz<UserMapper,User> {
         return "login";
     }
 
-    public String login(String username, String password) {
-        Example example = new Example(User.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("username",username);
-        List<User> users = this.selectByExample(example);
-        if(users.size() != 0){
-            User user = users.get(0);
-            if (user.getPassword()!=null && user.getPassword().equals(SHA256Encoder.encode(password))){
-                return "index";
-            }
-        }
-        return "login";
-    }
+//    public String login(String username, String password) {
+//        Example example = new Example(User.class);
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andEqualTo("username",username);
+//        List<User> users = this.selectByExample(example);
+//        if(users.size() != 0){
+//            User user = users.get(0);
+//            if (user.getPassword()!=null && user.getPassword().equals(SHA256Encoder.encode(password))){
+//                return "index";
+//            }
+//        }
+//        return "login";
+//    }
 }
