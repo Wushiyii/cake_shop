@@ -12,7 +12,8 @@
         </div>
         <div class="cssmenu">
             <ul>
-                <li><a class="color4" th:href="@{/cake/login}">注册/登陆</a></li>
+                <li th:if="${#httpServletRequest.remoteUser} ne null"><a class="color4" th:href="@{/member}" th:text="|你好,${#httpServletRequest.remoteUser}|"></a></li>
+                <li th:if="${#httpServletRequest.remoteUser} eq null"><a class="color4" th:href="@{/cake/login}">注册/登陆</a></li>
                 <li><a class="color5" href="/cake/checkout">购物车</a></li>
                 <li><a class="color6" href="/cake/allCake">全部商品</a></li>
                 <li><a class="color7" href="/member/order">我的订单</a></li>

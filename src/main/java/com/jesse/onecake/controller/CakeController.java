@@ -4,6 +4,7 @@ import com.jesse.onecake.biz.CakeBiz;
 import com.jesse.onecake.common.response.TableResultResponse;
 import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.Cake;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.security.PermitAll;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -76,7 +78,7 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     }
 
 
-
+    @PermitAll
     @RequestMapping(value = "/searchByCategory",method = RequestMethod.POST)
     public String searchByCategory(String queryCategory,Model model) {
         if("".equals(queryCategory) || queryCategory == null){
@@ -94,6 +96,7 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         return "shop::productList";
     }
 
+    @PermitAll
     @RequestMapping(value = "/searchProduct",method = RequestMethod.POST)
     public String searchProduct(String name,Model model){
         Example example = new Example(Cake.class);
