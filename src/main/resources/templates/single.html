@@ -78,8 +78,7 @@
                     <span id="items_discount_price" th:text="|￥${cake.price}|"><i>￥</i>168.0</span>
                 </p>
                 <p class="inside-btn">
-                    <a class="buynow" id="buy_now" href="javascript:void(0)">立即购买</a>
-                    <a class="getchart" id="add_to_cart" href="javascript:void(0)">加入购物车</a>
+                    <a class="addcart" id="add_to_cart" href="javascript:void(0)">加入购物车</a>
                 </p>
                 <table cellpadding="0" cellspacing="0" width="420" border="0" class="inside-table">
                     <tbody><tr>
@@ -111,20 +110,7 @@
     $('#add_to_cart').on('click', function(){
         var id = $('.current').attr('id');
         var quantity = $('#quantity').val();
-        $.post('/cake/',
-            {
-                'id': id,
-               'quantity': quantity
-             },
-            function(data){
-                $('#items_count').text(data['items_count']);
-            });
-    });
-
-    $('#buy_now').on('click', function(){
-        var id = $('.current').attr('id');
-        var quantity = $('#quantity').val();
-        $.post('/order/purchase',
+        $.post('/cart/addCart',
             {
                 'id': id,
                 'quantity': quantity

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jesse.onecake.mapper.CartDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.jesse.onecake.entity.CartDetail" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="cart_id" property="cartId" jdbcType="VARCHAR" />
+    <result column="cake_id" property="cakeId" jdbcType="VARCHAR" />
+    <result column="quantity" property="quantity" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

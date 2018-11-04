@@ -1158,17 +1158,12 @@ span.tipsSpa {
     text-align: center
 }
 
-.inside-btn a.buynow {
+.inside-btn a.addcart {
     background: #A99C72;
     border: 1px solid #A99C72;
     color: #fff
 }
 
-.inside-btn a.getchart {
-    background: #fff;
-    border: 1px solid #DEDDDC;
-    color: #777
-}
 
 .inside-btn a.getchart:hover {
     color: #A99C72

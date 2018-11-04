@@ -42,6 +42,12 @@
         <!--<table tableName="order_detail" domainObjectName="OrderDetail">-->
             <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
         <!--</table>-->
+        <!--<table tableName="cart" domainObjectName="Cart">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
+        <!--</table>-->
+        <!--<table tableName="cart_detail" domainObjectName="CartDetail">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>

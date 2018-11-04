@@ -49,5 +49,29 @@ CREATE TABLE `order_detail` (
   `create_date` datetime DEFAULT NULL,
   `update_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='订单详情表';;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='订单详情表';
 
+create table cart
+(
+  id          varchar(64)  not null primary key,
+  user_id     varchar(100) null
+  comment '创建购物车用户id',
+  create_user varchar(100) null
+  comment '创建购物车用户',
+  create_date datetime     null
+  comment '创建购物车日期'
+)
+  comment '购物车表';
+
+create table cart_detail
+(
+  id          varchar(64)     not null primary key,
+  cart_id     varchar(64)     null
+  comment '关联购物车表id',
+  cake_id     varchar(64)     null
+  comment '关联商品id',
+  quantity    int default '0' null
+  comment '数量',
+  create_date datetime        null,
+  update_date datetime        null
+) comment '购物车详情表';
