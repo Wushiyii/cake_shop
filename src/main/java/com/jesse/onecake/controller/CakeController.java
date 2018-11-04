@@ -4,6 +4,7 @@ import com.jesse.onecake.biz.CakeBiz;
 import com.jesse.onecake.common.response.TableResultResponse;
 import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.Cake;
+import com.sun.org.apache.bcel.internal.generic.RET;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -106,6 +107,5 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         model.addAttribute("cakeList",cakes);
         return "shop::productList";
     }
-
 
 }

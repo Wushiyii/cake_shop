@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Single</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -62,7 +62,7 @@
                 </h5>
                 <p class="inside-desc">这一刻未必喜欢，总有一天，无比想念</p>
                 <p class="inside-weigth">
-                    <a capacity="1磅：约13×13(cm) 适合3-4人食用 " id="249" th:data-price="${cake.price}" class="product current" href="javascript:void(0)">1磅</a>
+                    <a capacity="1磅：约13×13(cm) 适合3-4人食用 " th:id="${cake.id}" th:data-price="${cake.price}" class="product current" href="javascript:void(0)">1磅</a>
                     <a capacity="2磅：约17×17(cm) 适合7-8人食用 " id="250" data-price="268.0" class="product " href="javascript:void(0)">2磅</a>
                     <a capacity="3磅：约23×23(cm) 适合11-12人食用 " id="251" data-price="388.0" class="product " href="javascript:void(0)">3磅</a>
                     <a capacity="5磅：约30×30(cm) 适合15-20人食用 " id="252" data-price="750.0" class="product " href="javascript:void(0)">5磅</a>
@@ -124,7 +124,7 @@
     $('#buy_now').on('click', function(){
         var id = $('.current').attr('id');
         var quantity = $('#quantity').val();
-        $.post('/cake/',
+        $.post('/order/purchase',
             {
                 'id': id,
                 'quantity': quantity

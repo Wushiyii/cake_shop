@@ -33,9 +33,15 @@
         <javaClientGenerator targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}"
                              type="XMLMAPPER"/>
 
-        <table tableName="cake" domainObjectName="Cake">
-            <generatedKey column="id" identity="false" sqlStatement="myql"/>
-        </table>
+        <!--<table tableName="cake" domainObjectName="Cake">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
+        <!--</table>-->
+        <!--<table tableName="order" domainObjectName="Order">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
+        <!--</table>-->
+        <!--<table tableName="order_detail" domainObjectName="OrderDetail">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>
