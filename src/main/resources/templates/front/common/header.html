@@ -23,6 +23,15 @@
         <div class="clear"></div>
     </div>
 </div>
-
 </body>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $.post('/cart/cartCount',
+            function(data){
+                var json = eval(data);
+                $('#cartCount').html(' (' + json.count + ')');
+            });
+    });
+</script>
 </html>
