@@ -197,13 +197,11 @@ b {
     font-weight: normal
 }
 
-.allcake-warp {
-    width: 1050px
-}
+.base-warp {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: auto;
 
-.allcake-center {
-    margin-left: auto;
-    margin-right: auto
 }
 
 .cover-lay {
@@ -927,19 +925,19 @@ span.tipsSpa {
 }
 
 .pho-tab {
-    width: 600px;
+    width: 700px;
     height: 500px;
     overflow: hidden
 }
 
 .pho-tab li {
-    width: 600px;
+    width: 700px;
     height: 500px
 }
 
 .pho-tab li img {
     display: block;
-    width: 600px;
+    width: 700px;
     height: 500px
 }
 
@@ -1561,6 +1559,21 @@ span.tipsSpa {
 
 .pay-code dd p a {
     color: #A99972
+}
+.btn_sum {
+    float: right;
+    display: inline-block;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #FFF;
+    background-color: #373d41;
+    text-align: center
+}
+.btn_sum:hover {
+    color: #515151;
+    background-color: #dedede;
 }
 
 body {

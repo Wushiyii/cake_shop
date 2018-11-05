@@ -1,123 +1,93 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <!DOCTYPE HTML>
 <head>
-<title>Checkout</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all" />
-<link th:href="@{~/assets/css/amazeui.min.css}" rel="stylesheet" type="text/css" media="all" />
-<link th:href="@{~/css/single.css}" rel="stylesheet" type="text/css" media="all" />
-<link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet' type='text/css'>
-<script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-<script type="text/javascript">
-        $(document).ready(function() {
-            $(".dropdown img.flag").addClass("flagvisibility");
-
-            $(".dropdown dt a").click(function() {
-                $(".dropdown dd ul").toggle();
-            });
-
-            $(".dropdown dd ul li a").click(function() {
-                var text = $(this).html();
-                $(".dropdown dt a span").html(text);
-                $(".dropdown dd ul").hide();
-                $("#result").html("Selected value is: " + getSelectedValue("sample"));
-            });
-
-            function getSelectedValue(id) {
-                return $("#" + id).find("dt a span.value").html();
-            }
-
-            $(document).bind('click', function(e) {
-                var $clicked = $(e.target);
-                if (! $clicked.parents().hasClass("dropdown"))
-                    $(".dropdown dd ul").hide();
-            });
-
-
-            $("#flagSwitcher").click(function() {
-                $(".dropdown img.flag").toggleClass("flagvisibility");
-            });
+    <title>Checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{~/assets/css/amazeui.min.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{~/css/single.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
+          type='text/css'>
+    <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            getCartDetail();
         });
-     </script>
-<!-- start menu -->
-<link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
-<!-- end menu -->
-<!-- top scrolling -->
-<script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
-<script type="text/javascript" th:src="@{~/js/easing.js}"></script>
-   <script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-			});
-		});
-	</script>
+        getCartDetail = () => {
+            $('#cartDetailList').load('/cart/getCartDetail');
+        }
+    </script>
 </head>
 <body>
-  		<div th:replace="front/common/header::html" ></div>
-  		<div class="login" style="padding: 3% 0">
-        	 <!--<div class="wrap">-->
-				 <!--<h4 class="title">购物车空空如也</h4>-->
-				 <!--<p class="cart">购物车还没有蛋糕.<br>点击<a href="/cake/"> 首页</a> 挑选吧！</p>-->
-    	   	 <!--</div>-->
-			<div class="span_1_of_5"></div>
-			<div class="card-cart">
-                <h2 class="cart-title" style="width: 80%">购物车</h2>
-				<div class="mens-toolbar" style="width: 80%">
-					<div class="cart">
-						<table>
-							<tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;">
-								<th style="width: 10%;">
-									<section class="sky-form">
-										<label class="checkbox">
-											<input id="defaultCheck" type="checkbox" name="11" checked="true">
-											全选
-										</label>
-									</section>
-								</th>
-								<th style="width: 30%;text-align: left">商品</th>
-								<th style="width: 10%;text-align: center">单价</th>
-								<th style="width: 20%;text-align: center">数量</th>
-								<th style="width: 10%;text-align: center">小计</th>
-								<th style="width: 20%;text-align: center">操作</th>
-							</tr>
-							<tr style="font-size: 14px;" >
-								<td style="width: 10%;"><input type="checkbox" style="margin-right: 25px;" class="check-out-box"></td>
-								<td style="width: 30%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt="" class="avatar"></td>
-								<td style="width: 10%;">27.5</td>
-								<td style="width: 20%;">
-									<p class="inside-num">
-										<input style="margin-left: 60px;" class="jia" onclick="decrement(67576);" type="button">
-										<!--<i class="am-icon-plus"></i>-->
-										<input id="quantity67576" class="count" type="text" value="1" disabled="">
-										<input class="jian" onclick="increment(67576);" type="button">
-									</p>
-								</td>
-								<td style="width: 10%;">27.5</td>
-								<td style="width: 20%;">
-									<a href="/user/register" style="display:block; color: #666;text-decoration: none;">删除</a>
-									<a href="javascript:void(0);" style="display:block;margin-top:10px;color: #666;text-decoration: none;">移到我的收藏</a>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="mens-toolbar" style="width: 80%;border: none;">
-					<!--<button class="grey" style="width:130px;float: right;background-color: #B08F68;border-bottom: 1px solid #746862;">结算</button>-->
-					<a style="float:right;display: inline-block;width: 140px;height: 40px;line-height:
-					40px;font-size: 16px;color: #FFF;background-color: #87b048;text-align: center">结算</a>
-					<span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;">￥148</span>
-					<span style="float:right;font-size: 14px;color: #758552;margin-top: 14px;">总价:</span>
-				</div>
+<div th:replace="front/common/header::html"></div>
+<div class="login" style="padding: 3% 0">
+    <!--<div class="wrap">-->
+    <!--<h4 class="title">购物车空空如也</h4>-->
+    <!--<p class="cart">购物车还没有蛋糕.<br>点击<a href="/cake/"> 首页</a> 挑选吧！</p>-->
+    <!--</div>-->
+    <div class="span_1_of_5"></div>
+    <div class="card-cart">
+        <h2 class="cart-title" style="width: 80%">购物车</h2>
+        <div class="mens-toolbar" style="width: 80%">
+            <div class="cart">
+                <div id="cartDetailList" th:fragment="cartDetailList">
+                    <div th:if="${cartList} ne null">
+                        <table>
+                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;">
+                                <th style="width: 10%;">
+                                    <section class="sky-form">
+                                        <label class="checkbox">
+                                            <input id="defaultCheck" type="checkbox" name="11" checked="true">
+                                            全选
+                                        </label>
+                                    </section>
+                                </th>
+                                <th style="width: 30%;text-align: left">商品</th>
+                                <th style="width: 10%;text-align: center">单价</th>
+                                <th style="width: 20%;text-align: center">数量</th>
+                                <th style="width: 10%;text-align: center">小计</th>
+                                <th style="width: 20%;text-align: center">操作</th>
+                            </tr>
+                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;" th:each="cart : ${cartList}">
+                                <td style="width: 10%;"><input type="checkbox" style="margin-right: 25px;"
+                                                               class="check-out-box"></td>
+                                <td style="width: 30%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt=""
+                                                                             class="avatar"></td>
+                                <td style="width: 10%;" th:text="${cart.quantity}">27.5</td>
+                                <td style="width: 20%;">
+                                    <p class="inside-num">
+                                        <input style="margin-left: 60px;" class="jia" onclick="decrement(67576);"
+                                               type="button">
+                                        <!--<i class="am-icon-plus"></i>-->
+                                        <input id="quantity67576" class="count" type="text" value="1" disabled="">
+                                        <input class="jian" onclick="increment(67576);" type="button">
+                                    </p>
+                                </td>
+                                <td style="width: 10%;">27.5</td>
+                                <td style="width: 20%;">
+                                    <a href="/user/register"
+                                       style="display:block; color: #666;text-decoration: none;font-size: 20px;"><i
+                                            class="am-icon-remove"></i></a>
+                                </td>
+                            </tr>
 
-			</div>
-		</div>
-		<div th:replace="front/common/footer::html" ></div>
-        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mens-toolbar" style="width: 80%;border: none;">
+            <!--<button class="grey" style="width:130px;float: right;background-color: #B08F68;border-bottom: 1px solid #746862;">结算</button>-->
+            <a class="btn_sum">结算</a>
+            <span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;">￥148</span>
+            <span style="float:right;font-size: 14px;color: #758552;margin-top: 14px;">总价:</span>
+        </div>
+
+    </div>
+</div>
+<div th:replace="front/common/footer::html"></div>
+<a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 </body>
 <script type="text/javascript">
     function increment(e) {

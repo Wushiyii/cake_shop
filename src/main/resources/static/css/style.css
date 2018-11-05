@@ -1412,7 +1412,7 @@ p.code {
 	overflow: hidden;
 	/*background: #F7F7F7;*/
 	padding: 5px;
-	border-bottom: 1px solid #DDDDDD;
+	/*border-bottom: 1px solid #DDDDDD;*/
 	width: 98.9%;
 }
 .mens-toolbar .cart {
@@ -1438,6 +1438,7 @@ p.code {
 }
 .mens-toolbar .cart table tr td{
     padding-top: 15px;
+    padding-bottom: 15px;
     vertical-align: middle;
     color: #666;
     text-align: center;

@@ -2,6 +2,7 @@ package com.jesse.onecake.biz;
 
 import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.common.config.security.UserUtils;
+import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.Cart;
 import com.jesse.onecake.entity.CartDetail;
 import com.jesse.onecake.entity.User;
@@ -12,12 +13,10 @@ import com.jesse.onecake.service.generator.id.provider.IdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class CartBiz extends BaseBiz<CartMapper,Cart> {
@@ -88,5 +87,12 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
         Map<String,Integer> map = new HashMap<>();
         map.put("count",count);
         return map;
+    }
+
+    public String getCartDetail(Model model) {
+        User user = userMapper.findByName(UserUtils.getUserName());
+        List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
+        model.addAttribute("cartList",cartDetails);
+        return "checkout::cartDetailList";
     }
 }
