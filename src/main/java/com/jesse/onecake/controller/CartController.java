@@ -44,4 +44,10 @@ public class CartController extends BaseController<CartBiz,Cart> {
         return this.biz.getCartDetail(model);
     }
 
+    @RequestMapping(value = "/changeCartQuantity",method = RequestMethod.POST)
+    public String changeCartQuantity(String id,String operation,Model model) {
+        System.out.println("asdasd");
+        return null;
+    }
+
 }

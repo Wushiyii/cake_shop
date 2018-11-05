@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class CartDTO {
 
-    private String id;
+    private Integer id;
 
     private String name;
 

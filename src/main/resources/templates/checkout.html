@@ -57,11 +57,11 @@
                                 <td style="width: 10%;" th:text="${cart.price}">price</td>
                                 <td style="width: 20%;">
                                     <p class="inside-num">
-                                        <input style="margin-left: 60px;" class="jia" onclick="decrement(67576);"
+                                        <input style="margin-left: 60px;" class="jia" th:onclick="'javascript:decrement(\''+${cart.id}+'\');'"
                                                type="button">
                                         <!--<i class="am-icon-plus"></i>-->
                                         <input id="quantity67576" class="count" type="text" th:value="${cart.quantity}" disabled="">
-                                        <input class="jian" onclick="increment(67576);" type="button">
+                                        <input class="jian" th:onclick="'javascript:increment(\''+${cart.id}+'\');'" type="button">
                                     </p>
                                 </td>
                                 <td style="width: 10%;" th:text="${cart.totalPrice}">totalPrice</td>
@@ -90,16 +90,9 @@
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 </body>
 <script type="text/javascript">
-    function increment(e) {
-        if (e) {
-            var t = $("#quantity" + e);
-        } else {
-            var t = $("#quantity");
-        }
-        var n = t.val();
-        n < 99 && (n++, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
-            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
-        }), t.trigger("change"))
+
+    function increment(id) {
+        $('#cartDetailList').load('/cart/changeCartQuantity', {id: id , operation: 'decrement'});
     }
 
     function calculate() {
@@ -109,12 +102,8 @@
         }), $(".items_total_price").html("\uffe5" + t), $(".items_total_origin_price").html("\u539f\u4ef7" + n + "\u5143"), $(".items_count").html("\u5df2\u9009\u62e9" + e.length + "\u6b3e\u4ea7\u54c1")
     }
 
-    function decrement(e) {
-        if (e) var t = $("#quantity" + e); else var t = $("#quantity");
-        var n = t.val();
-        n > 1 && (n--, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
-            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
-        }), t.trigger("change"))
+    function decrement(id) {
+        $('#cartDetailList').load('/cart/changeCartQuantity', {id: id , operation: 'decrement'});
     }
 </script>
 </html>

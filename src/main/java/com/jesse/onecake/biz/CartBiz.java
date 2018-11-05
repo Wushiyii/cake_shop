@@ -101,7 +101,7 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
             Cake cake = this.cakeMapper.selectByPrimaryKey(detail.getCakeId());
             CartDTO dto = new CartDTO();
             BeanUtils.copyProperties(cake,dto);
-            dto.setId(cake.getId().toString());
+            dto.setId(Integer.parseInt(cake.getId().toString()));
             dto.setQuantity(detail.getQuantity());
             dto.setTotalPrice(dto.getPrice() * dto.getQuantity());
             cartDTOList.add(dto);
