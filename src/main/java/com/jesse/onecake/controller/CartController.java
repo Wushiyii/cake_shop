@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "cart")
 public class CartController extends BaseController<CartBiz,Cart> {
 
+
     @RequestMapping(value = "/addCart",method = RequestMethod.POST)
-    public String purchase (String id,String quantity) {
-        System.out.println(id+","+quantity);
+    public String addCart (String cakeId,String quantity) {
+        this.biz.addCart(cakeId,Integer.valueOf(quantity));
         return null;
     }
 }

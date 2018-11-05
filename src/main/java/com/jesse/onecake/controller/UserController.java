@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController extends BaseController<UserBiz, User> {
 
 
-//    @RequestMapping("/login")
-//    public String login(String username,String password){
-//        return this.biz.login(username,password);
-//    }
-
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String register(String username,String phone,String pass){
         return this.biz.register(username,phone,pass);

@@ -113,7 +113,7 @@
         var quantity = $('#quantity').val();
         $.post('/cart/addCart',
             {
-                'id': id,
+                'cakeId': id,
                 'quantity': quantity
             },
             function(data){

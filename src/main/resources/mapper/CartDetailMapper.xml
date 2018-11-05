@@ -12,4 +12,16 @@
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <select id="findCartDetailByUserId" parameterType="String" resultMap="BaseResultMap">
+    SELECT
+    cd.*
+    FROM
+    cart c ,cart_detail cd
+    WHERE c.id = cd.cart_id
+    <if test="userId != null and userId != ''">
+      AND c.user_id = #{userId}
+    </if>
+
+  </select>
 </mapper>

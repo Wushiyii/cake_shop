@@ -10,4 +10,16 @@
     <result column="create_user" property="createUser" jdbcType="VARCHAR" />
     <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <select id="findCartByUserId" parameterType="String" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM
+    cart c
+    WHERE 1 = 1
+    <if test="userId != null and userId != ''">
+      AND c.user_id = #{userId}
+    </if>
+
+  </select>
 </mapper>
