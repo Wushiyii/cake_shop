@@ -12,9 +12,12 @@ import com.jesse.onecake.service.generator.id.provider.IdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CartBiz extends BaseBiz<CartMapper,Cart> {
@@ -23,14 +26,14 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
     @Autowired private IdService idService;
 
     @Transactional
-    public void addCart(String cakeId, Integer quantity) {
+    public Object addCart(String cakeId, Integer quantity) {
         String userName = UserUtils.getUserName();
         User user = userMapper.findByName(userName);
         Cart cart = this.mapper.findCartByUserId(user.getId().toString());
         //购物车不为空
         if (cart != null) {
             //查询购物车详情
-            List<CartDetail>  cartDetail = cartDetailMapper.findCartDetailByUserId(user.getId().toString());
+            List<CartDetail>  cartDetail = cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
             boolean alreadyExist = false;
             //判断是否包含将要添加商品的id
             for (CartDetail detail : cartDetail) {
@@ -81,6 +84,9 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
                 throw new RuntimeException(e);
             }
         }
-
+        Integer count = cartDetailMapper.selectCountCartDetailByUserId(user.getId().toString());
+        Map<String,Integer> map = new HashMap<>();
+        map.put("count",count);
+        return map;
     }
 }

@@ -10,6 +10,8 @@ import java.util.List;
 @Mapper
 public interface CartDetailMapper extends BaseMapper<CartDetail> {
 
-    List<CartDetail> findCartDetailByUserId(@Param("userId") String userId);
+    List<CartDetail> selectCartDetailByUserId(@Param("userId") String userId);
+
+    Integer selectCountCartDetailByUserId(@Param("userId") String userId);
 
 }

@@ -13,12 +13,22 @@
     <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
   </resultMap>
 
-  <select id="findCartDetailByUserId" parameterType="String" resultMap="BaseResultMap">
+  <select id="selectCartDetailByUserId" parameterType="String" resultMap="BaseResultMap">
     SELECT
     cd.*
     FROM
     cart c ,cart_detail cd
     WHERE c.id = cd.cart_id
+    <if test="userId != null and userId != ''">
+      AND c.user_id = #{userId}
+    </if>
+
+  </select>
+
+  <select id="selectCountCartDetailByUserId" parameterType="String" resultType="Integer">
+    select count(1)
+    from cart_detail cd,cart c
+    where cd.cart_id = c.id
     <if test="userId != null and userId != ''">
       AND c.user_id = #{userId}
     </if>

@@ -117,7 +117,8 @@
                 'quantity': quantity
             },
             function(data){
-                alert(data);
+                var json = eval(data);
+                $('#cartCount').html(' (' + json.count + ')');
             });
     });
 
