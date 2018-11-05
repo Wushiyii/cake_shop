@@ -54,17 +54,17 @@
                                                                class="check-out-box"></td>
                                 <td style="width: 30%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt=""
                                                                              class="avatar"></td>
-                                <td style="width: 10%;" th:text="${cart.quantity}">27.5</td>
+                                <td style="width: 10%;" th:text="${cart.price}">price</td>
                                 <td style="width: 20%;">
                                     <p class="inside-num">
                                         <input style="margin-left: 60px;" class="jia" onclick="decrement(67576);"
                                                type="button">
                                         <!--<i class="am-icon-plus"></i>-->
-                                        <input id="quantity67576" class="count" type="text" value="1" disabled="">
+                                        <input id="quantity67576" class="count" type="text" th:value="${cart.quantity}" disabled="">
                                         <input class="jian" onclick="increment(67576);" type="button">
                                     </p>
                                 </td>
-                                <td style="width: 10%;">27.5</td>
+                                <td style="width: 10%;" th:text="${cart.totalPrice}">totalPrice</td>
                                 <td style="width: 20%;">
                                     <a href="/user/register"
                                        style="display:block; color: #666;text-decoration: none;font-size: 20px;"><i

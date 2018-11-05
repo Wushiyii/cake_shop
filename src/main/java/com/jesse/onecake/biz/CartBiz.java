@@ -2,14 +2,17 @@ package com.jesse.onecake.biz;
 
 import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.common.config.security.UserUtils;
+import com.jesse.onecake.dto.CartDTO;
 import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.Cart;
 import com.jesse.onecake.entity.CartDetail;
 import com.jesse.onecake.entity.User;
+import com.jesse.onecake.mapper.CakeMapper;
 import com.jesse.onecake.mapper.CartDetailMapper;
 import com.jesse.onecake.mapper.CartMapper;
 import com.jesse.onecake.mapper.UserMapper;
 import com.jesse.onecake.service.generator.id.provider.IdService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +26,7 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
     @Autowired private UserMapper userMapper;
     @Autowired private CartDetailMapper cartDetailMapper;
     @Autowired private IdService idService;
+    @Autowired private CakeMapper cakeMapper;
 
     @Transactional
     public Object addCart(String cakeId, Integer quantity) {
@@ -91,8 +95,18 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
 
     public String getCartDetail(Model model) {
         User user = userMapper.findByName(UserUtils.getUserName());
+        List<CartDTO> cartDTOList = new ArrayList<>();
         List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
-        model.addAttribute("cartList",cartDetails);
+        for (CartDetail detail : cartDetails) {
+            Cake cake = this.cakeMapper.selectByPrimaryKey(detail.getCakeId());
+            CartDTO dto = new CartDTO();
+            BeanUtils.copyProperties(cake,dto);
+            dto.setId(cake.getId().toString());
+            dto.setQuantity(detail.getQuantity());
+            dto.setTotalPrice(dto.getPrice() * dto.getQuantity());
+            cartDTOList.add(dto);
+        }
+        model.addAttribute("cartList",cartDTOList);
         return "checkout::cartDetailList";
     }
 }
