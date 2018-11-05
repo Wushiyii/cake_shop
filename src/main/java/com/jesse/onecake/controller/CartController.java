@@ -45,7 +45,7 @@ public class CartController extends BaseController<CartBiz,Cart> {
     }
 
     @RequestMapping(value = "/changeCartQuantity",method = RequestMethod.POST)
-    public String changeCartQuantity(String id,String operation,Model model) {
+    public String changeCartQuantity(String cakeId,String operation,Model model) {
         System.out.println("asdasd");
         return null;
     }

@@ -49,22 +49,22 @@
                                 <th style="width: 10%;text-align: center">小计</th>
                                 <th style="width: 20%;text-align: center">操作</th>
                             </tr>
-                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;" th:each="cart : ${cartList}">
+                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;" th:each="dto : ${cartList}">
                                 <td style="width: 10%;"><input type="checkbox" style="margin-right: 25px;"
                                                                class="check-out-box"></td>
                                 <td style="width: 30%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt=""
                                                                              class="avatar"></td>
-                                <td style="width: 10%;" th:text="${cart.price}">price</td>
+                                <td style="width: 10%;" th:text="${dto.price}">price</td>
                                 <td style="width: 20%;">
                                     <p class="inside-num">
-                                        <input style="margin-left: 60px;" class="jia" th:onclick="'javascript:decrement(\''+${cart.id}+'\');'"
+                                        <input style="margin-left: 60px;" class="jia" th:onclick="'javascript:decrement(\''+${dto.id}+'\');'"
                                                type="button">
                                         <!--<i class="am-icon-plus"></i>-->
-                                        <input id="quantity67576" class="count" type="text" th:value="${cart.quantity}" disabled="">
-                                        <input class="jian" th:onclick="'javascript:increment(\''+${cart.id}+'\');'" type="button">
+                                        <input id="quantity67576" class="count" type="text" th:value="${dto.quantity}" disabled="">
+                                        <input class="jian" th:onclick="'javascript:increment(\''+${dto.id}+'\');'" type="button">
                                     </p>
                                 </td>
-                                <td style="width: 10%;" th:text="${cart.totalPrice}">totalPrice</td>
+                                <td style="width: 10%;" th:text="${dto.totalPrice}">totalPrice</td>
                                 <td style="width: 20%;">
                                     <a href="/user/register"
                                        style="display:block; color: #666;text-decoration: none;font-size: 20px;"><i
@@ -91,8 +91,8 @@
 </body>
 <script type="text/javascript">
 
-    function increment(id) {
-        $('#cartDetailList').load('/cart/changeCartQuantity', {id: id , operation: 'decrement'});
+    function increment(cakeId) {
+        $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId , operation: 'increment'});
     }
 
     function calculate() {
@@ -102,8 +102,8 @@
         }), $(".items_total_price").html("\uffe5" + t), $(".items_total_origin_price").html("\u539f\u4ef7" + n + "\u5143"), $(".items_count").html("\u5df2\u9009\u62e9" + e.length + "\u6b3e\u4ea7\u54c1")
     }
 
-    function decrement(id) {
-        $('#cartDetailList').load('/cart/changeCartQuantity', {id: id , operation: 'decrement'});
+    function decrement(cakeId) {
+        $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId , operation: 'decrement'});
     }
 </script>
 </html>
