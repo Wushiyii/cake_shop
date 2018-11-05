@@ -109,4 +109,16 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
         model.addAttribute("cartList",cartDTOList);
         return "checkout::cartDetailList";
     }
+
+    public void changeCartQuantity(String cakeId, String operation, Model model) {
+        User user = userMapper.findByName(UserUtils.getUserName());
+        List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
+        for (CartDetail cartDetail : cartDetails) {
+            if (cakeId != null && cakeId.equals(cartDetail.getCakeId())) {
+                if("increment".equals(operation)) {
+                    cartDetail.setQuantity(cartDetail.getQuantity() + 1);
+                }
+            }
+        }
+    }
 }
