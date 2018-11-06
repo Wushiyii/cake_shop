@@ -38,7 +38,7 @@
                                 <th style="width: 10%;">
                                     <section class="sky-form">
                                         <label class="checkbox">
-                                            <input id="defaultCheck" type="checkbox" name="11" checked="true">
+                                            <input id="all" type="checkbox" name="11" onclick="changeCheckBox(this)">
                                             全选
                                         </label>
                                     </section>
@@ -49,24 +49,24 @@
                                 <th style="width: 10%;text-align: center">小计</th>
                                 <th style="width: 20%;text-align: center">操作</th>
                             </tr>
-                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;" th:each="dto : ${cartList}">
-                                <td style="width: 10%;"><input type="checkbox" style="margin-right: 25px;"
+                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;" th:each="dto,dtoStat : ${cartList}">
+                                <td style="width: 10%;"><input name="check" type="checkbox" style="margin-right: 25px;"
                                                                class="check-out-box"></td>
                                 <td style="width: 30%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt=""
                                                                              class="avatar"></td>
                                 <td style="width: 10%;" th:text="${dto.price}">price</td>
                                 <td style="width: 20%;">
                                     <p class="inside-num">
-                                        <input style="margin-left: 60px;" class="jia" th:onclick="'javascript:decrement(\''+${dto.id}+'\');'"
+                                        <input style="margin-left: 60px;" class="incre" th:onclick="'javascript:decrement(\''+${dto.id}+'\');'"
                                                type="button">
                                         <!--<i class="am-icon-plus"></i>-->
-                                        <input id="quantity67576" class="count" type="text" th:value="${dto.quantity}" disabled="">
-                                        <input class="jian" th:onclick="'javascript:increment(\''+${dto.id}+'\');'" type="button">
+                                        <input  class="count" type="text" th:value="${dto.quantity}" disabled="">
+                                        <input class="decre" th:onclick="'javascript:increment(\''+${dto.id}+'\');'" type="button">
                                     </p>
                                 </td>
                                 <td style="width: 10%;" th:text="${#numbers.formatDecimal(dto.totalPrice, 0, 2)}">totalPrice</td>
                                 <td style="width: 20%;">
-                                    <a href="/user/register"
+                                    <a  th:onclick="'javascript:removeOne(\''+${dto.id}+'\');'"
                                        style="display:block; color: #666;text-decoration: none;font-size: 20px;"><i
                                             class="am-icon-remove"></i></a>
                                 </td>
@@ -99,9 +99,17 @@
         $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId , operation: 'decrement'});
     }
     function purchaseAll() {
-        $.get('/order/purchaseAll',function (ret) {
-
-        });
+        $.get('/order/purchaseAll',function (ret) {});
+    }
+    function changeCheckBox(e) {
+        if(e.checked) {
+            $("input[name='check']").prop("checked", true)
+        } else {
+            $("input[name='check']").prop("checked", false)
+        }
+    }
+    function removeOne(cakeId) {
+        $('#cartDetailList').load('/cart/removeOne', {cakeId: cakeId});
     }
 </script>
 </html>

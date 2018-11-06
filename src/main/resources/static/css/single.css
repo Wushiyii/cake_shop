@@ -1045,7 +1045,7 @@ span.tipsSpa {
     float: left
 }
 
-.inside-num input.jia {
+.inside-num input.incre {
     float: left;
     width: 32px;
     height: 32px;
@@ -1053,11 +1053,11 @@ span.tipsSpa {
     background: url(http://allcake.oss-cn-hangzhou.aliyuncs.com/assets/static/icon_jian-ce06d6f884506667555c89387639c037d94d5a6255f2396fe0cdd7c9758e74af.png) 0 0 no-repeat
 }
 
-.inside-num input.jia:hover {
+.inside-num input.incre:hover {
     background: url(http://allcake.oss-cn-hangzhou.aliyuncs.com/assets/static/icon_jianh-aca94bf0aee2903e6fdd59696789f83c9d1d84fd2abab150aa56ab1c003c3fa7.png) 0 0 no-repeat
 }
 
-.inside-num input.jian {
+.inside-num input.decre {
     float: left;
     width: 32px;
     height: 32px;
@@ -1065,7 +1065,7 @@ span.tipsSpa {
     background: url(http://allcake.oss-cn-hangzhou.aliyuncs.com/assets/static/icon_jia-c1440d67e8967076986ae0d2f1217975e20c9283b2cd904f69422e513bbf9bdc.png) 0 0 no-repeat
 }
 
-.inside-num input.jian:hover {
+.inside-num input.decre:hover {
     background: url(http://allcake.oss-cn-hangzhou.aliyuncs.com/assets/static/icon_jiah-be17db72c03267c0a778debc515968f0ff2cc2d3bb04381919bed8b1f36f10b0.png) 0 0 no-repeat
 }
 
@@ -1442,7 +1442,7 @@ span.tipsSpa {
     text-align: center
 }
 
-.inside-num b.jia {
+.inside-num b.incre {
     display: block;
     float: left;
     width: 32px;
@@ -1451,7 +1451,7 @@ span.tipsSpa {
     background: url(http://allcake.oss-cn-hangzhou.aliyuncs.com/assets/static/icon_jiannull-9ce2943813f17ae43244ec7a4d8377dce5633964d723f88c3f889f0b7b3e96c4.png) 0 0 no-repeat
 }
 
-.inside-num b.jian {
+.inside-num b.decre {
     display: block;
     float: left;
     width: 32px;

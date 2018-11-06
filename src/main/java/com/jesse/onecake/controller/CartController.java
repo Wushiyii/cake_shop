@@ -10,10 +10,12 @@ import com.jesse.onecake.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.swing.*;
 import java.util.*;
 
 @Controller
@@ -49,4 +51,11 @@ public class CartController extends BaseController<CartBiz,Cart> {
         return this.biz.changeCartQuantity(cakeId,operation,model);
     }
 
+    @RequestMapping(value = "/removeOne",method = RequestMethod.POST)
+    public String single(String  cakeId,Model model) {
+        if (cakeId == null) {
+            throw new RuntimeException("删除购物车商品ID为空,请确认");
+        }
+        return this.biz.removeOne(cakeId,model);
+    }
 }

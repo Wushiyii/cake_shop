@@ -133,4 +133,15 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
         }
         return this.getCartDetail(model);
     }
+
+    public String removeOne(String cakeId,Model model) {
+        List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserName(UserUtils.getUserName());
+        for (CartDetail cartDetail : cartDetails) {
+            if(cakeId.equals(cartDetail.getCakeId())) {
+                this.cartDetailMapper.deleteByPrimaryKey(cartDetail);
+                break;
+            }
+        }
+        return this.getCartDetail(model);
+    }
 }
