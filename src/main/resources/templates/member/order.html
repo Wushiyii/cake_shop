@@ -20,7 +20,7 @@
 </head>
 <body>
 <div th:replace="front/common/header::html"></div>
-<div class="wrap bd">
+<div class="wrap bd" style="margin-bottom:100px;">
 
     <div class="member clearfix">
         <div class="member-l">
@@ -38,9 +38,11 @@
             </ul>
         </div>
         <div class="member-r" style="border:0;">
-            <div class="title" style="border-top:0; padding-left:0; z-index:5;"><h3>我的订单</h3><span class="ordertype"><a
-                    href="/member/order.html" class="on">全部订单</a><i>|</i><a
-                    href="/member/order-1-0.html">待支付订单</a><i>|</i><a href="/member/order-2-0.html">已关闭的订单</a></span>
+            <div class="title" style="border-top:0; padding-left:0; z-index:5;"><h3>我的订单</h3>
+                <!--<span class="ordertype"><a-->
+                    <!--href="/member/order.html" class="on">全部订单</a><i>|</i><a-->
+                    <!--href="/member/order-1-0.html">待支付订单</a><i>|</i><a href="/member/order-2-0.html">已关闭的订单</a>-->
+                <!--</span>-->
             </div>
 
 
@@ -51,7 +53,7 @@
     </div>
 
 </div>
-<!--<div th:replace="front/common/footer::html"></div>-->
+<div th:replace="front/common/footer::html"></div>
 
 </body>
 </html>
