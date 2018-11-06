@@ -97,16 +97,19 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
         User user = userMapper.findByName(UserUtils.getUserName());
         List<CartDTO> cartDTOList = new ArrayList<>();
         List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
+        Double allPrice = 0.00;
         for (CartDetail detail : cartDetails) {
             Cake cake = this.cakeMapper.selectByPrimaryKey(detail.getCakeId());
             CartDTO dto = new CartDTO();
             BeanUtils.copyProperties(cake,dto);
             dto.setId(Integer.parseInt(cake.getId().toString()));
             dto.setQuantity(detail.getQuantity());
-            dto.setTotalPrice(dto.getPrice() * dto.getQuantity());
+            dto.setTotalPrice(dto.getPrice() * dto.getQuantity());//设置当前一栏商品的总价
+            allPrice = dto.getPrice() * dto.getQuantity() + allPrice;
             cartDTOList.add(dto);
         }
         model.addAttribute("cartList",cartDTOList);
+        model.addAttribute("allPrice",allPrice);
         return "checkout::cartDetailList";
     }
 
@@ -115,10 +118,17 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
         List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
         for (CartDetail cartDetail : cartDetails) {
             if (cakeId != null && cakeId.equals(cartDetail.getCakeId())) {
+                //增加操作
                 if("increment".equals(operation)) {
                     cartDetail.setQuantity(cartDetail.getQuantity() + 1);
+                //减少操作
                 } else {
-                    cartDetail.setQuantity(cartDetail.getQuantity() - 1);
+                    //如果数量只有一个，不执行减少操作
+                    if (cartDetail.getQuantity() == 1) {
+                        cartDetail.setQuantity(1);
+                    } else {
+                        cartDetail.setQuantity(cartDetail.getQuantity() - 1);
+                    }
                 }
                 this.cartDetailMapper.updateByPrimaryKey(cartDetail);
             }

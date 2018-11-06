@@ -29,9 +29,9 @@
     <div class="span_1_of_5"></div>
     <div class="card-cart">
         <h2 class="cart-title" style="width: 80%">购物车</h2>
+        <div id="cartDetailList" th:fragment="cartDetailList">
         <div class="mens-toolbar" style="width: 80%">
             <div class="cart">
-                <div id="cartDetailList" th:fragment="cartDetailList">
                     <div th:if="${cartList} ne null">
                         <table>
                             <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;">
@@ -64,7 +64,7 @@
                                         <input class="jian" th:onclick="'javascript:increment(\''+${dto.id}+'\');'" type="button">
                                     </p>
                                 </td>
-                                <td style="width: 10%;" th:text="${dto.totalPrice}">totalPrice</td>
+                                <td style="width: 10%;" th:text="${#numbers.formatDecimal(dto.totalPrice, 0, 2)}">totalPrice</td>
                                 <td style="width: 20%;">
                                     <a href="/user/register"
                                        style="display:block; color: #666;text-decoration: none;font-size: 20px;"><i
@@ -76,14 +76,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+
         <div class="mens-toolbar" style="width: 80%;border: none;">
             <!--<button class="grey" style="width:130px;float: right;background-color: #B08F68;border-bottom: 1px solid #746862;">结算</button>-->
             <a class="btn_sum">结算</a>
-            <span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;">￥148</span>
+            <span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;" th:text="|￥${#numbers.formatDecimal(allPrice, 0, 2)}|">24</span>
             <span style="float:right;font-size: 14px;color: #758552;margin-top: 14px;">总价:</span>
         </div>
-
+        </div>
     </div>
 </div>
 <div th:replace="front/common/footer::html"></div>
