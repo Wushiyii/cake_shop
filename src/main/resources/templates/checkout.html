@@ -79,7 +79,7 @@
 
         <div class="mens-toolbar" style="width: 80%;border: none;">
             <!--<button class="grey" style="width:130px;float: right;background-color: #B08F68;border-bottom: 1px solid #746862;">结算</button>-->
-            <a class="btn_sum" id="purchaseAll" onclick="purchaseAll();">结算</a>
+            <a class="btn_sum" id="purchaseAll" href="/order/purchaseAll">结算</a>
             <span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;" th:text="|￥${#numbers.formatDecimal(allPrice, 0, 2)}|">24</span>
             <span style="float:right;font-size: 14px;color: #758552;margin-top: 14px;">总价:</span>
         </div>
@@ -97,9 +97,6 @@
 
     function decrement(cakeId) {
         $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId , operation: 'decrement'});
-    }
-    function purchaseAll() {
-        $.get('/order/purchaseAll',function (ret) {});
     }
     function changeCheckBox(e) {
         if(e.checked) {
