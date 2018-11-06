@@ -94,9 +94,8 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
     }
 
     public String getCartDetail(Model model) {
-        User user = userMapper.findByName(UserUtils.getUserName());
         List<CartDTO> cartDTOList = new ArrayList<>();
-        List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
+        List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserName(UserUtils.getUserName());
         Double allPrice = 0.00;
         for (CartDetail detail : cartDetails) {
             Cake cake = this.cakeMapper.selectByPrimaryKey(detail.getCakeId());
@@ -114,8 +113,7 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
     }
 
     public String changeCartQuantity(String cakeId, String operation, Model model) {
-        User user = userMapper.findByName(UserUtils.getUserName());
-        List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserId(user.getId().toString());
+        List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserName(UserUtils.getUserName());
         for (CartDetail cartDetail : cartDetails) {
             if (cakeId != null && cakeId.equals(cartDetail.getCakeId())) {
                 //增加操作

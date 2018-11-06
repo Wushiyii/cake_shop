@@ -14,4 +14,16 @@
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
     <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
+
+  <select id="getOrderDetail" parameterType="String" resultMap="BaseResultMap">
+    select od.*
+    from
+    cake_order o , order_detail od
+    where
+    o.id = od.order_id
+    <if test="userId != null and userId != ''">
+      AND o.user_id = #{userId}
+    </if>
+
+  </select>
 </mapper>

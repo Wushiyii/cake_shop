@@ -34,4 +34,14 @@
     </if>
 
   </select>
+
+  <select id="selectCartDetailByUserName" parameterType="String" resultMap="BaseResultMap">
+    select cd.*
+    from cart_detail cd,cart c
+    where cd.cart_id = c.id
+    <if test="username != null and username != ''">
+      AND c.create_user = #{username}
+    </if>
+
+  </select>
 </mapper>

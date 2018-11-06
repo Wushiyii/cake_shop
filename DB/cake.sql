@@ -24,18 +24,17 @@ create table user
 )
 	comment '用户表';
 
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
-  `id` varchar(64) NOT NULL,
-  `user_id` varchar(64) DEFAULT NULL COMMENT '创建订单用户ID',
-  `status` varchar(100) DEFAULT NULL COMMENT '订单状态 0:待确认,1:已确认,2:取消',
-  `suer_id` varchar(64) DEFAULT NULL COMMENT '确认人id',
-  `suer_user` varchar(100) DEFAULT NULL COMMENT '确认人名称',
-  `suer_time` datetime DEFAULT NULL COMMENT '确认时间',
-  `create_user` varchar(100) DEFAULT NULL COMMENT '创建订单人名称',
-  `create_time` datetime DEFAULT NULL COMMENT '创建订单时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='订单表';
+create table cake_order
+(
+  id          varchar(64)  not null primary key,
+  user_id     varchar(64)  null comment '创建订单用户ID',
+  status      varchar(100) null comment '订单状态 0:待确认,1:已确认,2:取消',
+  sure_id     varchar(64)  null comment '确认人id',
+  sure_user   varchar(100) null comment '确认人名称',
+  sure_time   datetime     null comment '确认时间',
+  create_user varchar(100) null comment '创建订单人名称',
+  create_time datetime     null comment '创建订单时间'
+) comment '订单表';
 
 
 DROP TABLE IF EXISTS `order_detail`;

@@ -14,4 +14,6 @@ public interface CartDetailMapper extends BaseMapper<CartDetail> {
 
     Integer selectCountCartDetailByUserId(@Param("userId") String userId);
 
+    List<CartDetail> selectCartDetailByUserName(@Param("username") String username);
+
 }

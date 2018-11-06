@@ -7,9 +7,9 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "order")
+@Table(name = "cake_order")
 @Data
-public class Order extends IdEntity implements Serializable {
+public class CakeOrder extends IdEntity implements Serializable {
 
     @Column(name = "user_id")
     private String userId;
@@ -17,14 +17,14 @@ public class Order extends IdEntity implements Serializable {
     @Column(name = "status")
     private String status;
 
-    @Column(name = "suer_id")
-    private String suerId;
+    @Column(name = "sure_id")
+    private String sureId;
 
-    @Column(name = "suer_user")
-    private String suerUser;
+    @Column(name = "sure_user")
+    private String sureUser;
 
-    @Column(name = "suer_time")
-    private Date suerTime;
+    @Column(name = "sure_time")
+    private Date sureTime;
 
 
     @Column(name = "create_user")
