@@ -146,6 +146,6 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
                 break;
             }
         }
-        return this.getCartDetail(model,true);
+        return this.getCartDetail(model,false);
     }
 }

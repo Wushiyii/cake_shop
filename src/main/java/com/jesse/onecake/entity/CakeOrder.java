@@ -17,6 +17,9 @@ public class CakeOrder extends IdEntity implements Serializable {
     @Column(name = "status")
     private String status;
 
+    @Column(name = "receive_status")
+    private String receiveStatus;
+
     @Column(name = "sure_id")
     private String sureId;
 

@@ -101,7 +101,6 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         return "shop::productList";
     }
 
-    @PermitAll
     @RequestMapping(value = "/searchProduct",method = RequestMethod.POST)
     public String searchProduct(String name,Model model){
         Example example = new Example(Cake.class);

@@ -1,7 +1,9 @@
 package com.jesse.onecake;
 
 public enum OrderStatusEnum {
-    TO_BE_CHECK("0"),CHECKED("1"),CANCELED("2");
+    TO_BE_PAID("TO_BE_PAID"),PAID("CHECKED"),CANCELED("CANCELED"),
+    NOT_RECEIVED("NOT_RECEIVE"),DELIVERING("DELIVERING"),RECEIVED("RECEIVED")
+    ;
     String value;
     OrderStatusEnum(String value) {
         this.value = value;

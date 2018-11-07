@@ -37,7 +37,8 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
         User user = userMapper.findByName(UserUtils.getUserName());
         CakeOrder order = new CakeOrder();
         order.setUserId(user.getId().toString());
-        order.setStatus(OrderStatusEnum.TO_BE_CHECK.getValue());
+        order.setStatus(OrderStatusEnum.TO_BE_PAID.getValue());
+        order.setReceiveStatus(OrderStatusEnum.NOT_RECEIVED.getValue());
         order.setCreateTime(new Date());
         order.setCreateUser(user.getUsername());
         order.setId(idService.genId());
@@ -84,26 +85,6 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
 
     public String getOrder(Model model) {
         List<CakeOrder> cakeOrders = this.selectAll();
-//        List<OrderDTO> orderList = new ArrayList<>();
-//        cakeOrders.forEach(cakeOrder -> {
-//            OrderDTO orderDTO = new OrderDTO();
-//            orderDTO.setId(cakeOrder.getId().toString());
-//            orderDTO.setCreateTime(cakeOrder.getCreateTime());
-//            switch (cakeOrder.getStatus()) {
-//                case "0":
-//                    orderDTO.setStatus("待支付");
-//                    orderDTO.setOperation("取消订单");
-//                    break;
-//                case "1":
-//                    orderDTO.setStatus("已支付");
-//                    orderDTO.setOperation("取消订单");
-//                    break;
-//                case "2":
-//                    orderDTO.setStatus("已取消");
-//                    break;
-//            }
-//            orderList.add(orderDTO);
-//        });
         model.addAttribute("orderList", cakeOrders);
         return "/member/order";
     }

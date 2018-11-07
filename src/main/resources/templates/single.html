@@ -9,7 +9,6 @@
     <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
           type='text/css'>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-    <script th:src="@{https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
     <!-- start menu -->
     <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all"/>
     <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
@@ -17,18 +16,11 @@
         $(".megamenu").megamenu();
     });</script>
     <!-- end menu -->
-    <script type="text/javascript" th:src="@{~/js/jquery.jscrollpane.min.js}"></script>
-    <script type="text/javascript" id="sourcecode">
-        $(function () {
-            $('.scroll-pane').jScrollPane();
-        });
-    </script>
-    <!-- top scrolling -->
     <script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
 </head>
-<body>
+<body style="background: #fff;">
 <div th:replace="front/common/header::html"></div>
-
+<div th:replace="front/common/category::html"></div>
     <div class="inside-box clearfix">
         <dl class="base-warp inside-dl">
             <dt>
@@ -36,10 +28,10 @@
                 <ul class="pho-tab js-pho-tab">
                     <li style="display: list-item;"><img style="width:100%;" alt=""  th:src="@{'~/images/'+${cake.img}+'.jpg'}"></li>
                     <li style="display: none;">
-                        <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/sub_pics/000/000/057/original/_DSC6017_%E5%89%AF%E6%9C%AC.jpg?1453114118">
+                        <img style="width:100%;" alt="" >
                     </li>
                     <li style="display: none;">
-                        <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/pic_thirds/000/000/057/original/_DSC6001_%E5%89%AF%E6%9C%AC.jpg?1453114118">
+                        <img style="width:100%;" alt="" >
                     </li>
                 </ul>
                 <!--缩略图-->
@@ -54,29 +46,22 @@
                         <img style="width:100%;" alt="" src="http://allcake.oss-cn-hangzhou.aliyuncs.com/system/products/pic_thirds/000/000/057/original/_DSC6001_%E5%89%AF%E6%9C%AC.jpg?1453114118">
                     </li>
                 </ul>
-                <p class="inside-info">蛋糕在收到后2-3小时内食用最佳，最适宜0℃~8℃冷藏保存，24小时内食用。<br>如对上述食材有过敏经历者，请选择其它款蛋糕。<br>订购1~3磅规格的蛋糕，请提前5小时订购。<br>订购5磅或5磅以上规格的蛋糕，请提前24小时预定或与客服人员联系，订购电话：4009-926-927</p>
+                <p class="inside-info">The cake is best served within 2-3 hours after receipt, most suitable for storage at 0 ° C ~ 8 ° C, and eat within 24 hours.
             </dt>
             <dd>
                 <h5 class="inside-title" th:text="${cake.name}">
-                    榴恋
-                    <a href="/products?cat_id=2" th:text="${cake.category}">乳脂奶油</a>
+                    名称
+                    <a href="/products?cat_id=2" th:text="${cake.category}">分类</a>
                 </h5>
                 <p class="inside-desc">这一刻未必喜欢，总有一天，无比想念</p>
-                <p class="inside-weigth">
-                    <a capacity="1磅：约13×13(cm) 适合3-4人食用 " th:id="${cake.id}" th:data-price="${cake.price}" class="product current" href="javascript:void(0)">1磅</a>
-                    <a capacity="2磅：约17×17(cm) 适合7-8人食用 " id="250" data-price="268.0" class="product " href="javascript:void(0)">2磅</a>
-                    <a capacity="3磅：约23×23(cm) 适合11-12人食用 " id="251" data-price="388.0" class="product " href="javascript:void(0)">3磅</a>
-                    <a capacity="5磅：约30×30(cm) 适合15-20人食用 " id="252" data-price="750.0" class="product " href="javascript:void(0)">5磅</a>
-                </p>
                 <p class="inside-num">
                     <span>数量</span>
                     <input class="incre" onclick="decrement();" type="button">
                     <input id="quantity" class="count" type="text" value="1">
                     <input class="decre" onclick="increment();" type="button">
                 </p>
-                <p class="inside-tim">需提前5小时预订</p>
                 <p class="inside-price">
-                    <span id="items_discount_price" th:text="|￥${cake.price}|"><i>￥</i>168.0</span>
+                    <span id="items_discount_price" th:text="'￥'+${cake.price}"><i>￥</i>168.0</span>
                 </p>
                 <p class="inside-btn">
                     <a class="addcart" id="add_to_cart" href="javascript:void(0)">加入购物车</a>
@@ -109,7 +94,7 @@
 <script type="text/javascript">
 
     $('#add_to_cart').on('click', function(){
-        var id = $('.current').attr('id');
+        var id = [[${cake.id}]];
         var quantity = $('#quantity').val();
         $.post('/cart/addCart',
             {

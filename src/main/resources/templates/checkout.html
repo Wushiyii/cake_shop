@@ -65,7 +65,8 @@
                                     totalPrice
                                 </td>
                                 <td style="width: 20%;">
-                                    <a th:onclick="'javascript:removeOne(\''+${dto.id}+'\');'"
+                                    <!--<a th:onclick="'javascript:removeOne(\''+${dto.id}+'\');'"-->
+                                    <a th:href="@{'/cart/removeOne/'+${dto.id}}"
                                        style="display:block; color: #666;text-decoration: none;font-size: 20px;"><i
                                             class="am-icon-remove"></i></a>
                                 </td>

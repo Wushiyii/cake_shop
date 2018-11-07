@@ -51,8 +51,8 @@ public class CartController extends BaseController<CartBiz,Cart> {
         return this.biz.changeCartQuantity(cakeId,operation,model);
     }
 
-    @RequestMapping(value = "/removeOne",method = RequestMethod.POST)
-    public String single(String  cakeId,Model model) {
+    @RequestMapping(value = "/removeOne/{cakeId}",method = RequestMethod.GET)
+    public String single(@PathVariable("cakeId") String cakeId,Model model) {
         if (cakeId == null) {
             throw new RuntimeException("删除购物车商品ID为空,请确认");
         }

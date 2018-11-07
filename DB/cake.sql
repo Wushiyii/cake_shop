@@ -29,6 +29,7 @@ create table cake_order
   id          varchar(64)  not null primary key,
   user_id     varchar(64)  null comment '创建订单用户ID',
   status      varchar(100) null comment '订单状态 0:待确认,1:已确认,2:取消',
+  receive_status      varchar(100) null comment '送达状态 NOT_RECEIVED:待收货,DELIVERING:送货中,RECEIVED:已收货',
   sure_id     varchar(64)  null comment '确认人id',
   sure_user   varchar(100) null comment '确认人名称',
   sure_time   datetime     null comment '确认时间',

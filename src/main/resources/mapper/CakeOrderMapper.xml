@@ -8,6 +8,7 @@
     <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="receive_status" jdbcType="VARCHAR" property="receiveStatus" />
     <result column="sure_id" jdbcType="VARCHAR" property="sureId" />
     <result column="sure_user" jdbcType="VARCHAR" property="sureUser" />
     <result column="sure_time" jdbcType="TIMESTAMP" property="sureTime" />
