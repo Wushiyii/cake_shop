@@ -20,6 +20,7 @@
 </head>
 <body>
 <div th:replace="front/common/header::html"></div>
+<div th:replace="front/common/category::html" ></div>
 <div class="wrap bd">
 
     <div class="member clearfix">
@@ -61,7 +62,7 @@
                                             <td style="width: 25%;" th:text="${order.id}">id</td>
                                             <td style="width: 10%;" th:switch="${order.status}">
                                                 <p th:case="'TO_BE_PAID'">待支付</p>
-                                                <p th:case="'PAID'">已支付，待确认</p>
+                                                <p th:case="'PAID'">已支付</p>
                                                 <p th:case="'CANCELED'">已取消</p>
                                             </td>
                                             <td style="width: 20%;" th:text="${#dates.format(order.createTime, 'yyyy-MM-dd hh:mm:ss')}">time</td>

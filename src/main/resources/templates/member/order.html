@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
-    <link th:href="@{~/css/single.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
           type='text/css'>
@@ -21,6 +20,7 @@
 </head>
 <body>
 <div th:replace="front/common/header::html"></div>
+<div th:replace="front/common/category::html" ></div>
 <div class="wrap bd">
 
     <div class="member clearfix">
@@ -72,7 +72,7 @@
                                             <td style="width: 25%;" th:text="${order.id}">id</td>
                                             <td style="width: 10%;" th:switch="${order.status}">
                                                 <p th:case="'TO_BE_PAID'">待支付</p>
-                                                <p th:case="'PAID'">已支付，待确认</p>
+                                                <p th:case="'PAID'">已支付</p>
                                                 <p th:case="'CANCELED'">已取消</p>
                                             </td>
                                             <td style="width: 20%;"
@@ -81,20 +81,20 @@
 
                                             <!--<td style="width: 10%;" th:text="${#numbers.formatDecimal(dto.totalPrice, 0, 2)}">totalPrice</td>-->
                                             <td style="width: 20%;">
-                                                <a th:if="${order.status} eq 'TO_BE_PAID'"
-                                                   style=" color: #8a958b;text-decoration: none;margin-left: 15px;"
-                                                   onMouseOver="this.style.color='#f92a5f';"
-                                                   onmouseOut="this.style.color = '#666'"
-                                                   href="http://www.baidu.com">
-                                                    支付
-                                                </a>|
-                                                <a th:if="${order.status} eq 'TO_BE_PAID'"
-                                                   style="color: #666;text-decoration: none;"
-                                                   onMouseOver="this.style.color='#f92a5f';"
-                                                   onmouseOut="this.style.color = '#666'"
-                                                   th:href="@{'/order/cancelOrder/'+${order.id}}">
-                                                    取消订单
-                                                </a>
+                                                <div th:if="${order.status} eq 'TO_BE_PAID'">
+                                                    <a style=" color: #666;text-decoration: none;margin-left: 15px;"
+                                                       onMouseOver="this.style.color='#f92a5f';"
+                                                       onmouseOut="this.style.color = '#666'"
+                                                       href="http://www.baidu.com">
+                                                        支付
+                                                    </a>|
+                                                    <a style="color: #666;text-decoration: none;"
+                                                       onMouseOver="this.style.color='#f92a5f';"
+                                                       onmouseOut="this.style.color = '#666'"
+                                                       th:href="@{'/order/cancelOrder/'+${order.id}}">
+                                                        取消订单
+                                                    </a>
+                                                </div>
                                             </td>
                                         </tr>
 
@@ -108,7 +108,7 @@
         </div>
     </div>
 </div>
-<div th:replace="front/common/footer::html"></div>
+<!--<div th:replace="front/common/footer::html"></div>-->
 
 </body>
 </html>

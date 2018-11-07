@@ -10,7 +10,6 @@
     <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
           type='text/css'/>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-    <script th:src="@{~/js/jquery.easydropdown.js}"></script>
     <!-- top scrolling -->
     <script type="text/javascript" th:src="@{~/js/move-top.js}"></script>
     <script type="text/javascript" th:src="@{~/js/easing.js}"></script>
@@ -57,15 +56,7 @@
         });
     </script>
 
-    <!-- top scrolling -->
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
-                event.preventDefault();
-                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
-            });
-        });
-    </script>
+
 </head>
 <body>
     <div th:replace="front/common/header::html"></div>
@@ -73,9 +64,9 @@
     <div class="login">
     <div class="wrap">
         <!--左侧分类栏-->
-        <div class="rsidebar span_1_of_left">
+        <div class="rsidebar span_1_of_left" >
             <section class="sky-form">
-                <h4>蛋糕</h4>
+                <h4  >蛋糕</h4>
                 <div class="row row1 scroll-pane" style="width: 243px;height: 150px;">
                     <div class="col col-4">
                         <label class="checkbox"><input id="defaultCheck" type="checkbox" name="11"
