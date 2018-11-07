@@ -25,4 +25,17 @@ public class MemberController extends BaseController<MemberBiz, User> {
     public String order(Model model) {
         return this.orderBiz.getOrder(model);
     }
+
+    @RequestMapping("/address")
+    public String address(Model model) {
+        return "/member/address";
+    }
+    @RequestMapping("/info")
+    public String info(Model model) {
+        return "/member/info";
+    }
+    @RequestMapping("/changePass")
+    public String changePass(Model model) {
+        return "/member/changePass";
+    }
 }

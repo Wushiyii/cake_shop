@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
+          type='text/css'>
+    <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
+    <!-- start menu -->
+    <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
+    <script>$(document).ready(function () {
+        $(".megamenu").megamenu();
+    });</script>
+    <!-- end menu -->
+
+</head>
+<body>
+<div th:replace="front/common/header::html"></div>
+<div class="wrap bd">
+
+    <div class="member clearfix">
+        <div class="member-l">
+            <div class="userimg-l">
+                <a href="/member/">
+                    <img th:src="@{~/images/cake4.jpg}" alt="会员头像">
+                </a>
+            </div>
+            <ul class="membernav">
+                <li><a href="/member/">会员首页</a></li>
+                <li><a href="/member/order">我的订单</a></li>
+                <li><a href="/member/address">收货地址</a></li>
+                <li><a href="/member/info">个人资料</a></li>
+                <li class="current"><a href="/member/changePass">修改密码</a></li>
+            </ul>
+        </div>
+        <div class="member-r" style="font-size: 13px;">
+            <div class="dtitle">修改密码</div>
+            <div class="boxpd">
+            <div class="noorder">TO BE DONE</div>
+            </div>
+
+    </div>
+
+</div>
+<!--<div th:replace="front/common/footer::html"></div>-->
+
+</body>
+</html>
