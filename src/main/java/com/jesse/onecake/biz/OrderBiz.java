@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import tk.mybatis.mapper.entity.Example;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -83,29 +83,44 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
     }
 
     public String getOrder(Model model) {
-        User user = userMapper.findByName(UserUtils.getUserName());
         List<CakeOrder> cakeOrders = this.selectAll();
-        List<OrderDTO> orderList = new ArrayList<>();
-        cakeOrders.forEach(cakeOrder -> {
-            OrderDTO orderDTO = new OrderDTO();
-            orderDTO.setId(cakeOrder.getId().toString());
-            orderDTO.setCreateTime(cakeOrder.getCreateTime());
-            switch (cakeOrder.getStatus()) {
-                case "0":
-                    orderDTO.setStatus("待支付");
-                    orderDTO.setOperation("取消订单");
-                    break;
-                case "1":
-                    orderDTO.setStatus("已支付");
-                    orderDTO.setOperation("取消订单");
-                    break;
-                case "2":
-                    orderDTO.setStatus("已取消");
-                    break;
-            }
-            orderList.add(orderDTO);
-        });
-        model.addAttribute("orderList", orderList);
+//        List<OrderDTO> orderList = new ArrayList<>();
+//        cakeOrders.forEach(cakeOrder -> {
+//            OrderDTO orderDTO = new OrderDTO();
+//            orderDTO.setId(cakeOrder.getId().toString());
+//            orderDTO.setCreateTime(cakeOrder.getCreateTime());
+//            switch (cakeOrder.getStatus()) {
+//                case "0":
+//                    orderDTO.setStatus("待支付");
+//                    orderDTO.setOperation("取消订单");
+//                    break;
+//                case "1":
+//                    orderDTO.setStatus("已支付");
+//                    orderDTO.setOperation("取消订单");
+//                    break;
+//                case "2":
+//                    orderDTO.setStatus("已取消");
+//                    break;
+//            }
+//            orderList.add(orderDTO);
+//        });
+        model.addAttribute("orderList", cakeOrders);
         return "/member/order";
+    }
+
+    @Transactional
+    public String cancelOrder(String orderId, Model model) {
+        CakeOrder cakeOrder = this.selectById(orderId);
+        Example example = new Example(OrderDetail.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("orderId",orderId);
+        List<OrderDetail> orderDetails = this.orderDetailMapper.selectByExample(example);
+        if (orderDetails.size() != 0) {
+           orderDetails.forEach(orderDetail -> {
+               this.orderDetailMapper.deleteByPrimaryKey(orderDetail);
+           });
+        }
+        this.delete(cakeOrder);
+        return getOrder(model);
     }
 }

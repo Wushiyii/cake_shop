@@ -27,6 +27,9 @@
         var queryCategory = [];
         $(document).ready(() => {
             handleCategory("11", true);
+            handleCategory("12", true);
+            handleCategory("13", true);
+            handleCategory("14", true);
         });
         searchProduct = (query) => {
             $('#productList').load('/cake/searchProduct', {name: query});
@@ -83,10 +86,13 @@
                     </div>
                     <div class="col col-4">
                         <label class="checkbox"><input type="checkbox" name="12"
+                                                       checked="true"
                                                        onclick="handleCategory(this.name,this.checked)"><i></i>芝士</label>
                         <label class="checkbox"><input type="checkbox" name="13"
+                                                       checked="true"
                                                        onclick="handleCategory(this.name,this.checked)"><i></i>慕斯</label>
                         <label class="checkbox"><input type="checkbox" name="14"
+                                                       checked="true"
                                                        onclick="handleCategory(this.name,this.checked)"><i></i>布丁</label>
                         <label class="checkbox"><input type="checkbox" name="15"
                                                        onclick="handleCategory(this.name,this.checked)"><i></i>奶酪</label>
@@ -126,16 +132,15 @@
                             <ul>
                                 <li class="clearfix">
                                     <div class="imgs">
-                                        <a href="/cake/" target="_blank">
+                                        <a th:href="@{'/cake/single/'+${cake.id}}">
                                             <img th:src="@{'~/images/'+${cake.img}+'.jpg'}" alt="" width="200">
                                         </a>
                                     </div>
                                     <div class="infos">
                                         <h2>
-                                            <a style="color:#555555;" th:text="${cake.name}" href="/cake/"
-                                               target="_blank">草莓拿破仑
-                                                Strawberry Napoleon
-                                                Cake</a>
+                                            <a style="color:#555555;" th:text="${cake.name}" th:href="@{'/cake/single/'+${cake.id}}">
+                                                Name
+                                            </a>
                                         </h2>
                                         <div class="desc">
                                             草莓鲜芝士微甜细腻，伊斯尼淡奶油藏在鲜草莓身后，4809层酥皮、配搭清爽甜美的鲜草莓；层层美味，每一口都惊喜不断。顿时，弥漫唇齿之间……<br>Strawberry

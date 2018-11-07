@@ -75,9 +75,15 @@
 
                                             <!--<td style="width: 10%;" th:text="${#numbers.formatDecimal(dto.totalPrice, 0, 2)}">totalPrice</td>-->
                                             <td style="width: 20%;">
-                                                <!--th:onclick="'javascript:removeOne(\''+${order.id}+'\');'"-->
-                                                <a style="display:block; color: #666;text-decoration: none;" th:href="@{'/order/cancelOrder/'+${order.id}}">
-                                                    [[${order.operation}]]
+                                                <a th:if="${order.status} eq '0'" style=" color: #666;text-decoration: none;margin-left: 15px;"
+                                                   onMouseOver="this.style.color='#f92a5f';" onmouseOut="this.style.color = '#666'"
+                                                   href="http://www.baidu.com">
+                                                    支付
+                                                </a>|
+                                                <a th:if="${order.status} eq '0'" style="color: #666;text-decoration: none;"
+                                                   onMouseOver="this.style.color='#f92a5f';" onmouseOut="this.style.color = '#666'"
+                                                   th:href="@{'/order/cancelOrder/'+${order.id}}">
+                                                    取消订单
                                                 </a>
                                             </td>
                                         </tr>

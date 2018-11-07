@@ -5,6 +5,7 @@ import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.CakeOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -20,5 +21,10 @@ public class OrderController extends BaseController<OrderBiz,CakeOrder> {
     @RequestMapping(value = "/OrderDetail")
     public String getOrderDetail (Model model) {
         return this.biz.getOrderDetail(model);
+    }
+
+    @RequestMapping(value = "/cancelOrder/{orderId}")
+    public String cancelOrder (@PathVariable("orderId")String orderId,Model model) {
+        return this.biz.cancelOrder(orderId,model);
     }
 }
