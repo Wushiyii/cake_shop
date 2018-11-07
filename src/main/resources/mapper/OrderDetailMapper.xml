@@ -26,4 +26,16 @@
     </if>
 
   </select>
+  <select id="getOrderDetailToBePaid" parameterType="String" resultMap="BaseResultMap">
+    select od.*
+    from
+    cake_order o , order_detail od
+    where
+    o.id = od.order_id
+    and o.status = 'TO_BE_PAID'
+    <if test="userId != null and userId != ''">
+      AND o.user_id = #{userId}
+    </if>
+
+  </select>
 </mapper>

@@ -11,4 +11,6 @@ import java.util.List;
 public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 
     List<OrderDetail> getOrderDetail(@Param("userId") String UserId);
+
+    List<OrderDetail> getOrderDetailToBePaid(@Param("userId") String UserId);
 }
