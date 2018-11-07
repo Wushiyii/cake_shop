@@ -3,6 +3,7 @@ package com.jesse.onecake.biz;
 import com.jesse.onecake.OrderStatusEnum;
 import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.common.config.security.UserUtils;
+import com.jesse.onecake.dto.OrderDTO;
 import com.jesse.onecake.entity.*;
 import com.jesse.onecake.mapper.*;
 import com.jesse.onecake.service.generator.id.provider.IdService;
@@ -11,11 +12,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Service
-public class OrderBiz extends BaseBiz<CakeOrderMapper,CakeOrder> {
+public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
 
     @Autowired
     private UserMapper userMapper;
@@ -70,13 +72,40 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper,CakeOrder> {
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }
-        return getOrderDetail(model);
+        return getOrder(model);
     }
 
     public String getOrderDetail(Model model) {
         User user = userMapper.findByName(UserUtils.getUserName());
         List<OrderDetail> orderDetail = this.orderDetailMapper.getOrderDetail(user.getId().toString());
-        model.addAttribute("orderList",orderDetail);
+        model.addAttribute("orderList", orderDetail);
+        return "/member/order";
+    }
+
+    public String getOrder(Model model) {
+        User user = userMapper.findByName(UserUtils.getUserName());
+        List<CakeOrder> cakeOrders = this.selectAll();
+        List<OrderDTO> orderList = new ArrayList<>();
+        cakeOrders.forEach(cakeOrder -> {
+            OrderDTO orderDTO = new OrderDTO();
+            orderDTO.setId(cakeOrder.getId().toString());
+            orderDTO.setCreateTime(cakeOrder.getCreateTime());
+            switch (cakeOrder.getStatus()) {
+                case "0":
+                    orderDTO.setStatus("待支付");
+                    orderDTO.setOperation("取消订单");
+                    break;
+                case "1":
+                    orderDTO.setStatus("已支付");
+                    orderDTO.setOperation("取消订单");
+                    break;
+                case "2":
+                    orderDTO.setStatus("已取消");
+                    break;
+            }
+            orderList.add(orderDTO);
+        });
+        model.addAttribute("orderList", orderList);
         return "/member/order";
     }
 }

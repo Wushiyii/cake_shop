@@ -34,7 +34,7 @@ a{text-decoration:none;}
 .wrap_member{border-top:1px solid #E6E2E0; margin-bottom:20px;}
 
 .member{ margin-top:20px;}
-.member-l{ float:left; width:18%; background-color: #ffffff;
+.member-l{ float:left; width:18%; background-color: #ffffff;margin-bottom:10%;
 	box-shadow: 0px 0px 12px 0px rgba(128, 113, 113, 0.3);}
 .membernav{ background-color: #fff; font-size:14px;}
 .membernav li a{ display:block; line-height:50px; text-align:center; transition:all .3s; color: black;}
@@ -64,7 +64,8 @@ a{text-decoration:none;}
 .member-r .title .gocart{ position:absolute; right:15px; top:0;}
 .member-r .dtitle{background-color:#373d41;color:#f5f5f5;line-height:60px; padding-left:15px; border-bottom:1px solid #DBDBDB;border-top:1px solid #DBDBDB; font-size:14px; position:relative;box-shadow: 0 1px 7px rgba(0,0,0,0.1);}
 .member-r .dtitle .gocart{ position:absolute; right:15px; top:0;}
-.nojilu{ padding:70px 0 90px 0; text-align:center;}
+.noRecord{ padding:70px 0 90px 0; text-align:center;}
+.existRecord{ padding:5px 0 90px 0; text-align:center;}
 
 .boxpd{ padding:15px; background-color:#FFF;}
 .indexlist td{ padding:10px 0; border-bottom:1px dotted #CCC;}
