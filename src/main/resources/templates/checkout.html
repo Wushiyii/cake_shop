@@ -10,29 +10,23 @@
     <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
           type='text/css'>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
-    <script type="text/javascript">
-        $(document).ready(() => {
-            getCartDetail();
-        });
-        getCartDetail = () => {
-            $('#cartDetailList').load('/cart/getCartDetail');
-        }
-    </script>
+
 </head>
 <body>
 <div th:replace="front/common/header::html"></div>
 <div class="login" style="padding: 3% 0">
-    <!--<div class="wrap">-->
-    <!--<h4 class="title">购物车空空如也</h4>-->
-    <!--<p class="cart">购物车还没有蛋糕.<br>点击<a href="/cake/"> 首页</a> 挑选吧！</p>-->
-    <!--</div>-->
+
     <div class="span_1_of_5"></div>
     <div class="card-cart">
         <h2 class="cart-title" style="width: 80%">购物车</h2>
+        <div th:if="${cartList.size()} eq 0" style="margin: 20px auto">
+            <!--<h4 class="title">购物车空空如也</h4>-->
+            <p class="cart">购物车还没有蛋糕.点击<a href="/cake/"> 首页</a> 挑选吧！</p>
+        </div>
         <div id="cartDetailList" th:fragment="cartDetailList">
-        <div class="mens-toolbar" style="width: 80%">
-            <div class="cart">
-                    <div th:if="${cartList} ne null">
+            <div class="mens-toolbar" style="width: 80%">
+                <div class="cart">
+                    <div th:if="${cartList.size()} ne 0">
                         <table>
                             <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;">
                                 <th style="width: 10%;">
@@ -49,7 +43,8 @@
                                 <th style="width: 10%;text-align: center">小计</th>
                                 <th style="width: 20%;text-align: center">操作</th>
                             </tr>
-                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;" th:each="dto,dtoStat : ${cartList}">
+                            <tr style="font-size: 14px;border-bottom: 1px solid #DDDDDD;"
+                                th:each="dto,dtoStat : ${cartList}">
                                 <td style="width: 10%;"><input name="check" type="checkbox" style="margin-right: 25px;"
                                                                class="check-out-box"></td>
                                 <td style="width: 30%;text-align: left"><img th:src="@{~/images/cake7.jpg}" alt=""
@@ -57,16 +52,20 @@
                                 <td style="width: 10%;" th:text="${dto.price}">price</td>
                                 <td style="width: 20%;">
                                     <p class="inside-num">
-                                        <input style="margin-left: 60px;" class="incre" th:onclick="'javascript:decrement(\''+${dto.id}+'\');'"
+                                        <input style="margin-left: 60px;" class="incre"
+                                               th:onclick="'javascript:decrement(\''+${dto.id}+'\');'"
                                                type="button">
                                         <!--<i class="am-icon-plus"></i>-->
-                                        <input  class="count" type="text" th:value="${dto.quantity}" disabled="">
-                                        <input class="decre" th:onclick="'javascript:increment(\''+${dto.id}+'\');'" type="button">
+                                        <input class="count" type="text" th:value="${dto.quantity}" disabled="">
+                                        <input class="decre" th:onclick="'javascript:increment(\''+${dto.id}+'\');'"
+                                               type="button">
                                     </p>
                                 </td>
-                                <td style="width: 10%;" th:text="${#numbers.formatDecimal(dto.totalPrice, 0, 2)}">totalPrice</td>
+                                <td style="width: 10%;" th:text="${#numbers.formatDecimal(dto.totalPrice, 0, 2)}">
+                                    totalPrice
+                                </td>
                                 <td style="width: 20%;">
-                                    <a  th:onclick="'javascript:removeOne(\''+${dto.id}+'\');'"
+                                    <a th:onclick="'javascript:removeOne(\''+${dto.id}+'\');'"
                                        style="display:block; color: #666;text-decoration: none;font-size: 20px;"><i
                                             class="am-icon-remove"></i></a>
                                 </td>
@@ -76,35 +75,39 @@
                     </div>
                 </div>
             </div>
+            <div class="mens-toolbar" style="width: 80%;border: none;" th:if="${cartList.size()} ne 0">
+                <!--<button class="grey" style="width:130px;float: right;background-color: #B08F68;border-bottom: 1px solid #746862;">结算</button>-->
+                <a class="btn_sum" id="purchaseAll" href="/order/purchaseAll">结算</a>
+                <span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;"
+                      th:text="|￥${#numbers.formatDecimal(allPrice, 0, 2)}|">24</span>
+                <span style="float:right;font-size: 14px;color: #758552;margin-top: 14px;">总价:</span>
+            </div>
 
-        <div class="mens-toolbar" style="width: 80%;border: none;">
-            <!--<button class="grey" style="width:130px;float: right;background-color: #B08F68;border-bottom: 1px solid #746862;">结算</button>-->
-            <a class="btn_sum" id="purchaseAll" href="/order/purchaseAll">结算</a>
-            <span style="display: inline-block; float:right; padding: 0 10px 0 15px;font-size: 24px;color: #758552;margin-top: 4px;" th:text="|￥${#numbers.formatDecimal(allPrice, 0, 2)}|">24</span>
-            <span style="float:right;font-size: 14px;color: #758552;margin-top: 14px;">总价:</span>
-        </div>
         </div>
     </div>
 </div>
+
 <div th:replace="front/common/footer::html"></div>
 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 </body>
 <script type="text/javascript">
 
     function increment(cakeId) {
-        $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId , operation: 'increment'});
+        $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId, operation: 'increment'});
     }
 
     function decrement(cakeId) {
-        $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId , operation: 'decrement'});
+        $('#cartDetailList').load('/cart/changeCartQuantity', {cakeId: cakeId, operation: 'decrement'});
     }
+
     function changeCheckBox(e) {
-        if(e.checked) {
+        if (e.checked) {
             $("input[name='check']").prop("checked", true)
         } else {
             $("input[name='check']").prop("checked", false)
         }
     }
+
     function removeOne(cakeId) {
         $('#cartDetailList').load('/cart/removeOne', {cakeId: cakeId});
     }

@@ -1,10 +1,12 @@
 package com.jesse.onecake.controller;
 
 import com.jesse.onecake.biz.CakeBiz;
+import com.jesse.onecake.biz.CartBiz;
 import com.jesse.onecake.common.response.TableResultResponse;
 import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.Cake;
 import com.sun.org.apache.bcel.internal.generic.RET;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,8 @@ import java.util.List;
 @RequestMapping(value = "cake")
 public class CakeController extends BaseController<CakeBiz,Cake> {
 
+    @Autowired private CartBiz cartBiz;
+
     @RequestMapping("/home")
     public String home(Model model){
         Example example = new Example(Cake.class);
@@ -34,8 +38,8 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         return "index::productList";
     }
     @RequestMapping("/checkout")
-    public String checkout(){
-        return "checkout";
+    public String checkout(Model model){
+        return cartBiz.getCartDetail(model,false);
     }
 
     @RequestMapping("/login")

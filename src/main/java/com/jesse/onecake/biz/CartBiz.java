@@ -93,7 +93,7 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
         return map;
     }
 
-    public String getCartDetail(Model model) {
+    public String getCartDetail(Model model,boolean isAjax) {
         List<CartDTO> cartDTOList = new ArrayList<>();
         List<CartDetail> cartDetails = this.cartDetailMapper.selectCartDetailByUserName(UserUtils.getUserName());
         Double allPrice = 0.00;
@@ -109,7 +109,11 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
         }
         model.addAttribute("cartList",cartDTOList);
         model.addAttribute("allPrice",allPrice);
-        return "checkout::cartDetailList";
+        if(isAjax){
+            return "checkout::cartDetailList";
+        } else {
+            return "checkout";
+        }
     }
 
     public String changeCartQuantity(String cakeId, String operation, Model model) {
@@ -131,7 +135,7 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
                 this.cartDetailMapper.updateByPrimaryKey(cartDetail);
             }
         }
-        return this.getCartDetail(model);
+        return this.getCartDetail(model,true);
     }
 
     public String removeOne(String cakeId,Model model) {
@@ -142,6 +146,6 @@ public class CartBiz extends BaseBiz<CartMapper,Cart> {
                 break;
             }
         }
-        return this.getCartDetail(model);
+        return this.getCartDetail(model,true);
     }
 }

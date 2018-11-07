@@ -43,7 +43,7 @@ public class CartController extends BaseController<CartBiz,Cart> {
 
     @RequestMapping(value = "/getCartDetail",method = RequestMethod.GET)
     public String getCartDetail(Model model) {
-        return this.biz.getCartDetail(model);
+        return this.biz.getCartDetail(model,true);
     }
 
     @RequestMapping(value = "/changeCartQuantity",method = RequestMethod.POST)
