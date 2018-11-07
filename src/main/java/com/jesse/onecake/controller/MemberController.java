@@ -1,5 +1,6 @@
 package com.jesse.onecake.controller;
 
+import com.jesse.onecake.biz.MemberBiz;
 import com.jesse.onecake.biz.OrderBiz;
 import com.jesse.onecake.biz.UserBiz;
 import com.jesse.onecake.controller.base.BaseController;
@@ -11,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("member")
-public class MemberController extends BaseController<UserBiz, User> {
+public class MemberController extends BaseController<MemberBiz, User> {
 
     @Autowired private OrderBiz orderBiz;
 
     @RequestMapping("/")
-    public String member() {
-        return "member/member";
+    public String member(Model model) {
+        return this.biz.getOrderInfos(model);
     }
 
     @RequestMapping("/order")
