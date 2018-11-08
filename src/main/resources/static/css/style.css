@@ -1230,7 +1230,6 @@ h5.sub_title{
 	color:#000;
 	font-size:1em;
 	text-transform:uppercase;
-	margin: 3%;
 }
 .button1 {
 	margin-top:3%;
@@ -1303,9 +1302,9 @@ h5.sub_title{
 	background: #555;
 	color: #FFF;
     /*font-size: 1em;*/
-	padding: 8px 20px;
-    border-radius: 5px;
-	border-bottom: 2px solid #1D1C1C;
+	padding: 0.5em 1.25em;
+    border-radius: 0.4em;
+	border-bottom: 0.125em solid #1D1C1C;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -3097,10 +3096,10 @@ p.cart a:hover {
 	}
 	.cssmenu ul li a {
 		margin: 0px 4px;
-		font-size: 12px;
+		font-size: 0.75em;
 	}
 	.top_box {
-		padding: 10px;
+		padding: 0.625em;
 	}
 	.view-fifth .mask {
 		-webkit-transform: translateX(-391px);

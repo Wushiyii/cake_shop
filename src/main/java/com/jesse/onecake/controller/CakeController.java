@@ -68,11 +68,10 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
 
     @RequestMapping("/")
     public String index(Model model) {
-//        Page<Object> result = PageHelper.startPage(query.getPageNumber(), query.getPageSize());
-//        Example example = new Example(Cake.class);
-//        Example.Criteria criteria = example.createCriteria();
-//        criteria.andEqualTo("banner","1");
-//        model.addAttribute("bannerList", this.biz.selectByExample(example));
+        Example example = new Example(Cake.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("banner","1");
+        model.addAttribute("bannerList", this.biz.selectByExample(example));
         return "index";
     }
 
