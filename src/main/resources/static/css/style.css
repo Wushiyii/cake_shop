@@ -20,7 +20,7 @@ a{text-decoration:none;}
 .prolist .imgs span{ position:absolute; left:0; top:0; background-color:#AA1F24; padding:5px 10px; color:#FFF;}
 .prolist .infos{ float:right; width:700px;}
 .prolist .infos h2{ font-weight:normal; font-size:18px;}
-.prolist .infos .desc{ font-size: 12px; color: #877a74; padding:5px 0 10px 0; min-height:100px; line-height:2em; text-align:justify;}
+.prolist .infos .desc{ font-size: 12px; color: #877a74; padding:5px 0 10px 0; min-height:6.25em; line-height:2em; text-align:justify;}
 .prolist .infos .buy .btn_buy{ float:right; padding:0 0 0 15px;}
 .prolist .infos .buy .btn_buy a{ display:block; width:120px; height:35px; font-size:14px; background-color: #373d41; color:#FFF; text-align:center; line-height:35px; border-radius:3px;border-bottom: 2px solid #746862;}
 .prolist .infos .buy .btn_buy a:hover{ background-color: #b5aeaa; color: #000000; text-align:center; line-height:35px; border-radius:3px;border-bottom: 2px solid #746862;}
@@ -87,6 +87,29 @@ a{text-decoration:none;}
 .vertical-base{	vertical-align:baseline;}/* vertical align baseline */
 .vertical-top{	vertical-align:top;}/* vertical align top */
 .underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+
+.personInfo{}
+.personInfo li{ margin-bottom:1.5em;}
+.personInfo li label{ display:inline-block; width:5em;}
+.personInfo li .baseInput{ border:1px solid #CCC; background-color:#FFF; min-width:200px; padding:9px 10px; height:16px; line-height:16px;}
+.personInfo li .btn_save {
+	float: left;
+	display: inline-block;
+	margin-bottom: 1em;
+	width: 6.25em;
+	height: 2.5em;
+	line-height: 2.5em;
+	font-size: 1em;
+	color: #FFF;
+	background-color: #373d41;
+	text-align: center
+}
+.personInfo li .btn_save:hover {
+	color: #515151;
+	background-color: #dedede;
+	cursor:pointer;
+}
+
 nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
@@ -205,7 +228,7 @@ body{
 	height: auto;
 	display:block;
 	margin:0 auto;
-	padding-bottom: 100px;
+	padding-bottom: 6.25em;
 }
 .wmuGallery .wmuGalleryImage {
 	position: relative;
@@ -235,7 +258,7 @@ body{
 	left: 40px;
 }
 .wmuSliderNext {
-	background-position: -100px -21px;
+	background-position: -6.25em -21px;
 	right: 40px;
 }
 .wmuSliderPagination {
@@ -609,7 +632,7 @@ ul.list li img{
 	border-bottom:10px solid #f0f0f0;
 }
 .icon1 ul ul li:first-child a:after {
-	left: -100px;
+	left: -6.25em;
 	top: 0%;
 	margin-top: -6px;
 	border-left: 0;	
@@ -1122,7 +1145,7 @@ ul.sub_list2 li a:hover{
 	border-bottom:10px solid #f0f0f0;
 }
 .icon2 ul ul li:first-child a:after {
-	left: -100px;
+	left: -6.25em;
 	top: 0%;
 	margin-top: -6px;
 	border-left: 0;	
@@ -1687,7 +1710,7 @@ p.m_desc{
    position: absolute;
    overflow: hidden;
    top:130px;
-   left:100px;
+   left:6.25em;
 }
 .info {
    display: inline-block;
@@ -3162,8 +3185,8 @@ p.cart a:hover {
 		margin: 2% 0 0 0;
 	}
 	.etalage_zoom_area div {
-	    width:100px !important;
-		height:100px !important;
+	    width:6.25em !important;
+		height:6.25em !important;
 	}
 	.labout {
 		margin:0;
@@ -3206,7 +3229,7 @@ p.cart a:hover {
 		font-size: 0.8125em;
 	}
 	.icon1 ul {
-		right: -100px;
+		right: -6.25em;
 	}
 }
 @media (max-width:320px){
@@ -3437,8 +3460,8 @@ p.cart a:hover {
 		margin: 2% 0 0 0;
 	}
 	.etalage_zoom_area div {
-	    width:100px !important;
-		height:100px !important;
+	    width:6.25em !important;
+		height:6.25em !important;
 	}
 	.labout {
 		margin:0;

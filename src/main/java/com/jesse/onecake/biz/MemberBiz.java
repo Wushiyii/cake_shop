@@ -18,4 +18,22 @@ import java.util.List;
 @Service
 public class MemberBiz extends BaseBiz<UserMapper,User> {
 
+    public String info(Model model) {
+        User user = this.mapper.findByName(UserUtils.getUserName());
+        model.addAttribute("currentUser",user);
+        return "/member/info";
+
+    }
+
+    public String changeInfo(User user, Model model) {
+        User currentUser = this.mapper.findByName(UserUtils.getUserName());
+        currentUser.setName(user.getName());
+        currentUser.setAge(user.getAge());
+        currentUser.setPhone(user.getPhone());
+        currentUser.setGender(user.getGender());
+        currentUser.setAddress(user.getAddress());
+        currentUser.setEmail(user.getEmail());
+        this.updateSelectiveById(currentUser);
+        return info(model);
+    }
 }

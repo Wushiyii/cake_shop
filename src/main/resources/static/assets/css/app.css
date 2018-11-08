@@ -628,7 +628,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   padding: 0!important;
 }
 .tpl-table-line-img {
-  max-width: 100px;
+  max-width: 6.25em;
   padding: 2px;
 }
 .tpl-table-list-select {
@@ -1341,7 +1341,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   background: url(../img/logob.png) center no-repeat;
 }
 .theme-black .tpl-table-line-img {
-  max-width: 100px;
+  max-width: 6.25em;
   padding: 2px;
   border: none;
 }

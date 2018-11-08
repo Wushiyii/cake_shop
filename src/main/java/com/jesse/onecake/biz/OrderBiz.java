@@ -128,8 +128,6 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
     }
 
     public String getOrderInfos(Model model) {
-        User user = userMapper.findByName(UserUtils.getUserName());
-//        List<OrderDetail> orderDetails = this.orderDetailMapper.getOrderDetailToBePaid(user.getId().toString());
         Example example = new Example(CakeOrder.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("status","TO_BE_PAID");//查询还未支付的订单

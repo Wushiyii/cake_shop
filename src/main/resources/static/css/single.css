@@ -766,7 +766,7 @@ span.tipsSpa {
 .btm-input .input-submit {
     cursor: pointer;
     float: right;
-    width: 100px;
+    width: 6.25em;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -1289,7 +1289,7 @@ span.tipsSpa {
 
 .cart-null {
     padding: 165px 20px;
-    margin-bottom: 100px;
+    margin-bottom: 6.25em;
     text-align: center;
     line-height: 50px;
     font-weight: 20px;

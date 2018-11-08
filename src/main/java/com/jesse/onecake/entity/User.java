@@ -32,4 +32,7 @@ public class User extends IdEntity implements Serializable {
 
     @Column(name = "phone")
     private String phone;
+
+    @Column(name = "address")
+    private String address;
 }
