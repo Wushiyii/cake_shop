@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import tk.mybatis.mapper.entity.Example;
-
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +33,11 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
 
     @Transactional
     public String purchaseAll(Model model) {
+        List<Cart> carts = this.cartMapper.selectAll();
+        if (carts.size() == 0) {
+            model.addAttribute("cartList",carts);
+           return "checkout";
+        }
         User user = userMapper.findByName(UserUtils.getUserName());
         CakeOrder order = new CakeOrder();
         order.setUserId(user.getId().toString());
@@ -92,16 +96,49 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
     @Transactional
     public String cancelOrder(String orderId, Model model) {
         CakeOrder cakeOrder = this.selectById(orderId);
-        Example example = new Example(OrderDetail.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("orderId",orderId);
-        List<OrderDetail> orderDetails = this.orderDetailMapper.selectByExample(example);
-        if (orderDetails.size() != 0) {
-           orderDetails.forEach(orderDetail -> {
-               this.orderDetailMapper.deleteByPrimaryKey(orderDetail);
-           });
-        }
-        this.delete(cakeOrder);
+        User user = userMapper.findByName(UserUtils.getUserName());
+//        Example example = new Example(OrderDetail.class);
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andEqualTo("orderId",orderId);
+//        List<OrderDetail> orderDetails = this.orderDetailMapper.selectByExample(example);
+//        if (orderDetails.size() != 0) {
+//           orderDetails.forEach(orderDetail -> {
+//               this.orderDetailMapper.deleteByPrimaryKey(orderDetail);
+//           });
+//        }
+//        this.delete(cakeOrder);
+        cakeOrder.setStatus(OrderStatusEnum.CANCELED.getValue());
+        cakeOrder.setUpdateUser(user.getUsername());
+        cakeOrder.setUpdateTime(new Date());
+        this.updateById(cakeOrder);
         return getOrder(model);
+    }
+
+    public String payOrder(String orderId, Model model) {
+        CakeOrder cakeOrder = this.selectById(orderId);
+        User user = userMapper.findByName(UserUtils.getUserName());
+        cakeOrder.setStatus(OrderStatusEnum.PAID.getValue());
+        cakeOrder.setReceiveStatus(OrderStatusEnum.NOT_RECEIVED.getValue());
+        cakeOrder.setUpdateUser(user.getUsername());
+        cakeOrder.setUpdateTime(new Date());
+        this.updateById(cakeOrder);
+        List<CakeOrder> cakeOrders = this.selectAll();
+        model.addAttribute("orderList", cakeOrders);
+        return "/member/member";
+    }
+
+    public String getOrderInfos(Model model) {
+        User user = userMapper.findByName(UserUtils.getUserName());
+//        List<OrderDetail> orderDetails = this.orderDetailMapper.getOrderDetailToBePaid(user.getId().toString());
+        Example example = new Example(CakeOrder.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("status","TO_BE_PAID");//查询还未支付的订单
+        List<CakeOrder> cakeOrders = this.selectByExample(example);
+        example.clear();
+        criteria.andEqualTo("status","PAID");//查询已经支付的订单
+        List<CakeOrder> receiveOrderList  = this.selectByExample(example);
+        model.addAttribute("orderList",cakeOrders);
+        model.addAttribute("receiveOrderList",receiveOrderList);
+        return "member/member";
     }
 }

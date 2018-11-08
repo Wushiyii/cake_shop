@@ -34,7 +34,9 @@ create table cake_order
   sure_user   varchar(100) null comment '确认人名称',
   sure_time   datetime     null comment '确认时间',
   create_user varchar(100) null comment '创建订单人名称',
-  create_time datetime     null comment '创建订单时间'
+  create_time datetime     null comment '创建订单时间',
+  update_user    varchar(100) null,
+  updateTime     datetime     null
 ) comment '订单表';
 
 

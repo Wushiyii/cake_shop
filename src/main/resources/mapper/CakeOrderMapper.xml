@@ -14,6 +14,8 @@
     <result column="sure_time" jdbcType="TIMESTAMP" property="sureTime" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
 
 </mapper>

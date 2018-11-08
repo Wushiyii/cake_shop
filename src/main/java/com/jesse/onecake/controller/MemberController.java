@@ -18,7 +18,7 @@ public class MemberController extends BaseController<MemberBiz, User> {
 
     @RequestMapping("/")
     public String member(Model model) {
-        return this.biz.getOrderInfos(model);
+        return this.orderBiz.getOrderInfos(model);
     }
 
     @RequestMapping("/order")

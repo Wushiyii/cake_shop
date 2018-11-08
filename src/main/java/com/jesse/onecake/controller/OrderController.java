@@ -27,4 +27,9 @@ public class OrderController extends BaseController<OrderBiz,CakeOrder> {
     public String cancelOrder (@PathVariable("orderId")String orderId,Model model) {
         return this.biz.cancelOrder(orderId,model);
     }
+
+    @RequestMapping(value = "/payOrder/{orderId}")
+    public String payOrder (@PathVariable("orderId")String orderId,Model model) {
+        return this.biz.payOrder(orderId,model);
+    }
 }

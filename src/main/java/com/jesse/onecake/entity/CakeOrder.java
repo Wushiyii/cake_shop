@@ -36,4 +36,10 @@ public class CakeOrder extends IdEntity implements Serializable {
     @Column(name = "create_time")
     private Date createTime;
 
+    @Column(name = "update_user")
+    private String updateUser;
+
+    @Column(name = "update_time")
+    private Date updateTime;
+
 }
