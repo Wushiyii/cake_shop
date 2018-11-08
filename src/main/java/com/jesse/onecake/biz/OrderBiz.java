@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import tk.mybatis.mapper.entity.Example;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,12 +35,13 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
 
     @Transactional
     public String purchaseAll(Model model) {
-        List<Cart> carts = this.cartMapper.selectAll();
-        if (carts.size() == 0) {
-            model.addAttribute("cartList",carts);
+        User user = userMapper.findByName(UserUtils.getUserName());
+        Cart cart = cartMapper.findCartByUserId(user.getId().toString());
+        if (cart == null) {
+            model.addAttribute("cartList",new ArrayList());
            return "checkout";
         }
-        User user = userMapper.findByName(UserUtils.getUserName());
+
         CakeOrder order = new CakeOrder();
         order.setUserId(user.getId().toString());
         order.setStatus(OrderStatusEnum.TO_BE_PAID.getValue());
@@ -88,7 +91,11 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
     }
 
     public String getOrder(Model model) {
-        List<CakeOrder> cakeOrders = this.selectAll();
+        User user = userMapper.findByName(UserUtils.getUserName());
+        Example example = new Example(CakeOrder.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId",user.getId());
+        List<CakeOrder> cakeOrders = this.selectByExample(example);
         model.addAttribute("orderList", cakeOrders);
         return "/user/order";
     }
@@ -127,13 +134,19 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
     }
 
     public String getOrderInfos(Model model) {
+        User user = userMapper.findByName(UserUtils.getUserName());
         Example example = new Example(CakeOrder.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("status","TO_BE_PAID");//查询还未支付的订单
+        criteria.andEqualTo("userId",user.getId());
         List<CakeOrder> cakeOrders = this.selectByExample(example);
-        example.clear();
-        criteria.andEqualTo("status","PAID");//查询已经支付的订单
-        List<CakeOrder> receiveOrderList  = this.selectByExample(example);
+
+        Example example2 = new Example(CakeOrder.class);
+        Example.Criteria criteria2 = example2.createCriteria();
+        criteria2.andEqualTo("status","PAID");//查询已经支付的订单
+        criteria2.andEqualTo("userId",user.getId());
+        List<CakeOrder> receiveOrderList  = this.selectByExample(example2);
+
         model.addAttribute("orderList",cakeOrders);
         model.addAttribute("receiveOrderList",receiveOrderList);
         return "/user/member";
