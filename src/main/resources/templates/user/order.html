@@ -31,17 +31,17 @@
                 </a>
             </div>
             <ul class="membernav">
-                <li><a href="/member/">我的订单</a></li>
-                <li class="current"><a href="/member/order">全部订单</a></li>
-                <li><a href="/member/info">个人资料</a></li>
-                <li><a href="/member/changePass">修改密码</a></li>
+                <li><a href="/user/">我的订单</a></li>
+                <li class="current"><a href="/user/order">全部订单</a></li>
+                <li><a href="/user/info">个人资料</a></li>
+                <li><a href="/user/changePass">修改密码</a></li>
             </ul>
         </div>
         <div class="member-r" style="border:0;">
             <div class="title" style="border-top:0; padding-left:0; z-index:5;"><h3>全部订单</h3>
                 <!--<span class="ordertype"><a-->
-                <!--href="/member/order.html" class="on">全部订单</a><i>|</i><a-->
-                <!--href="/member/order-1-0.html">待支付订单</a><i>|</i><a href="/member/order-2-0.html">已关闭的订单</a>-->
+                <!--href="/user/order.html" class="on">全部订单</a><i>|</i><a-->
+                <!--href="/user/order-1-0.html">待支付订单</a><i>|</i><a href="/user/order-2-0.html">已关闭的订单</a>-->
                 <!--</span>-->
             </div>
 
@@ -90,7 +90,7 @@
                                                     <a style=" color: #666;text-decoration: none;margin-left: 15px;"
                                                        onMouseOver="this.style.color='#f92a5f';"
                                                        onmouseOut="this.style.color = '#666'"
-                                                       href="http://www.baidu.com">
+                                                       th:href="@{'/order/payOrder/'+${order.id}}">
                                                         支付
                                                     </a>|
                                                     <a style="color: #666;text-decoration: none;"

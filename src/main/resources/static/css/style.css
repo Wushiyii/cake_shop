@@ -89,9 +89,11 @@ a{text-decoration:none;}
 .underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
 
 .personInfo{}
-.personInfo li{ margin-bottom:1.5em;}
-.personInfo li label{ display:inline-block; width:5em;}
-.personInfo li .baseInput{ border:1px solid #CCC; background-color:#FFF; min-width:200px; padding:9px 10px; height:16px; line-height:16px;}
+.personInfo li{ margin-bottom:1.5em;
+	margin-left: 1.5em;}
+.personInfo li label{ display:inline-block; width:5em;padding: 0.5em;}
+.personInfo li .baseInput{ border:1px solid #d6d3d3; min-width:15em; padding:0.5em 0.6em; height:1.5em; line-height:1em;color: #565353
+}
 .personInfo li .btn_save {
 	float: left;
 	display: inline-block;

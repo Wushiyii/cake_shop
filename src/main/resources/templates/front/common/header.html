@@ -16,8 +16,9 @@
                 <li th:if="${#httpServletRequest.remoteUser} eq null"><a class="color4" th:href="@{/cake/login}">注册/登陆</a></li>
                 <li><a class="color5" href="/cake/checkout">购物车<span id="cartCount" style="font-size: 0.85em;color: #aa3333;"> (0)</span></a></li>
                 <!--<li><a class="color6" href="/cake/allCake">全部商品</a></li>-->
-                <li><a class="color7" href="/member/order">全部订单</a></li>
-                <li><a class="color8" href="/member/">个人中心</a></li>
+                <li><a class="color7" href="/user/order">全部订单</a></li>
+                <li><a class="color8" href="/user/">个人中心</a></li>
+                <li><a class="color8" th:href="@{/logout}">退出</a></li>
             </ul>
         </div>
         <div class="clear"></div>

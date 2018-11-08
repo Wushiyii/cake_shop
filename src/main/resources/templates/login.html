@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>登陆</title>
     <!--<meta name="_csrf" th:content="${_csrf.token}"/>-->
@@ -15,7 +14,7 @@
 
 </head>
 <body>
-<div th:replace="front/common/header::html"></div>
+<div th:replace="front/common/header::html" ></div>
 <div class="login" style="padding-top: 5%;padding-bottom: 10%;">
     <div class="wrap">
         <div class="col_1_of_login span_1_of_login" style="border-right: 1px dashed #95a1a5;">

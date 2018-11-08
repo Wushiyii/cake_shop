@@ -31,10 +31,10 @@
                 </a>
             </div>
             <ul class="membernav">
-                <li><a href="/member/">我的订单</a></li>
-                <li><a href="/member/order">全部订单</a></li>
-                <li class="current"><a href="/member/info">个人资料</a></li>
-                <li><a href="/member/changePass">修改密码</a></li>
+                <li><a href="/user/">我的订单</a></li>
+                <li><a href="/user/order">全部订单</a></li>
+                <li class="current"><a href="/user/info">个人资料</a></li>
+                <li><a href="/user/changePass">修改密码</a></li>
             </ul>
         </div>
         <div class="member-r" style="font-size: 13px;">
@@ -42,14 +42,13 @@
             <!--<div class="boxpd">-->
             <!--<div class="noorder">TO BE DONE</div>-->
             <!--</div>-->
-            <form id="form" method="post" th:action="@{/member/changeInfo}">
+            <form id="form" method="post" th:action="@{/user/changeInfo}">
 
                 <ul class="personInfo" style="padding:15px;">
                     <li><label>姓名：</label><input type="text" name="name" class="baseInput" th:value="${currentUser.name}"></li>
                     <li><label>年龄：</label><input type="text" name="age" class="baseInput" th:value="${currentUser.age}"></li>
                     <li><label>手机：</label><input type="text" name="phone" class="baseInput" th:value="${currentUser.phone}"></li>
-                    <li><label>性别：</label>
-                        <select th:field="${currentUser.gender}" th:switch="${currentUser.gender}" name="gender" style="border:1px solid #CCC; height:32px;">
+                    <li><label>性别：</label><select th:field="${currentUser.gender}" th:switch="${currentUser.gender}" name="gender" style="border:1px solid #CCC; height:32px;">
                             <option th:selected="selected" value="male">男</option>
                             <option th:selected="selected" value="female">女</option>
                         </select>

@@ -84,13 +84,13 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
         User user = userMapper.findByName(UserUtils.getUserName());
         List<OrderDetail> orderDetail = this.orderDetailMapper.getOrderDetail(user.getId().toString());
         model.addAttribute("orderList", orderDetail);
-        return "/member/order";
+        return "/user/order";
     }
 
     public String getOrder(Model model) {
         List<CakeOrder> cakeOrders = this.selectAll();
         model.addAttribute("orderList", cakeOrders);
-        return "/member/order";
+        return "/user/order";
     }
 
     @Transactional
@@ -122,9 +122,8 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
         cakeOrder.setUpdateUser(user.getUsername());
         cakeOrder.setUpdateTime(new Date());
         this.updateById(cakeOrder);
-        List<CakeOrder> cakeOrders = this.selectAll();
-        model.addAttribute("orderList", cakeOrders);
-        return "/member/member";
+
+        return getOrderInfos(model);
     }
 
     public String getOrderInfos(Model model) {
@@ -137,6 +136,6 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
         List<CakeOrder> receiveOrderList  = this.selectByExample(example);
         model.addAttribute("orderList",cakeOrders);
         model.addAttribute("receiveOrderList",receiveOrderList);
-        return "member/member";
+        return "/user/member";
     }
 }

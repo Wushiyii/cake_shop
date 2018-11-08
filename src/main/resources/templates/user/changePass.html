@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{~/css/form.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
+          type='text/css'>
+    <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
+    <!-- start menu -->
+    <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
+    <script>$(document).ready(function () {
+        $(".megamenu").megamenu();
+    });</script>
+    <!-- end menu -->
+
+</head>
+<body>
+<div th:replace="front/common/header::html"></div>
+<div th:replace="front/common/category::html"></div>
+<div class="wrap bd">
+
+    <div class="member clearfix">
+        <div class="member-l">
+            <div class="userimg-l">
+                <a href="/member/">
+                    <img th:src="@{~/images/cake4.jpg}" alt="会员头像">
+                </a>
+            </div>
+            <ul class="membernav">
+                <li><a href="/user/">我的订单</a></li>
+                <li><a href="/user/order">全部订单</a></li>
+                <li><a href="/user/info">个人资料</a></li>
+                <li class="current"><a href="/user/changePass">修改密码</a></li>
+            </ul>
+        </div>
+        <div class="member-r" style="font-size: 13px;">
+            <div class="dtitle">修改密码</div>
+            <form id="form" method="post" th:action="@{/user/changePassword}">
+
+                <ul class="personInfo" style="padding:15px;">
+                    <li><label>原密码：</label><input type="text" name="oldPass" class="baseInput"><span id="tip1" style="font-size: 10px;color: #aa3333"></span></li>
+                    <li><label>新密码：</label><input type="text" name="newPass" class="baseInput"><span id="tip2" style="font-size: 10px;color: #aa3333"></span></li>
+                    <li><label>确认密码：</label><input type="text" name="sureNewPass" class="baseInput"><span id="tip3" style="font-size: 10px;color: #aa3333"></span></li>
+                    <li style="border-bottom:1px solid #DDD; height:20px; margin-bottom:10px;"></li>
+                    <li style="margin-bottom:10px;">
+                        <a class="btn_save" id="purchaseAll" onclick="submitForm()">保存</a>
+                    </li>
+                </ul>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div th:replace="front/common/footer::html"></div>
+</body>
+<script type="text/javascript">
+    submitForm = () => {
+        let oldPass = $("input[name='oldPass']").val();
+        let newPass = $("input[name='newPass']").val();
+        let sureNewPass = $("input[name='sureNewPass']").val();
+        if (isBlank(oldPass)) {
+            $("#tip1").html('&nbsp;&nbsp;请输入原密码');
+            return;
+        } else {
+            $("#tip1").html('');
+        }
+        if (isBlank(newPass)) {
+            $("#tip2").html('&nbsp;&nbsp;请输入新密码');
+            return;
+        } else {
+            $("#tip2").html('');
+        }
+        if (isBlank(sureNewPass)) {
+            $("#tip3").html('&nbsp;&nbsp;请输入确认密码');
+            return;
+        } else {
+            $("#tip3").html('');
+        }
+        if (newPass === sureNewPass) {
+            $('#form').submit();
+        } else {
+            $("#tip3").html('&nbsp;&nbsp;请确认两次输入完全一致');
+        }
+    };
+
+    isBlank = (str) => {
+        return str === null || str === '';
+    }
+</script>
+</html>

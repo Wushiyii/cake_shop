@@ -45,9 +45,9 @@
         <!--<table tableName="cart_detail" domainObjectName="CartDetail">-->
             <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
         <!--</table>-->
-        <table tableName="cake_order" domainObjectName="CakeOrder">
-            <generatedKey column="id" identity="false" sqlStatement="myql"/>
-        </table>
+        <!--<table tableName="cake_order" domainObjectName="CakeOrder">-->
+            <!--<generatedKey column="id" identity="false" sqlStatement="myql"/>-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>

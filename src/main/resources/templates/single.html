@@ -6,9 +6,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" media="all"/>
     <link th:href="@{~/css/single.css}" rel="stylesheet" type="text/css" media="all"/>
+    <link th:href="@{~/css/notyf.min.css}" rel="stylesheet" type="text/css" media="all"/> <!--notify通知插件-->
     <link th:href='@{http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800}' rel='stylesheet'
           type='text/css'>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{~/js/notyf.min.js}"></script>
     <!-- start menu -->
     <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all"/>
     <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
@@ -104,6 +106,8 @@
             function(data){
                 var json = eval(data);
                 $('#cartCount').html(' (' + json.count + ')');
+                var notyf = new Notyf();
+                notyf.confirm('加入购物车成功');
             });
     });
 
