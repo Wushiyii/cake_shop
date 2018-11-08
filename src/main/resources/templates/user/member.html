@@ -37,7 +37,7 @@
                 <li><a href="/user/changePass">修改密码</a></li>
             </ul>
         </div>
-        <div class="member-r" style="font-size: 13px;">
+        <div class="member-r" style="font-size:0.8125em;">
             <div class="dtitle">待支付订单</div>
             <div class="boxpd" th:if="${orderList.size()} eq 0">
                 <div class="noorder">您暂时没有待支付订单。<a style="color: black" th:href="@{/cake/allCake/}">挑挑喜欢的蛋糕去»</a></div>
@@ -99,9 +99,9 @@
                 </div>
             </div>
             <div class="dtitle">待收货订单</div>
-            <!--<div class="boxpd">-->
-                <!--<div class="noorder">您暂时没有待收货订单。<a style="color: black" th:href="@{/cake/allCake/}">挑挑喜欢的商品去»</a></div>-->
-            <!--</div>-->
+            <div class="boxpd" th:if="${receiveOrderList.size()} eq 0">
+                <div class="noorder">您暂时没有待收货订单。<a style="color: black" th:href="@{/cake/allCake/}">挑挑喜欢的商品去»</a></div>
+            </div>
             <div class="existRecord" th:if="${receiveOrderList.size()} ne 0">
                 <div class="card-cart">
                     <div>

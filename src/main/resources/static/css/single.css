@@ -123,9 +123,6 @@ a, a:hover {
     visibility: hidden
 }
 
-.clearfix {
-    display: inline-block
-}
 
 .clearfix {
     display: block
@@ -910,47 +907,47 @@ span.tipsSpa {
 
 .inside-dl {
     overflow: hidden;
-    padding: 60px 0 90px 0
+    padding: 3.75em 0 5em 0
 }
 
 .inside-dl dt {
     float: left;
-    width: 600px
+    width: 40%;
 }
 
 .inside-dl dd {
     float: right;
-    width: 420px
+    width: 35%;
 }
 
 .pho-tab {
-    width: 700px;
-    height: 500px;
+    width: 43.75em;
+    height: 31.25em;
     overflow: hidden
 }
 
 .pho-tab li {
-    width: 700px;
-    height: 500px
+    width: 43.75em;
+    height: 31.25em;
 }
 
 .pho-tab li img {
     display: block;
-    width: 700px;
-    height: 500px
+    width: 43.75em;
+    height: 31.25em;
 }
 
 .pho-tac {
-    width: 630px;
+    width: 39.375em;
     overflow: hidden;
-    margin-top: 10px
+    margin-top: 0.6em;
 }
 
 .pho-tac li {
     float: left;
     display: inline;
-    width: 108px;
-    height: 90px;
+    width: 6.75em;
+    height: 5.625em;
     overflow: hidden;
     margin-right: 15px;
     cursor: pointer
@@ -958,15 +955,15 @@ span.tipsSpa {
 
 .pho-tac li img {
     border: 2px solid #fff;
-    width: 104px;
-    height: 86px;
+    width: 6.5em;
+    height: 5.375em;
     display: block
 }
 
 .pho-tac li.pho-cur img {
     border: 2px solid #D4CDB8;
-    width: 104px;
-    height: 86px
+    width: 6.5em;
+    height: 5.375em;
 }
 
 .inside-info {
