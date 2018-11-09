@@ -24,7 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/cake/home","/cake/",
                         "/cake/register","/cake/single/*","/user/register",
-                        "/cake/allCake","/cart/getCartDetail","/cake/searchByCategory")
+                        "/cake/allCake","/cart/getCartDetail","/cake/searchByCategory",
+                        "/cake/searchProduct")
                 .permitAll()
                 .anyRequest().authenticated()
                 .and()

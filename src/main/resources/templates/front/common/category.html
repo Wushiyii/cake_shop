@@ -172,21 +172,6 @@
                 </div>
             </li>
             <li style="border: none;"><a class="color10" th:href="@{/cake/allCake}">全部商品</a></li>
-            <!--搜索框-->
-            <li style="float: right;">
-                <div >
-                    <ul>
-                        <li>
-                            <div class="nav_search">
-                                <input type="text" id="query" name="query" class="textbox" value="搜索商品" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '搜索商品';}">
-                                <input type="submit" value="Subscribe" id="submit" name="submit" onclick="searchProduct($('#query').val())">
-                                <div id="response"> </div>
-                            </div>
-                            <div class="clear"></div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
         </ul>
         <div class="clear"></div>
     </div>
