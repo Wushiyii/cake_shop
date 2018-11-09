@@ -58,15 +58,15 @@
                 <p class="inside-desc">这一刻未必喜欢，总有一天，无比想念</p>
                 <p class="inside-num">
                     <span>数量</span>
-                    <input class="incre" onclick="decrement();" type="button">
+                    <input class="decre" onclick="decrement();" type="button">
                     <input id="quantity" class="count" type="text" value="1">
-                    <input class="decre" onclick="increment();" type="button">
+                    <input class="incre" onclick="increment();" type="button">
                 </p>
                 <p class="inside-price">
-                    <span id="items_discount_price" th:text="'￥'+${cake.price}"><i>￥</i>168.0</span>
+                    <span id="totalPrice" th:text="'￥'+${cake.price}"><i>￥</i>168.0</span>
                 </p>
                 <p class="inside-btn">
-                    <a class="addcart" id="add_to_cart" href="javascript:void(0)">加入购物车</a>
+                    <a class="addcart" id="addToCart" href="javascript:void(0)">加入购物车</a>
                 </p>
                 <table cellpadding="0" cellspacing="0" width="420" border="0" class="inside-table">
                     <tbody><tr>
@@ -95,63 +95,65 @@
 </body>
 <script type="text/javascript">
 
-    $('#add_to_cart').on('click', function(){
-        var id = [[${cake.id}]];
-        var quantity = $('#quantity').val();
+    $('#addToCart').on('click', function(){
+        let notyf = new Notyf();
+        let isUser = [[${#httpServletRequest.remoteUser}]]+'';
+        if (isUser === 0) {
+            notyf.alert('您尚未登陆   2秒后跳转到登录页');
+            setTimeout(function(){ window.location.href = '/cake/login'; }, 2000);
+        }
+        let id = [[${cake.id}]];
+        let quantity = $('#quantity').val();
         $.post('/cart/addCart',
             {
                 'cakeId': id,
                 'quantity': quantity
             },
             function(data){
-                var json = eval(data);
+                let json = eval(data);
                 $('#cartCount').html(' (' + json.count + ')');
-                var notyf = new Notyf();
+                let notyf = new Notyf();
                 notyf.confirm('加入购物车成功');
             });
     });
 
     $('#quantity').on('change', function(){
+        if (this.value > 50) {
+            this.value = 50;
+        } else if (this.value <= 0) {
+            this.value = 1;
+        }
         sum();
     });
 
      sum = () => {
-        let sku = $('.current');
-        let price = parseFloat(sku.data('price'));
+        let price = parseFloat([[${cake.price}]]);
         let quantity = parseFloat($('#quantity').val());
-        let items_sum_discount_price = (price * quantity).toFixed(1);
-        $('#items_discount_price').html('<i>￥</i>'+items_sum_discount_price);
+        let totalPrice = (price * quantity).toFixed(2);
+        $('#totalPrice').html('￥'+totalPrice);
     };
-    $('.product').on('click', function(){
-        $(".product").removeClass("current");
-        $(this).addClass("current");
-        sum();
-    });
-    function increment(e) {
-        if (e) {
-            var t = $("#quantity" + e);
-        } else {
-            var t = $("#quantity");
+
+    function increment() {
+        let quantity = $("#quantity");
+        let n = quantity.val();
+        if (n <50) {
+            n++;
+            quantity.val(n);
         }
-        var n = t.val();
-        n < 99 && (n++, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
-            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
-        }), t.trigger("change"))
+        sum();
     }
 
-    function calculate() {
-        var e = $(".cartListItems .checkboxed"), t = 0, n = 0;
-        $.each(e, function (e, i) {
-            t += parseFloat($(i).attr("data-sum")), n += parseFloat($(i).attr("originalSum"))
-        }), $(".items_total_price").html("\uffe5" + t), $(".items_total_origin_price").html("\u539f\u4ef7" + n + "\u5143"), $(".items_count").html("\u5df2\u9009\u62e9" + e.length + "\u6b3e\u4ea7\u54c1")
-    }
 
-    function decrement(e) {
-        if (e) var t = $("#quantity" + e); else var t = $("#quantity");
-        var n = t.val();
-        n > 1 && (n--, t.val(n), e && $.post("/cake/", {item_id: e}, function (t) {
-            $(".item_sum" + e).html("\uffe5" + t.item_sum), $(".checkbox" + e).attr("data-sum", t.item_sum), $(".checkbox" + e).attr("originalSum", t.item_originsum), calculate()
-        }), t.trigger("change"))
+    function decrement() {
+        let quantity = $("#quantity");
+        let n = quantity.val();
+        if (n !== undefined && n > 1 ) {
+            n--;
+            quantity.val(n);
+        } else {
+            quantity.val(1);
+        }
+        sum();
     }
 
 </script>

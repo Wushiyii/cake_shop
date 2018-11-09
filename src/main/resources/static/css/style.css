@@ -64,8 +64,8 @@ a{text-decoration:none;}
 .member-r .title .gocart{ position:absolute; right:15px; top:0;}
 .member-r .dtitle{background-color:#373d41;color:#f5f5f5;line-height:60px; padding-left:15px; border-bottom:1px solid #DBDBDB;border-top:1px solid #DBDBDB; font-size:14px; position:relative;box-shadow: 0 1px 7px rgba(0,0,0,0.1);}
 .member-r .dtitle .gocart{ position:absolute; right:15px; top:0;}
-.noRecord{ padding:70px 0 90px 0; text-align:center;}
-.existRecord{ padding:5px 0 90px 0; text-align:center;}
+.noRecord{ padding:4.375em 0 5.625em 0; text-align:center;}
+.existRecord{ padding:0.5em 0 1.5em 0; text-align:center;}
 
 .boxpd{ padding:15px; background-color:#FFF;}
 .indexlist td{ padding:10px 0; border-bottom:1px dotted #CCC;}
