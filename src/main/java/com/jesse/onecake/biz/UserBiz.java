@@ -38,7 +38,7 @@ public class UserBiz extends BaseBiz<UserMapper,User> {
         user.setUsername(username);
         user.setPassword(new BCryptPasswordEncoder().encode(pass));
         user.setId(idService.genId());
-        user.setUserGroup(0);//普通用户
+        user.setUserGroup("ROLE_USER");//普通用户
         try {
             this.insertSelective(user);
         }catch (Exception e){

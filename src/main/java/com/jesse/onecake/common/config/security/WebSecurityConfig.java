@@ -25,13 +25,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/cake/home","/cake/",
                         "/cake/register","/cake/single/*","/user/register",
                         "/cake/allCake","/cart/getCartDetail","/cake/searchByCategory",
-                        "/cake/searchProduct")
-                .permitAll()
+                        "/cake/searchProduct").permitAll()
+                .antMatchers("/manage/**").hasRole("ADMIN")
+                .antMatchers("/user/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/cake/")
+                .loginPage("/login").successForwardUrl("/cake/changeView")
                 .permitAll()
                 .and()
             .logout()

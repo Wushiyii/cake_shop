@@ -22,7 +22,7 @@ public class User extends IdEntity implements Serializable {
     private Integer age;
 
     @Column(name = "user_group")
-    private Integer userGroup;
+    private String userGroup;
 
     @Column(name="gender")
     private String gender;

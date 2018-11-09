@@ -449,7 +449,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 }
 .widget {
   width: 100%;
-  min-height: 148px;
+  min-height: 500px;
   margin-bottom: 20px;
   border-radius: 0;
   position: relative;

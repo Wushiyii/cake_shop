@@ -9,6 +9,8 @@ import com.sun.org.apache.bcel.internal.generic.RET;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -109,6 +111,16 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         List<Cake> cakes = this.biz.selectByExample(example);
         model.addAttribute("cakeList",cakes);
         return "shop::productList";
+    }
+    @RequestMapping("changeView")
+    public String changeView() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(auth.getAuthorities().toString().equals("[ROLE_ADMIN]")){
+            return "/manage/index";//后台登录
+        }
+        else{
+            return "/cake/";//客户登录
+        }
     }
 
 }

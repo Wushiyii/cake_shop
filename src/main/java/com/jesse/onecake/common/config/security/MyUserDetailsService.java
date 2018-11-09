@@ -29,7 +29,7 @@ public class MyUserDetailsService implements UserDetailsService {
       throw new UsernameNotFoundException(username);
      }
      List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-     authorities.add(new SimpleGrantedAuthority(user.getUserGroup().toString()));
+     authorities.add(new SimpleGrantedAuthority(user.getUserGroup()));
      return new User(user.getUsername(), user.getPassword(), authorities);
     }
 }

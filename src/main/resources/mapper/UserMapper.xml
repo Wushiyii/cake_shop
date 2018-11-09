@@ -8,7 +8,7 @@
         <id column="id" property="id" jdbcType="VARCHAR" />
         <result column="username" property="username" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
-        <result column="user_group" property="userGroup" jdbcType="INTEGER" />
+        <result column="user_group" property="userGroup" jdbcType="VARCHAR" />
         <result column="name" property="name" jdbcType="VARCHAR" />
         <result column="age" property="age" jdbcType="INTEGER" />
         <result column="gender" property="gender" jdbcType="VARCHAR" />
