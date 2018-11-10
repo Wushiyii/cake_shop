@@ -52,12 +52,12 @@
                                 <td style="width: 10%;" th:text="${dto.price}">price</td>
                                 <td style="width: 20%;">
                                     <p class="inside-num">
-                                        <input style="margin-left: 60px;" class="incre"
+                                        <input style="margin-left: 60px;" class="decre"
                                                th:onclick="'javascript:decrement(\''+${dto.id}+'\');'"
                                                type="button">
                                         <!--<i class="am-icon-plus"></i>-->
                                         <input class="count" type="text" th:value="${dto.quantity}" disabled="">
-                                        <input class="decre" th:onclick="'javascript:increment(\''+${dto.id}+'\');'"
+                                        <input class="incre" th:onclick="'javascript:increment(\''+${dto.id}+'\');'"
                                                type="button">
                                     </p>
                                 </td>

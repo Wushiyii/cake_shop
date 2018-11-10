@@ -119,7 +119,7 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
             return "/manage/index";//后台登录
         }
         else{
-            return "/cake/";//客户登录
+            return "redirect:/cake/";//客户登录
         }
     }
 
