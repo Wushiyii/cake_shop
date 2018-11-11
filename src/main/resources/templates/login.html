@@ -11,28 +11,23 @@
           type='text/css'>
     <script type="text/javascript" th:src="@{~/js/jquery.min.js}"></script>
     <script th:src="@{https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js}"></script>
+    <!-- start menu -->
+    <link th:href="@{~/css/megamenu.css}" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
+    <script>$(document).ready(function () {
+        $(".megamenu").megamenu();
+    });</script>
+    <!-- end menu -->
 
 </head>
 <body>
 <div th:replace="front/common/header::html" ></div>
-<div class="login" style="padding-top: 5%;padding-bottom: 10%;">
+<div th:replace="front/common/category::html" ></div>
+<div class="login" style="padding-top: 3%;padding-bottom: 10%;">
     <div class="wrap">
-        <div class="col_1_of_login span_1_of_login">
-            <p class="title" style="font-size: 25px;color: #0C0C0C;">注册</p>
-            <p style="color: black;font-size: 14px;">
-                注册用户专享服务:<br>
-                &nbsp;&nbsp; · 使用收藏夹保存心仪商品<br>
-                &nbsp;&nbsp; · 通过“个人中心”查看个人信息<br>
-                &nbsp;&nbsp; · 完成购物流程更快捷<br>
-            </p>
-            <div class="button1">
-                <a th:href="@{/cake/register}"><input type="submit" name="Submit" value="注册"></a>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="col_1_of_login span_1_of_login">
+        <div class="col_1_of_login span_1_of_login"  style="border-right:2px solid #ebebeb;">
             <div class="login-title">
-                <p class="title" style="font-size: 25px;color: #0C0C0C;">已经有账号了？请登陆</p>
+                <p class="title" style="font-size: 25px;color: #0C0C0C;margin:1em 0;">已经有账号了？请登陆</p>
                 <div class="comments-area">
 
                     <div th:if="${param.logout}">
@@ -58,6 +53,19 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col_1_of_login span_1_of_login" >
+            <p class="title" style="font-size: 25px;color: #0C0C0C;margin:1em 0;">注册</p>
+            <p style="color: black;font-size: 14px;">
+                注册用户专享服务:<br><br>
+                &nbsp;&nbsp; · 使用购物车保存心仪商品<br>
+                &nbsp;&nbsp; · 通过“个人中心”查看个人信息<br>
+                &nbsp;&nbsp; · 完成购物流程更快捷<br>
+            </p>
+            <div class="button1" style="margin-top: 2.3em;">
+                <a th:href="@{/cake/register}"><input type="submit" name="Submit" value="注册"></a>
+            </div>
+            <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>

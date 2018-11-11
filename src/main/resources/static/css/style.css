@@ -1238,9 +1238,10 @@ h5.sub_title{
 	background: #555;
 	color: #FFF;
 	font-size: 0.8em;
-	padding: 8px 20px;
-    border-radius: 5px;
-	border-bottom: 2px solid #1D1C1C;
+	padding: 0.5em 1.5em;
+	border-radius: 0.2em;
+	margin-right: 15%;
+	border-bottom: 0.125em solid #1D1C1C;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
@@ -1269,7 +1270,7 @@ h5.sub_title{
 }
 .comments-area input[type="text"] {
 	padding: 10px 15px;
-	width: 97%;
+	width: 80%;
 	color:#000;
 	font-size: 0.8125em;
 	border:1px solid #e7e7e7;
@@ -1283,7 +1284,7 @@ h5.sub_title{
 }
 .comments-area input[type="password"] {
 	padding: 10px 15px;
-	width: 97%;
+	width: 80%;
 	color:#000;
 	font-size: 0.8125em;
 	border:1px solid #e7e7e7;
@@ -1301,9 +1302,10 @@ h5.sub_title{
 .comments-area input[type="submit"] {
 	background: #555;
 	color: #FFF;
-    /*font-size: 1em;*/
-	padding: 0.5em 1.25em;
-    border-radius: 0.4em;
+    font-size: 1em;
+	padding: 0.5em 1.5em;
+    border-radius: 0.2em;
+	margin-right: 15%;
 	border-bottom: 0.125em solid #1D1C1C;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
