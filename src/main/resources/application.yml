@@ -2,11 +2,6 @@
 #  servlet:
 #    context-path: /onecake
 spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/onecake
-#    username: root
-#    password: root
-#    driver-class-name: com.mysql.jdbc.Driver
   datasource:
           name: onecake
           url: jdbc:mysql://localhost:3306/onecake?useUnicode=true&characterEncoding=UTF8
