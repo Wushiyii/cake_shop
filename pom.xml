@@ -36,6 +36,12 @@
         <mybatis.spring.version>1.2.4</mybatis.spring.version>
         <pagehelper.version>4.1.1</pagehelper.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>iwanttomakemoney_admin</id>
+            <url>https://gitee.com/iwanttomakemoney_admin/maven/raw/master/repository</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -121,6 +127,17 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lxm</groupId>
+            <artifactId>id-generator-interface</artifactId>
+            <version>2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lxm</groupId>
+            <artifactId>id-generator-core</artifactId>
+            <version>2.1</version>
         </dependency>
 
         <dependency>

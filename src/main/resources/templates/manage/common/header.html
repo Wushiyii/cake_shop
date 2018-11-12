@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Header</title>
@@ -142,8 +142,8 @@
 
                 <!-- 退出 -->
                 <li class="am-text-sm">
-                    <a href="javascript:;">
-                        <span class="am-icon-sign-out"></span> 退出
+                    <a th:href="@{/logout}">
+                        <span class="am-icon-sign-out" ></span> 退出
                     </a>
                 </li>
             </ul>

@@ -20,14 +20,14 @@ public class CakeOrder extends IdEntity implements Serializable {
     @Column(name = "receive_status")
     private String receiveStatus;
 
-    @Column(name = "sure_id")
-    private String sureId;
+    @Column(name = "delivery_id")
+    private String deliveryId;
 
-    @Column(name = "sure_user")
-    private String sureUser;
+    @Column(name = "delivery_user")
+    private String deliveryUser;
 
-    @Column(name = "sure_time")
-    private Date sureTime;
+    @Column(name = "delivery_time")
+    private Date deliveryTime;
 
 
     @Column(name = "create_user")

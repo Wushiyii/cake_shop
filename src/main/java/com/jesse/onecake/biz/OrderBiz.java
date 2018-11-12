@@ -3,10 +3,9 @@ package com.jesse.onecake.biz;
 import com.jesse.onecake.OrderStatusEnum;
 import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.common.config.security.UserUtils;
-import com.jesse.onecake.dto.OrderDTO;
 import com.jesse.onecake.entity.*;
 import com.jesse.onecake.mapper.*;
-import com.jesse.onecake.service.generator.id.provider.IdService;
+import com.lxm.idgenerator.service.intf.IdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -150,5 +149,19 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
         model.addAttribute("orderList",cakeOrders);
         model.addAttribute("receiveOrderList",receiveOrderList);
         return "/user/member";
+    }
+
+
+    public String deliveryOrder(String orderId, Model model) {
+        CakeOrder cakeOrder = this.selectById(orderId);
+        User user = userMapper.findByName(UserUtils.getUserName());
+        cakeOrder.setReceiveStatus(OrderStatusEnum.DELIVERING.getValue());
+        cakeOrder.setDeliveryId(user.getId().toString());
+        cakeOrder.setDeliveryTime(new Date());
+        cakeOrder.setDeliveryUser(user.getUsername());
+        this.updateById(cakeOrder);
+        List<CakeOrder> cakeOrders = this.selectAll();
+        model.addAttribute("orderList",cakeOrders);
+        return "manage/order-manage";
     }
 }

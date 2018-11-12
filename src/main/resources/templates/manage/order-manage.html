@@ -108,11 +108,11 @@
                                             <span th:case="'PAIDCANCELED'"><a class="am-badge am-badge-danger am-round">已取消</a></span>
                                         </td>
                                         <td th:text="${#dates.format(order.createTime, 'yyyy-MM-dd HH:mm:ss')}">日期</td>
-                                        <td th:text="${#dates.format(order.sureTime, 'yyyy-MM-dd HH:mm:ss')}">日期</td>
+                                        <td th:text="${#dates.format(order.deliveryTime, 'yyyy-MM-dd HH:mm:ss')}">日期</td>
                                         <td>
                                             <div class="tpl-table-black-operation">
                                                 <a th:if="${order.status eq 'PAID' && order.receiveStatus eq 'NOT_RECEIVED'}"
-                                                   th:href="@{'/order/delivery/'+${order.id}}">
+                                                   th:href="@{'/order/deliveryOrder/'+${order.id}}">
                                                     <i class="am-icon-pencil"></i> 发货
                                                 </a>
                                                 <a th:if="${order.status eq 'PAID' && order.receiveStatus eq 'NOT_RECEIVED'}"

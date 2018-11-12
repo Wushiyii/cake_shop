@@ -2,12 +2,10 @@ package com.jesse.onecake.biz;
 
 import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.common.config.security.UserUtils;
-import com.jesse.onecake.common.utils.SHA256Encoder;
-import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.User;
 import com.jesse.onecake.mapper.CakeMapper;
 import com.jesse.onecake.mapper.UserMapper;
-import com.jesse.onecake.service.generator.id.provider.IdService;
+import com.lxm.idgenerator.service.intf.IdService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +19,6 @@ import java.util.List;
 @Slf4j
 public class UserBiz extends BaseBiz<UserMapper,User> {
 
-    @Autowired private CakeMapper cakeMapper;
 
     @Autowired private IdService idService;
 

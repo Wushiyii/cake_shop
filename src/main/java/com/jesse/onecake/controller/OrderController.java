@@ -32,4 +32,8 @@ public class OrderController extends BaseController<OrderBiz,CakeOrder> {
     public String payOrder (@PathVariable("orderId")String orderId,Model model) {
         return this.biz.payOrder(orderId,model);
     }
+    @RequestMapping(value = "/deliveryOrder/{orderId}")
+    public String deliveryOrder (@PathVariable("orderId")String orderId,Model model) {
+        return this.biz.deliveryOrder(orderId,model);
+    }
 }

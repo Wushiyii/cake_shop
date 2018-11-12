@@ -11,13 +11,12 @@ import com.jesse.onecake.mapper.CakeMapper;
 import com.jesse.onecake.mapper.CartDetailMapper;
 import com.jesse.onecake.mapper.CartMapper;
 import com.jesse.onecake.mapper.UserMapper;
-import com.jesse.onecake.service.generator.id.provider.IdService;
+import com.lxm.idgenerator.service.intf.IdService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.*;
 
