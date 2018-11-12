@@ -449,7 +449,7 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 }
 .widget {
   width: 100%;
-  min-height: 500px;
+  /*min-height: 500px;*/
   margin-bottom: 20px;
   border-radius: 0;
   position: relative;
@@ -637,6 +637,12 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
 .fc-button-group,
 .fc button {
   display: block;
+}
+.table-line-height{
+
+}
+.table-line-height td{
+  line-height: 1;
 }
 .theme-white {
   background: #e9ecf3;

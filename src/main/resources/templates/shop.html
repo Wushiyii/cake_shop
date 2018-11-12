@@ -19,6 +19,9 @@
     <script type="text/javascript" th:src="@{~/js/megamenu.js}"></script>
     <script>$(document).ready(function () {
         $(".megamenu").megamenu();
+        $(function () {
+            $('.scroll-pane').jScrollPane();
+        });
     });</script>
     <!-- end menu -->
     <script type="text/javascript">
@@ -56,15 +59,7 @@
             $('#productList').load('/cake/searchByCategory', {queryCategory: queryCategory.toString()});
         };
 
-
     </script>
-    <script type="text/javascript" id="sourcecode">
-        $(function () {
-            $('.scroll-pane').jScrollPane();
-        });
-    </script>
-
-
 </head>
 <body>
     <div th:replace="front/common/header::html"></div>

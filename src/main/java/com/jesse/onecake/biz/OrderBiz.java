@@ -104,21 +104,21 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
     public String cancelOrder(String orderId, Model model) {
         CakeOrder cakeOrder = this.selectById(orderId);
         User user = userMapper.findByName(UserUtils.getUserName());
-//        Example example = new Example(OrderDetail.class);
-//        Example.Criteria criteria = example.createCriteria();
-//        criteria.andEqualTo("orderId",orderId);
-//        List<OrderDetail> orderDetails = this.orderDetailMapper.selectByExample(example);
-//        if (orderDetails.size() != 0) {
-//           orderDetails.forEach(orderDetail -> {
-//               this.orderDetailMapper.deleteByPrimaryKey(orderDetail);
-//           });
-//        }
-//        this.delete(cakeOrder);
-        cakeOrder.setStatus(OrderStatusEnum.CANCELED.getValue());
-        cakeOrder.setUpdateUser(user.getUsername());
-        cakeOrder.setUpdateTime(new Date());
-        this.updateById(cakeOrder);
-        return getOrder(model);
+        if(cakeOrder.getStatus().equals(OrderStatusEnum.PAID.getValue())) {
+            cakeOrder.setReceiveStatus(OrderStatusEnum.PAIDCANCELED.getValue());
+            cakeOrder.setUpdateUser(user.getUsername());
+            cakeOrder.setUpdateTime(new Date());
+            this.updateById(cakeOrder);
+            return "redirect:/manage/order-manage";//管理订单界面
+        } else {
+            cakeOrder.setStatus(OrderStatusEnum.CANCELED.getValue());
+            cakeOrder.setUpdateUser(user.getUsername());
+            cakeOrder.setUpdateTime(new Date());
+            this.updateById(cakeOrder);
+            return getOrder(model);
+        }
+
+
     }
 
     public String payOrder(String orderId, Model model) {

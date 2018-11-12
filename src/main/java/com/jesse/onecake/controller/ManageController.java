@@ -1,14 +1,16 @@
 package com.jesse.onecake.controller;
 
+import com.jesse.onecake.biz.ManageBiz;
 import com.jesse.onecake.biz.UserBiz;
 import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "manage")
-public class ManageController extends BaseController<UserBiz,User> {
+public class ManageController extends BaseController<ManageBiz,User> {
 
     @RequestMapping("/")
     public String manage() {
@@ -27,7 +29,6 @@ public class ManageController extends BaseController<UserBiz,User> {
     }
     @RequestMapping("/table-list")
     public String tableList() {
-
         return "manage/table-list";
     }
     @RequestMapping("/tables")
@@ -37,5 +38,10 @@ public class ManageController extends BaseController<UserBiz,User> {
     @RequestMapping("/error")
     public String error() {
         return "manage/404";
+    }
+
+    @RequestMapping("/order-manage")
+    public String orderManage(Model model) {
+        return this.biz.orderManage(model);
     }
 }
