@@ -35,7 +35,7 @@ public class UserController extends BaseController<UserBiz, User> {
     public String info(Model model) {
         return this.biz.info(model);
     }
-    @RequestMapping("/changeInfo")
+    @RequestMapping(value = "/changeInfo",method = RequestMethod.POST)
     public String changeInfo(User user,Model model) {
         return this.biz.changeInfo(user,model);
     }

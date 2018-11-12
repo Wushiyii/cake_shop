@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>新增/修改会员</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css">
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/echarts.min.js"></script>
+
+</head>
+
+<body data-type="widgets">
+<script src="/assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <div th:replace="manage/common/header::html"></div>
+    <!-- 风格切换 -->
+    <div th:replace="manage/common/switch-theme::html"></div>
+    <!-- 侧边导航栏 -->
+    <div th:replace="manage/common/left-side-bar::html"></div>
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+        <div class="row-content am-cf">
+
+            <div class="row">
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">会员信息</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body am-fr">
+
+                            <form class="am-form tpl-form-border-form tpl-form-border-br" th:action="@{/manage/updateUser}" method="post">
+                                <input type="hidden" class="tpl-form-input" id="id" name="id" th:value="${user.id}">
+                                <div class="am-form-group">
+                                    <label for="name" class="am-u-sm-3 am-form-label" >姓名 <span
+                                            class="tpl-form-line-small-title">Name</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="name" name="name" th:value="${user.name}">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="age" class="am-u-sm-3 am-form-label">年龄 <span
+                                            class="tpl-form-line-small-title">Age</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="age" name="age" th:value="${user.age}">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="gender" class="am-u-sm-3 am-form-label">性别 <span
+                                            class="tpl-form-line-small-title">Gender</span></label>
+                                    <div class="am-u-sm-9">
+                                        <select data-am-selected="{searchBox: 0}" style="display: none;"  id="gender" name="gender" th:switch="${user.gender}">
+                                            <option value="male">男</option>
+                                            <option value="female">女</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="email" class="am-u-sm-3 am-form-label">邮箱 <span
+                                            class="tpl-form-line-small-title">Email</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="email" name="email" th:value="${user.email}">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="phone" class="am-u-sm-3 am-form-label">手机 <span
+                                            class="tpl-form-line-small-title">Phone</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="phone" name="phone" th:value="${user.phone}">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="address" class="am-u-sm-3 am-form-label">地址 <span
+                                            class="tpl-form-line-small-title">Address</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="address" name="address" th:value="${user.address}">
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">是否为管理员</label>
+                                    <div class="am-u-sm-9">
+                                        <div class="tpl-switch">
+                                            <input type="checkbox" class="ios-switch bigswitch tpl-switch-btn"
+                                                   th:checked="${user.userGroup eq 'ROLE_ADMIN' }" name="userGroup">
+                                            <div class="tpl-switch-btn-view">
+                                                <div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="/assets/js/amazeui.datatables.min.js"></script>
+<script src="/assets/js/dataTables.responsive.min.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+
+</html>
