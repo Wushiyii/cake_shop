@@ -1,6 +1,6 @@
 create table cake
 (
-	id int(64) not null primary key,
+  id  varchar(64) not null primary key,
 	name varchar(100) null comment '蛋糕名称',
 	category varchar(50) null comment '分类',
 	price double(10,2) default '0.00' null comment '价格',

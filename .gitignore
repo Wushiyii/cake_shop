@@ -16,6 +16,12 @@
 *.iml
 *.ipr
 
+### Maven plugin ###
+.mvn
+mvnw
+mvnw.cmd
+
+
 ### NetBeans ###
 /nbproject/private/
 /build/

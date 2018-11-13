@@ -3,6 +3,7 @@ package com.jesse.onecake.controller;
 import com.jesse.onecake.biz.ManageBiz;
 import com.jesse.onecake.biz.UserBiz;
 import com.jesse.onecake.controller.base.BaseController;
+import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.User;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
@@ -71,13 +72,19 @@ public class ManageController extends BaseController<ManageBiz,User> {
         return this.biz.productManage(model);
     }
 
-    @RequestMapping(value = "/createOrUpdateProduct/{productId}")
-    public String createOrUpdateProduct(@PathVariable("productId") String productId, Model model) {
-        if ("1".equals(productId)) {
-            return "/manage/product-manage";
+    @RequestMapping(value = "/navToProductDetail/{productId}")
+    public String navToProductDetail(@PathVariable("productId") String productId, Model model) {
+        //0为判断是否为新建标识
+        if ("0".equals(productId)) {
+            return "/manage/product-detail";
         } else {
-            return "redirect:/manage/product-manage";
+            return this.biz.navToProductDetailWithData(productId,model);
         }
+    }
+
+    @RequestMapping(value = "/saveOrUpdateProduct")
+    public String saveOrUpdateProduct(Cake cake,String isBanner, Model model) {
+        return this.biz.saveOrUpdateProduct(cake,isBanner,model);
     }
 
 }

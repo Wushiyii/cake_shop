@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>新增/修改商品</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/amazeui.datatables.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css">
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/echarts.min.js"></script>
+
+</head>
+
+<body data-type="widgets">
+<script src="/assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <div th:replace="manage/common/header::html"></div>
+    <!-- 风格切换 -->
+    <div th:replace="manage/common/switch-theme::html"></div>
+    <!-- 侧边导航栏 -->
+    <div th:replace="manage/common/left-side-bar::html"></div>
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+
+        <div class="row-content am-cf">
+
+            <div class="row">
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <ol class="am-breadcrumb" >
+                                <li><a href="/manage/" class="am-icon-home">首页</a></li>
+                                <li class="am-active"><a href="/manage/product-manage" class="am-icon-home">商品管理</a></li>
+                                <li class="am-active">商品详情</li>
+                            </ol>
+                        </div>
+                        <div class="widget-body am-fr">
+
+                            <form class="am-form tpl-form-border-form tpl-form-border-br" th:action="@{/manage/saveOrUpdateProduct}" method="post">
+                                <input type="hidden" class="tpl-form-input" id="id" name="id" th:value="${cake?.id}">
+                                <div class="am-form-group">
+                                    <label for="name" class="am-u-sm-3 am-form-label" >商品名称 <span
+                                            class="tpl-form-line-small-title">Name</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="name" name="name" th:value="${cake?.name}">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="cateogory" class="am-u-sm-3 am-form-label">分类 <span
+                                            class="tpl-form-line-small-title">Category</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="cateogory" name="category" th:value="${cake?.category}">
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <label for="price" class="am-u-sm-3 am-form-label">价格 <span
+                                            class="tpl-form-line-small-title">Price</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="price" name="price" th:value="${cake?.price}">
+                                    </div>
+                                </div>
+                                <!--<div class="am-form-group">-->
+                                    <!--<label for="gender" class="am-u-sm-3 am-form-label">价格 <span-->
+                                            <!--class="tpl-form-line-small-title">Gender</span></label>-->
+                                    <!--<div class="am-u-sm-9">-->
+                                        <!--<select data-am-selected="{searchBox: 0}" style="display: none;"  id="gender" name="gender" th:switch="${cake?.price}">-->
+                                            <!--<option value="male">男</option>-->
+                                            <!--<option value="female">女</option>-->
+                                        <!--</select>-->
+
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">图片 <span
+                                            class="tpl-form-line-small-title">Images</span></label>
+                                    <div class="am-u-sm-9" >
+                                        <div class="am-form-group am-form-file">
+                                            <div class="tpl-form-file-img" th:if="${cake ne null}"  style="width: 100px;">
+                                                <img th:src="@{'~/images/'+${cake.img}+'.jpg'}" alt="" style="width: 15em">
+                                            </div>
+                                            <button type="button" class="am-btn am-btn-danger am-btn-sm">
+                                                <i class="am-icon-cloud-upload"></i> 添加封面图片
+                                            </button>
+                                            <input id="doc-form-file" type="file" multiple="">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label class="am-u-sm-3 am-form-label">是否首页展示</label>
+                                    <div class="am-u-sm-9">
+                                        <div class="tpl-switch">
+                                            <input type="checkbox" class="ios-switch bigswitch tpl-switch-btn"
+                                                   th:checked="${cake?.banner eq 1 }" name="isBanner">
+                                            <div class="tpl-switch-btn-view">
+                                                <div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">
+                                            提交
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="/assets/js/amazeui.datatables.min.js"></script>
+<script src="/assets/js/dataTables.responsive.min.js"></script>
+<script src="/assets/js/app.js"></script>
+
+</body>
+
+</html>
