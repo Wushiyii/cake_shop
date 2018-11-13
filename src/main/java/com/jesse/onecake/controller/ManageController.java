@@ -52,12 +52,7 @@ public class ManageController extends BaseController<ManageBiz,User> {
     public String userManage(Model model) {
         return this.biz.userManage(model);
     }
-    /**
-     * 打开新增/修改用户详情页面
-     * @param userId
-     * @param model
-     * @return
-     */
+
     @RequestMapping(value = "/createOrUpdateUser/{userId}")
     public String createOrUpdateUser(@PathVariable("userId") String userId, Model model) {
         if ("1".equals(userId)) {
@@ -69,6 +64,20 @@ public class ManageController extends BaseController<ManageBiz,User> {
     @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
     public String updateUser(User user,String userGroup, Model model) {
         return this.biz.updateUser(user,userGroup,model);
+    }
+
+    @RequestMapping("/product-manage")
+    public String productManage(Model model) {
+        return this.biz.productManage(model);
+    }
+
+    @RequestMapping(value = "/createOrUpdateProduct/{productId}")
+    public String createOrUpdateProduct(@PathVariable("productId") String productId, Model model) {
+        if ("1".equals(productId)) {
+            return "/manage/product-manage";
+        } else {
+            return "redirect:/manage/product-manage";
+        }
     }
 
 }

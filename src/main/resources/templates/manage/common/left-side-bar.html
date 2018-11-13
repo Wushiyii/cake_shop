@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,11 +10,11 @@
     <div class="tpl-sidebar-user-panel">
         <div class="tpl-user-panel-slide-toggleable">
             <div class="tpl-user-panel-profile-picture">
-                <img src="/assets/img/user04.png" alt="">
+                <img src="/assets/img/user02.png" alt="">
             </div>
             <span class="user-panel-logged-in-text">
               <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
-              Yori
+              [[${#httpServletRequest.remoteUser}]]
           </span>
             <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
         </div>
@@ -45,13 +45,8 @@
             </a>
             <ul class="sidebar-nav sidebar-nav-sub">
                 <li class="sidebar-nav-link">
-                    <a href="/manage/table-list">
+                    <a href="/manage/product-manage">
                         <span class="am-icon-caret-right sidebar-nav-link-logo"></span> 商品列表
-                    </a>
-                </li>
-                <li class="sidebar-nav-link">
-                    <a href="/manage/form">
-                        <span class="am-icon-caret-right sidebar-nav-link-logo"></span> 添加新商品
                     </a>
                 </li>
                 <li class="sidebar-nav-link">

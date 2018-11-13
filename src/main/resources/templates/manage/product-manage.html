@@ -42,7 +42,7 @@
                         <div class="widget-head am-cf">
                             <ol class="am-breadcrumb" >
                                 <li><a href="/manage/" class="am-icon-home">首页</a></li>
-                                <li class="am-active">会员管理</li>
+                                <li class="am-active">商品管理</li>
                             </ol>
 
 
@@ -52,19 +52,19 @@
                             <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
                                 <div class="am-form-group">
                                     <div class="am-btn-toolbar">
-                                        <!--<div class="am-btn-group am-btn-group-xs">-->
-                                            <!--<button type="button" class="am-btn am-btn-default am-btn-success" onclick="location.href='/manage/createOrUpdateUser/1'">-->
-                                                <!--<span class="am-icon-plus"></span> 新增-->
-                                            <!--</button>-->
-                                        <!--</div>-->
+                                        <div class="am-btn-group am-btn-group-xs">
+                                            <button type="button" class="am-btn am-btn-default am-btn-success" onclick="location.href='/manage/createOrUpdateProduct/0'">
+                                                <span class="am-icon-plus"></span> 新增
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="am-u-sm-12 am-u-md-6 am-u-lg-3">
                                 <div class="am-form-group tpl-table-list-select">
                                     <select data-am-selected="{btnSize: 'sm'}">
-                                        <option value="option1">所有类别</option>
-                                        <option value="option2">IT业界</option>
+                                        <option value="option1">商品分类</option>
+                                        <option value="option2">慕斯</option>
                                         <option value="option3">数码产品</option>
                                         <option value="option3">笔记本电脑</option>
                                         <option value="option3">平板电脑</option>
@@ -88,35 +88,32 @@
                                        id="example-r">
                                     <thead>
                                         <tr>
-                                            <th>会员ID</th>
-                                            <th>姓名</th>
-                                            <th>年龄</th>
-                                            <th>性别</th>
-                                            <th>Email</th>
-                                            <th>手机</th>
-                                            <th>地址</th>
-                                            <th>用户组</th>
+                                            <th>商品名称</th>
+                                            <th>分类</th>
+                                            <th>价格</th>
+                                            <th>图片</th>
+                                            <th>首页展示</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="gradeX"  th:each="user : ${userList}">
-                                            <td th:text="${user.id}"></td>
-                                            <td th:text="${user.name}"></td>
-                                            <td th:text="${user.age}"></td>
-                                            <td th:text="${user.gender}"></td>
-                                            <td th:text="${user.email}"></td>
-                                            <td th:text="${user.phone}"></td>
-                                            <td th:text="${user.address}"></td>
-                                            <td th:text="${user.userGroup}"></td>
+                                        <tr class="gradeX"  th:each="product : ${productList}">
+                                            <td th:text="${product?.name}"></td>
+                                            <td th:text="${product?.category}"></td>
+                                            <td th:text="${product?.price}"></td>
+                                            <td th:text="${product?.img}"></td>
+                                            <td th:switch="${product?.banner}">
+                                                <span th:case="0">否</span>
+                                                <span th:case="1">是</span>
+                                            </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a
-                                                       th:href="@{'/manage/createOrUpdateUser/'+${user.id}}">
+                                                       th:href="@{'/manage/createOrUpdateProduct/'+${product?.id}}">
                                                         <i class="am-icon-pencil"></i> 修改
                                                     </a>
                                                     <a
-                                                       th:href="@{'/user/cancelOrder/'+${user.id}}"
+                                                       th:href="@{'/user/cancelProduct/'+${product?.id}}"
                                                        class="tpl-table-black-operation-del">
                                                         <i class="am-icon-trash-o"></i> 禁用
                                                     </a>

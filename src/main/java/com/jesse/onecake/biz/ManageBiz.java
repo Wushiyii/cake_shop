@@ -1,9 +1,10 @@
 package com.jesse.onecake.biz;
 
 import com.jesse.onecake.biz.base.BaseBiz;
-import com.jesse.onecake.common.config.security.UserUtils;
+import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.CakeOrder;
 import com.jesse.onecake.entity.User;
+import com.jesse.onecake.mapper.CakeMapper;
 import com.jesse.onecake.mapper.CakeOrderMapper;
 import com.jesse.onecake.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class ManageBiz extends BaseBiz<UserMapper,User> {
 
     @Autowired private CakeOrderMapper cakeOrderMapper;
     @Autowired private UserMapper userMapper;
+    @Autowired private CakeMapper cakeMapper;
 
     public String orderManage(Model model) {
         List<CakeOrder> cakeOrders = cakeOrderMapper.selectAll();
@@ -52,5 +54,11 @@ public class ManageBiz extends BaseBiz<UserMapper,User> {
 
             this.updateSelectiveById(updateUser);
             return "redirect:/manage/user-manage";
+    }
+
+    public String productManage(Model model) {
+        List<Cake> cakes = this.cakeMapper.selectAll();
+        model.addAttribute("productList",cakes);
+        return "/manage/product-manage";
     }
 }
