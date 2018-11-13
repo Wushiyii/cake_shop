@@ -91,6 +91,7 @@
                                             <th>价格</th>
                                             <th>图片</th>
                                             <th>首页展示</th>
+                                            <th>状态</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
@@ -101,8 +102,12 @@
                                             <td th:text="${product?.price}"></td>
                                             <td th:text="${product?.img}"></td>
                                             <td th:switch="${product?.banner}">
-                                                <span th:case="0">否</span>
-                                                <span th:case="1">是</span>
+                                                <span th:case="0"><a class="am-badge am-badge-warning am-round">否</a></span>
+                                                <span th:case="1"><a class="am-badge am-badge-secondary am-round">是</a></span>
+                                            </td>
+                                            <td th:switch="${product?.status}">
+                                                <span th:case="'normal'"><a class="am-badge am-badge-success am-round">正常</a></span>
+                                                <span th:case="'disabled'"><a class="am-badge am-badge-danger am-round">禁用</a></span>
                                             </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">

@@ -66,10 +66,6 @@
                                         <option value="option1">所有类别</option>
                                         <option value="option2">IT业界</option>
                                         <option value="option3">数码产品</option>
-                                        <option value="option3">笔记本电脑</option>
-                                        <option value="option3">平板电脑</option>
-                                        <option value="option3">只能手机</option>
-                                        <option value="option3">超极本</option>
                                     </select>
                                 </div>
                             </div>
@@ -108,7 +104,10 @@
                                             <td th:text="${user.email}"></td>
                                             <td th:text="${user.phone}"></td>
                                             <td th:text="${user.address}"></td>
-                                            <td th:text="${user.userGroup}"></td>
+                                            <td th:switch="${user.userGroup}">
+                                                <span th:case="'ROLE_ADMIN'"><a class="am-badge am-badge-secondary am-round">管理员</a></span>
+                                                <span th:case="'ROLE_USER'"><a class="am-badge am-badge-success am-round">&nbsp;&nbsp;用户&nbsp;&nbsp;</a></span>
+                                            </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a

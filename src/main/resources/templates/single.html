@@ -53,9 +53,9 @@
             <dd>
                 <h5 class="inside-title" th:text="${cake.name}">
                     名称
-                    <a href="/products?cat_id=2" th:text="${cake.category}">分类</a>
+                    <a th:text="${cake.category}">分类</a>
                 </h5>
-                <p class="inside-desc">这一刻未必喜欢，总有一天，无比想念</p>
+                <p class="inside-desc">描述...</p>
                 <p class="inside-num">
                     <span>数量</span>
                     <input class="decre" onclick="decrement();" type="button">
@@ -69,21 +69,15 @@
                     <a class="addcart" id="addToCart" href="javascript:void(0)">加入购物车</a>
                 </p>
                 <table cellpadding="0" cellspacing="0" width="420" border="0" class="inside-table">
-                    <tbody><tr>
-                        <td align="left" valign="top" width="40">原料</td>
-                        <td align="left" valign="top" width="360">榴莲(泰国)、牛奶(新西兰)、巧克力(比利时)</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top" width="40">口味</td>
-                        <td align="left" valign="top" width="360">榴莲味浓郁，口感香醇</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top" width="40">甜度</td>
-                        <td align="left" valign="top" width="360">
-                            <b></b>
-                            <b></b>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td align="left" valign="top" width="40">材料</td>
+                            <td align="left" valign="top" width="360">Anchor奶油、蒙牛、日清小麦粉、鸡蛋..</td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top" width="40">口味</td>
+                            <td align="left" valign="top" width="360">香味浓郁，口感松软</td>
+                        </tr>
                     </tbody>
                 </table>
             </dd>

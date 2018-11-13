@@ -11,6 +11,7 @@
     <result column="price" property="price" jdbcType="DOUBLE" />
     <result column="img" property="img" jdbcType="VARCHAR" />
     <result column="banner" property="banner" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
   </resultMap>
 
   <select id="findByName" parameterType="String" resultMap="BaseResultMap">
