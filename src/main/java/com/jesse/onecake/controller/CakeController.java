@@ -5,6 +5,7 @@ import com.jesse.onecake.biz.CartBiz;
 import com.jesse.onecake.common.response.TableResultResponse;
 import com.jesse.onecake.controller.base.BaseController;
 import com.jesse.onecake.entity.Cake;
+import com.jesse.onecake.enums.CakeEnum;
 import com.sun.org.apache.bcel.internal.generic.RET;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -36,7 +37,8 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     public String home(Model model){
         Example example = new Example(Cake.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("banner","1");
+        criteria.andEqualTo("banner",CakeEnum.ON_BANNER.getValue());
+        criteria.andEqualTo("status",CakeEnum.NORMAL.getValue());
         model.addAttribute("bannerList", this.biz.selectByExample(example));
         return "index::productList";
     }
@@ -73,17 +75,11 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
     public String index(Model model) {
         Example example = new Example(Cake.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("banner","1");
+        criteria.andEqualTo("banner",CakeEnum.ON_BANNER.getValue());
+        criteria.andEqualTo("status",CakeEnum.NORMAL.getValue());
         model.addAttribute("bannerList", this.biz.selectByExample(example));
         return "index";
     }
-
-    @RequestMapping("/addCart")
-    public String addCart(Integer id) {
-        this.biz.addCart(id);
-        return null;
-    }
-
 
     @PermitAll
     @RequestMapping(value = "/searchByCategory",method = RequestMethod.POST)
@@ -97,6 +93,7 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         Example example = new Example(Cake.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andIn("category",list);
+        criteria.andEqualTo("status",CakeEnum.NORMAL.getValue());
         List<Cake> cakes = this.biz.selectByExample(example);
         cakes.sort(Comparator.comparing(Cake::getName));
         model.addAttribute("cakeList",cakes);
@@ -121,6 +118,11 @@ public class CakeController extends BaseController<CakeBiz,Cake> {
         else{
             return "redirect:/cake/";//客户登录
         }
+    }
+
+    @RequestMapping("/disableOrNormalizeProduct/{cakeId}")
+    public String disableOrNormalizeProduct(@PathVariable("cakeId")String cakeId,Model model) {
+        return this.biz.disableOrNormalizeProduct(cakeId,model);
     }
 
 }

@@ -97,28 +97,33 @@
                                     </thead>
                                     <tbody>
                                         <tr class="gradeX"  th:each="product : ${productList}">
-                                            <td th:text="${product?.name}"></td>
-                                            <td th:text="${product?.category}"></td>
-                                            <td th:text="${product?.price}"></td>
-                                            <td th:text="${product?.img}"></td>
-                                            <td th:switch="${product?.banner}">
-                                                <span th:case="0"><a class="am-badge am-badge-warning am-round">否</a></span>
-                                                <span th:case="1"><a class="am-badge am-badge-secondary am-round">是</a></span>
+                                            <td th:text="${product.name}"></td>
+                                            <td th:text="${product.category}"></td>
+                                            <td th:text="${product.price}"></td>
+                                            <td th:text="${product.img}"></td>
+                                            <td th:switch="${product.banner}">
+                                                <span th:case="'true'"><a class="am-badge am-badge-secondary am-round">是</a></span>
+                                                <span th:case="'false'"><a class="am-badge am-badge-warning am-round">否</a></span>
                                             </td>
-                                            <td th:switch="${product?.status}">
+                                            <td th:switch="${product.status}">
                                                 <span th:case="'normal'"><a class="am-badge am-badge-success am-round">正常</a></span>
                                                 <span th:case="'disabled'"><a class="am-badge am-badge-danger am-round">禁用</a></span>
                                             </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a
-                                                       th:href="@{'/manage/navToProductDetail/'+${product?.id}}">
+                                                       th:href="@{'/manage/navToProductDetail/'+${product.id}}">
                                                         <i class="am-icon-pencil"></i> 修改
                                                     </a>
-                                                    <a
-                                                       th:href="@{'/user/cancelProduct/'+${product?.id}}"
+                                                    <a th:if="${product.status eq 'normal'}"
+                                                       th:href="@{'/cake/disableOrNormalizeProduct/'+${product.id}}"
                                                        class="tpl-table-black-operation-del">
                                                         <i class="am-icon-trash-o"></i> 禁用
+                                                    </a>
+                                                    <a th:if="${product.status eq 'disabled'}"
+                                                       th:href="@{'/cake/disableOrNormalizeProduct/'+${product.id}}"
+                                                       class="tpl-table-black-operation-success">
+                                                        <i class="am-icon-trash-o"></i> 激活
                                                     </a>
 
                                                 </div>

@@ -5,7 +5,8 @@ create table cake
 	category varchar(50) null comment '分类',
 	price double(10,2) default '0.00' null comment '价格',
 	img varchar(200) null comment '图片地址',
-	banner int(5) default '0' null
+  banner   varchar(20)  null comment '是否首页展示',
+  status   varchar(20)  null comment '状态:normal/disabled'
 )
 comment '产品表';
 

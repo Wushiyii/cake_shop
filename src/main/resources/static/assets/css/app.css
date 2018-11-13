@@ -988,6 +988,14 @@ ul.tpl-dropdown-content .tpl-dropdown-menu-messages-item .menu-messages-content 
   background: #e7505a;
   color: #fff;
 }
+.theme-white .tpl-table-black-operation a.tpl-table-black-operation-success {
+  border: 1px solid #5eb95e;
+  color: #5eb95e;
+}
+.theme-white .tpl-table-black-operation a.tpl-table-black-operation-success:hover {
+  background: #5eb95e;
+  color: #fff;
+}
 .theme-white .tpl-amendment-echarts {
   left: -17px;
 }

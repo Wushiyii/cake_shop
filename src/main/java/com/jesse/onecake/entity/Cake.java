@@ -22,7 +22,7 @@ public class Cake extends IdEntity implements Serializable {
     private String img;
 
     @Column(name = "banner")
-    private Integer banner;
+    private String banner;
 
     @Column(name = "status")
     private String status;

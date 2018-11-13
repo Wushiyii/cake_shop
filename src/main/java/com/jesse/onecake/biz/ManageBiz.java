@@ -4,6 +4,7 @@ import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.CakeOrder;
 import com.jesse.onecake.entity.User;
+import com.jesse.onecake.enums.CakeEnum;
 import com.jesse.onecake.mapper.CakeMapper;
 import com.jesse.onecake.mapper.CakeOrderMapper;
 import com.jesse.onecake.mapper.UserMapper;
@@ -72,9 +73,9 @@ public class ManageBiz extends BaseBiz<UserMapper,User> {
 
     public String saveOrUpdateProduct(Cake cake, String isBanner, Model model) {
         if ("on".equals(isBanner)) {
-            cake.setBanner(1);
+            cake.setBanner(CakeEnum.ON_BANNER.getValue());
         } else {
-            cake.setBanner(0);
+            cake.setBanner(CakeEnum.NOT_ON_BANNER.getValue());
         }
         if ("".equals(cake.getId()) || cake.getId() == null) {
             //执行插入新数据

@@ -1,6 +1,6 @@
 package com.jesse.onecake.biz;
 
-import com.jesse.onecake.OrderStatusEnum;
+import com.jesse.onecake.enums.OrderStatusEnum;
 import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.common.config.security.UserUtils;
 import com.jesse.onecake.entity.*;

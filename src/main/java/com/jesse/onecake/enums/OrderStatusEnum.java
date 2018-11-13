@@ -1,4 +1,4 @@
-package com.jesse.onecake;
+package com.jesse.onecake.enums;
 
 public enum OrderStatusEnum {
     TO_BE_PAID("TO_BE_PAID"),PAID("PAID"),CANCELED("CANCELED"),
