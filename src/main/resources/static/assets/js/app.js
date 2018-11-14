@@ -1,3 +1,28 @@
+function getData() {
+    var weekData = [];
+    var data = [];
+    /*-----------------*/
+    $.get('/manage/weekSaleStatistics', function(ret) {
+       for(var key in data) {
+           var json = {};
+           json.name = "name";
+           json.value = data[key];
+           data.push(json);
+       }
+    });
+    /*------------------------*/
+    for (var i = 0; i < 7; i++) {
+        var json = {};
+        json.name = "name";
+        json.value = i;
+        weekData.push(json);
+    }
+    // console.log(data);
+    // console.log(typeof data[0]);
+    // console.log(typeof weekData[0]);
+    return weekData;
+}
+
 $(function() {
     // 读取body data-type 判断是哪个页面然后执行相应页面方法，方法在下面。
     var dataType = $('body').attr('data-type');
@@ -7,6 +32,7 @@ $(function() {
             pageData[key]();
         }
     }
+
     //     // 判断用户是否已有自己选择的模板风格
     //    if(storageLoad('SelcetColor')){
     //      $('body').attr('class',storageLoad('SelcetColor').Color)
@@ -45,18 +71,9 @@ var pageData = {
         // ==========================
         // 百度图表A http://echarts.baidu.com/
         // ==========================
-        var weekData = [];
-        $.get('/manage/weekSaleStatistics', function(ret) {
-            let arr=[];
-            for (let key in ret){
-                arr.push(key);
-            }
-            arr.sort();
-            for(let i in arr){
-                weekData.push(ret[arr[i]]);
-            }
-            console.log(weekData);
-        });
+        // function getData(){}
+
+
         var echartsA = echarts.init(document.getElementById('tpl-echarts'));
         option = {
             tooltip: {
@@ -85,7 +102,7 @@ var pageData = {
                 type: 'line',
                 stack: '总量',
                 areaStyle: { normal: {} },
-                data: [120, 132, 101, 134, 90, 120, 240],
+                data: getData(),
                 itemStyle: {
                     normal: {
                         color: '#1cabdb',
@@ -100,7 +117,7 @@ var pageData = {
                 }
             }]
         };
-
+        console.log(option.series[0].data);
         echartsA.setOption(option);
     },
     // ===============================================
