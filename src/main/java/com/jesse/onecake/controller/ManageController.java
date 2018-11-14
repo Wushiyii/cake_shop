@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "manage")
@@ -85,6 +88,11 @@ public class ManageController extends BaseController<ManageBiz,User> {
     @RequestMapping(value = "/saveOrUpdateProduct")
     public String saveOrUpdateProduct(Cake cake,String isBanner, Model model) {
         return this.biz.saveOrUpdateProduct(cake,isBanner,model);
+    }
+
+    @RequestMapping(value = "/weekSaleStatistics",method = RequestMethod.GET)
+    public @ResponseBody Map weekSaleStatistics () {
+        return this.biz.weekSaleStatistics();
     }
 
 }

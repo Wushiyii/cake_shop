@@ -38,4 +38,15 @@
     </if>
 
   </select>
+  <select id="getOrderDetailByOrderId" parameterType="String" resultMap="BaseResultMap">
+    select od.*
+    from
+     order_detail od
+    where
+    1=1
+    <if test="orderId != null and orderId != ''">
+      AND od.order_id = #{orderId}
+    </if>
+
+  </select>
 </mapper>

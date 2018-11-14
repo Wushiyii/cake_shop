@@ -11,4 +11,6 @@ import java.util.List;
 public interface CakeOrderMapper extends BaseMapper<CakeOrder> {
 
     List<CakeOrder> selectCakeOrderByUserIdAndStatus(@Param("userId")String userId, @Param("status")String status);
+
+    List<CakeOrder> selectLastWeek();
 }

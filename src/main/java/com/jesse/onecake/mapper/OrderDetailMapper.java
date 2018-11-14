@@ -12,5 +12,7 @@ public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 
     List<OrderDetail> getOrderDetail(@Param("userId") String UserId);
 
+    List<OrderDetail> getOrderDetailByOrderId(@Param("orderId") String orderId);
+
     List<OrderDetail> getOrderDetailToBePaid(@Param("userId") String UserId);
 }

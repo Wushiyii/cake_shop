@@ -3,22 +3,26 @@ package com.jesse.onecake.biz;
 import com.jesse.onecake.biz.base.BaseBiz;
 import com.jesse.onecake.entity.Cake;
 import com.jesse.onecake.entity.CakeOrder;
+import com.jesse.onecake.entity.OrderDetail;
 import com.jesse.onecake.entity.User;
 import com.jesse.onecake.enums.CakeEnum;
 import com.jesse.onecake.mapper.CakeMapper;
 import com.jesse.onecake.mapper.CakeOrderMapper;
+import com.jesse.onecake.mapper.OrderDetailMapper;
 import com.jesse.onecake.mapper.UserMapper;
 import com.lxm.idgenerator.service.intf.IdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import tk.mybatis.mapper.entity.Example;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ManageBiz extends BaseBiz<UserMapper,User> {
 
     @Autowired private CakeOrderMapper cakeOrderMapper;
+    @Autowired private OrderDetailMapper orderDetailMapper;
     @Autowired private UserMapper userMapper;
     @Autowired private CakeMapper cakeMapper;
     @Autowired private IdService idService;
@@ -85,5 +89,32 @@ public class ManageBiz extends BaseBiz<UserMapper,User> {
             this.cakeMapper.updateByPrimaryKeySelective(cake);
         }
         return productManage(model);
+    }
+
+    public Map weekSaleStatistics() {
+        Map<Integer,Double> map = new HashMap<>();
+        //初始化数据
+        for (int j = 0; j < 7; j++) {
+            map.put(j,0.00);
+        }
+        //取得上周所有订单数据
+        List<CakeOrder> cakeOrders = this.cakeOrderMapper.selectLastWeek();
+        Double total = 0.00;
+        for (CakeOrder cakeOrder : cakeOrders) {
+            //根据订单主表的信息所有查询出每单订单下面的订单详情
+            double sum;
+            List<OrderDetail> orderDetails = this.orderDetailMapper.getOrderDetailByOrderId(cakeOrder.getId().toString());
+            for (OrderDetail orderDetail : orderDetails) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(orderDetail.getCreateDate());
+                int i = calendar.get(Calendar.DAY_OF_WEEK) - 1; //周一起点
+                sum = orderDetail.getPrice() * orderDetail.getQuantity();
+                Double tmp = map.get(i);
+                tmp += sum;
+                map.put(i,tmp);
+            }
+
+        }
+        return map;
     }
 }

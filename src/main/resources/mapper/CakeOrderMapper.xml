@@ -30,6 +30,16 @@
     <if test="userId != null and userId != ''">
       AND co.user_id = #{userId}
     </if>
-
+  </select>
+  <select id="selectLastWeek" parameterType="String" resultMap="BaseResultMap">
+    SELECT
+      *
+    FROM
+      cake_order co
+    WHERE
+      co.status = 'PAID'
+    AND
+      YEARWEEK(date_format(co.create_time,'%Y-%m-%d'),1) = YEARWEEK(now(),1)-1
+    ORDER BY co.create_time desc
   </select>
 </mapper>

@@ -45,7 +45,18 @@ var pageData = {
         // ==========================
         // 百度图表A http://echarts.baidu.com/
         // ==========================
-
+        var weekData = [];
+        $.get('/manage/weekSaleStatistics', function(ret) {
+            let arr=[];
+            for (let key in ret){
+                arr.push(key);
+            }
+            arr.sort();
+            for(let i in arr){
+                weekData.push(ret[arr[i]]);
+            }
+            console.log(weekData);
+        });
         var echartsA = echarts.init(document.getElementById('tpl-echarts'));
         option = {
             tooltip: {
@@ -74,7 +85,7 @@ var pageData = {
                 type: 'line',
                 stack: '总量',
                 areaStyle: { normal: {} },
-                data: [120, 132, 101, 134, 90],
+                data: [120, 132, 101, 134, 90, 120, 240],
                 itemStyle: {
                     normal: {
                         color: '#1cabdb',

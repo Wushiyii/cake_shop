@@ -56,8 +56,9 @@ public class OrderBiz extends BaseBiz<CakeOrderMapper, CakeOrder> {
             orderDetail.setQuantity(cartDetail.getQuantity());
             Cake cake = cakeMapper.selectByPrimaryKey(cartDetail.getCakeId());
             orderDetail.setPrice(cake.getPrice());
-            orderDetail.setAddress("to be done");
+            orderDetail.setAddress(user.getAddress());
             orderDetail.setId(idService.genId());
+            orderDetail.setCreateDate(new Date());
             try {
                 this.orderDetailMapper.insertSelective(orderDetail);
             } catch (RuntimeException e) {
