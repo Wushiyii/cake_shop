@@ -97,8 +97,9 @@ public class ManageBiz extends BaseBiz<UserMapper, User> {
         return productManage(model);
     }
 
-    public Map weekSaleStatistics() {
+    public Map<Integer, Double> weekSaleStatistics() {
         Map<Integer, Double> map = new HashMap<>();
+//        JSONArray array = new JSONArray();
         //初始化数据
         for (int j = 0; j < 7; j++) {
             map.put(j, 0.00);
@@ -107,6 +108,7 @@ public class ManageBiz extends BaseBiz<UserMapper, User> {
         List<CakeOrder> cakeOrders = this.cakeOrderMapper.selectLastWeek();
         if (cakeOrders.size() != 0) {
             Double total = 0.00;
+
             for (CakeOrder cakeOrder : cakeOrders) {
                 //根据订单主表的信息所有查询出每单订单下面的订单详情
                 double sum;
@@ -119,7 +121,11 @@ public class ManageBiz extends BaseBiz<UserMapper, User> {
                     Double tmp = map.get(i);
                     tmp += sum;
                     double value = new BigDecimal(tmp).setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
-                    map.put(i, value);
+//                    JSONObject object = new JSONObject();
+//                    object.put("day",i);
+//                    object.put("value",value);
+//                    array.add(object);
+//                    map.put(i, value);
                 }
 
             }

@@ -1,27 +1,23 @@
-function getData() {
-    var weekData = [];
-    var data = [];
-    /*-----------------*/
-    $.get('/manage/weekSaleStatistics', function(ret) {
-       for(var key in data) {
-           var json = {};
-           json.name = "name";
-           json.value = data[key];
-           data.push(json);
-       }
-    });
-    /*------------------------*/
-    for (var i = 0; i < 7; i++) {
-        var json = {};
-        json.name = "name";
-        json.value = i;
-        weekData.push(json);
-    }
-    // console.log(data);
-    // console.log(typeof data[0]);
-    // console.log(typeof weekData[0]);
-    return weekData;
-}
+// function getData() {
+//     let weekData = [];
+//     $.get('/manage/weekSaleStatistics', function(ret) {
+//
+//         for (let i = 0; i < ret.length; i++) {
+//             let json = {};
+//             json.value = ret[i]['value'];
+//             weekData.push(json)
+//         }
+//         console.log(weekData);
+//     },'json');
+//
+//
+//     // for (var i = 0; i < 7; i++) {
+//     //     var json = {};
+//     //     json.value = i;
+//     //     weekData.push(json);
+//     // }
+//     return weekData;
+// }
 
 $(function() {
     // 读取body data-type 判断是哪个页面然后执行相应页面方法，方法在下面。
