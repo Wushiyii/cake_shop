@@ -2,7 +2,7 @@ Cake_Shop
 ================
 
 #### 简介：
-Cake_Shop是一个基于Springboot的糕点类主题电商项目。为什么要做这个项目，其实是因为某天晚上在饿了么看见可口的蛋糕，一时饥饿难耐于是想写个网页的..(其实主要是想练练手)。
+Cake_Shop是一个基于Springboot的糕点类主题电商项目。为什么要做这个项目，其实是因为某天晚上在饿了么看见可口的蛋糕，一时饥饿难耐..
 
 #### 技术栈：
 Springboot、Mybatis、thymeleaf、spring-security、Mysql、druid、Bootstrap、NotfyJs、AmazeUI、ECharts..
